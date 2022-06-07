@@ -1,0 +1,17 @@
+<mat-toolbar class="bg-primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon routerLink="">account_box</mat-icon>
+  </button>
+  <span >
+  <a class="example-spacer"  routerLink="/Home"> Home</a>
+  <a class="example-spacer"  routerLink="/Product">Products</a>
+  <a class="example-spacer">Contact us</a>
+  <a class="example-spacer">About us</a>
+  <a routerLink='/users' class="example-spacer">Users</a>
+
+  </span>
+
+    <button mat-raised-button color="accent" id="btn" routerLink="/thank">logout</button>
+
+</mat-toolbar>
+<router-outlet></router-outlet>

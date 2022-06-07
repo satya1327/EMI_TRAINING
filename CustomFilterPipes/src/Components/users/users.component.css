@@ -1,0 +1,12 @@
+body {
+  background-color: lightblue;
+}
+.example-spacer {
+  margin:10px;
+  }
+
+  table {
+    width: 50%;
+    margin:auto;
+
+  }

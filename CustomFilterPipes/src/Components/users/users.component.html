@@ -1,0 +1,34 @@
+<app-main></app-main>
+<div class="mat-elevation-z8 text-center ">
+  <form class="example-form">
+    <span style="font-size: 20px;color:rgb(9, 217, 244)">Filter Data: </span>
+    <mat-form-field class="example-full-width m-2" appearance="legacy">
+
+      <mat-label>Search </mat-label>
+      <input type="text" matInput name="term" [(ngModel)]="term" >
+      <!--   -->
+    </mat-form-field>
+    <!-- <button  mat-raised-button color="accent" (click)="getdata()">Search</button> -->
+  </form>
+</div>
+<table class="table table-dark ">
+  <thead>
+    <tr class="text-center">
+      <th scope="col" >Name</th>
+      <th scope="col">age</th>
+      <th scope="col">Technology</th>
+      <th scope="col">location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of users |filter:term">
+
+      <td class="bg-primary text-center">{{data.Name}}</td>
+      <td class="bg-warning text-center">{{data.age}}</td>
+      <td class="bg-danger text-center">{{data.Technology}}</td>
+      <td class="bg-success text-center">{{data.location}}</td>
+    </tr>
+
+  </tbody>
+</table>
+<router-outlet></router-outlet>
