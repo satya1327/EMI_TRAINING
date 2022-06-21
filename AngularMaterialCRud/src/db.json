@@ -1,0 +1,67 @@
+{
+  "Employee": [
+    {
+      "name": "sasa",
+      "designation": "ddsadasty",
+      "department": "hbvashvdasry",
+      "Gender": "M",
+      "id": 4
+    },
+    {
+      "name": "satya",
+      "designation": "dsdsadasdxXzre",
+      "department": "asdsadasdxzXerZ",
+      "Gender": "F",
+      "id": 5
+    },
+    {
+      "name": "Amit",
+      "designation": "se",
+      "department": "tech",
+      "Gender": "M",
+      "id": 6
+    },
+    {
+      "name": "m@gmail.com",
+      "designation": "fgfdg",
+      "department": "gfdg",
+      "Gender": "m",
+      "id": 7
+    },
+    {
+      "name": "dsfdsf",
+      "designation": "fdsfds",
+      "department": "fdf",
+      "Gender": "male",
+      "id": 8
+    },
+    {
+      "name": "dsd",
+      "designation": "dfdsftiondsd",
+      "department": "dfdsfds",
+      "Gender": "dsfds",
+      "id": 9
+    },
+    {
+      "name": "fdsfdssadas",
+      "designation": "Efddfdsdsad",
+      "department": "dfdsfdsdsdsa",
+      "Gender": "MAledsa",
+      "id": 10
+    },
+    {
+      "name": "Sam",
+      "designation": "Manager",
+      "department": "HR",
+      "Gender": "Male",
+      "id": 11
+    },
+    {
+      "name": "Aniket",
+      "designation": "SE-1",
+      "department": "Soft Eng",
+      "Gender": "Male",
+      "id": 12
+    }
+  ]
+}
