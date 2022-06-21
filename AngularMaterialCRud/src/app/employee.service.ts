@@ -44,6 +44,6 @@ export class EmployeeService {
   }
   public EditEmployee(id:number,emp:any):Observable<Employee>{
     const url=`${apiUrl}/${id}`;
-    return this.http.put<Employee>(url,emp).pipe(catchError(this.handleError));
+    return this.http.patch<Employee>(url,emp).pipe(catchError(this.handleError));
   }
 }

@@ -10,10 +10,10 @@
 <mat-card class="example-card">
   <form [formGroup]="empForm" (ngSubmit)="OnFormSubmit(empForm.value)">
     <mat-form-field class="example-full-width">
-       <input matInput placeholder="Employee Name" formControlName="name" value="{{emp.name}}" [disabled]="true">
-       <!-- <mat-error>
+       <input matInput placeholder="Employee Name" formControlName="name" value="{{emp.name}}">
+       <mat-error>
           <span *ngIf="!empForm.get('name').valid && empForm.get('name').touched">Please Enter Name</span>
-       </mat-error> -->
+       </mat-error>
 
     </mat-form-field>
     <mat-form-field class="example-full-width">

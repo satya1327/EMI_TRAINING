@@ -1,66 +1,45 @@
 {
   "Employee": [
     {
-      "name": "sasa",
-      "designation": "ddsadasty",
-      "department": "hbvashvdasry",
-      "Gender": "M",
+      "name": "",
+      "designation": "SDE4",
+      "department": "Technology4",
+      "Gender": "m",
       "id": 4
     },
     {
-      "name": "satya",
-      "designation": "dsdsadasdxXzre",
-      "department": "asdsadasdxzXerZ",
-      "Gender": "F",
+      "name": "",
+      "designation": "SDE2as",
+      "department": "Sharedsas",
+      "Gender": "Msas",
       "id": 5
     },
     {
-      "name": "Amit",
-      "designation": "se",
-      "department": "tech",
-      "Gender": "M",
+      "name": "",
+      "designation": "SDE2sas",
+      "department": "DT2sas",
+      "Gender": "Msasa",
       "id": 6
     },
     {
-      "name": "m@gmail.com",
-      "designation": "fgfdg",
-      "department": "gfdg",
-      "Gender": "m",
+      "name": "",
+      "designation": "SDE13",
+      "department": "DT12",
+      "Gender": "Male2",
       "id": 7
     },
     {
-      "name": "dsfdsf",
-      "designation": "fdsfds",
-      "department": "fdf",
-      "Gender": "male",
+      "name": "Anuragas",
+      "designation": "softwaredassfdfsdfsdfd",
+      "department": "dsadsaasdsdfsdfds",
+      "Gender": "Male2adssdffsdfsdf",
       "id": 8
     },
     {
-      "name": "dsd",
-      "designation": "dfdsftiondsd",
-      "department": "dfdsfds",
-      "Gender": "dsfds",
-      "id": 9
-    },
-    {
-      "name": "fdsfdssadas",
-      "designation": "Efddfdsdsad",
-      "department": "dfdsfdsdsdsa",
-      "Gender": "MAledsa",
-      "id": 10
-    },
-    {
-      "name": "Sam",
-      "designation": "Manager",
-      "department": "HR",
-      "Gender": "Male",
-      "id": 11
-    },
-    {
-      "name": "Aniket",
-      "designation": "SE-1",
-      "department": "Soft Eng",
-      "Gender": "Male",
+      "name": "satya",
+      "designation": "sfdsfsdffess",
+      "department": "dfgdfgdfss",
+      "Gender": "cbcbcvbcfss",
       "id": 12
     }
   ]

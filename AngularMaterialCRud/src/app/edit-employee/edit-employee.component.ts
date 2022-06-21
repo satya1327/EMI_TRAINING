@@ -13,18 +13,11 @@ export class EditEmployeeComponent implements OnInit {
   emp: Employee={id:0,name:'',designation:'',department:'',Gender:'',sales:''}
   empForm:FormGroup;
 isDataLoading=false;
+ disabled = false;
+
+
+
   constructor(private empService:EmployeeService,private router:Router,private fb:FormBuilder,private route:ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.empForm=this.fb.group({
-      name:[''],
-      designation:['',Validators.required],
-      department:['',Validators.required],
-      Gender:['',Validators.required]
-    });
-    this.getEmployee(this.route.snapshot.params['id']);
-
-  }
   public getEmployee(id:any)
   {
     this.empService.getEmployeeById(id).subscribe(response=>{
@@ -34,12 +27,26 @@ isDataLoading=false;
     })
   }
 
+  ngOnInit(): void {
+    this.empForm=this.fb.group({
+      name:['',this.disabled!= this.disabled ],
+      designation:['',Validators.required],
+      department:['',Validators.required],
+      Gender:['',Validators.required]
+    });
+    this.getEmployee(this.route.snapshot.params['id']);
+
+    this.empForm.get('name').disable()
+
+  }
+
   OnFormSubmit(empForm:any)
   {
      this.isDataLoading=false;
 
      this.empService.EditEmployee(this.route.snapshot.params['id'],this.empForm.value).subscribe(response=>{
       const id=response['id'];
+
       this.router.navigate(['/list']);
      },error=>{
       console.log(error);
