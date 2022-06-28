@@ -1,0 +1,77 @@
+<div id="login">
+ <!-- <nav id="navnar-header">
+<h1>APPROVAL MANAGEMENT SYSTEM</h1>
+</nav> -->
+<mat-card class="example-card">
+  <mat-card-header>
+    <img
+      class="image"
+      src="https://www.worldlandtrust.org/wp-content/uploads/2017/11/euromonitor-logo.png"
+      alt=""
+    />
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="login">
+      <strong> Login</strong>
+    </div>
+    <form [formGroup]="loginForm" class="example-form">
+      <div>
+        <mat-form-field class="example-full-width" appearance="standard">
+          <mat-label>Username</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Ex. Euromonitor@outlook.com"
+            formControlName="username"
+          />
+        </mat-form-field>
+        <div *ngIf="this.loginForm.controls?.['username']?.touched && this.loginForm.controls?.['username']?.invalid" class="alert alert-danger">
+
+          <div *ngIf="this.loginForm.controls?.['username']?.errors?.['required']" style="color:red">
+           please fill the usrename
+
+          </div>
+          <div *ngIf="this.loginForm.controls?.['username']?.errors?.['email']" style="color:red">
+            please enter the valid username
+          </div>
+        </div>
+
+        <br />
+
+        <mat-form-field
+          class="example-full-width"
+          appearance="standard"
+          class="password"
+        >
+          <mat-label>password</mat-label>
+          <input type="password" matInput formControlName="password" />
+        </mat-form-field>
+        <div *ngIf="this.loginForm.controls?.['password']?.touched && this.loginForm.controls?.['password']?.invalid" class="alert alert-danger">
+
+          <div *ngIf="this.loginForm.controls?.['password']?.errors?.['required']" style="color:red">
+           please fill the password
+
+          </div>
+
+          <div *ngIf="this.loginForm.controls?.['password']?.errors?.['pattern']" style="color:red">
+            please enter the valid password
+          </div>
+        </div>
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="login()" id="user">
+          Login
+        </button>
+
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+
+  <p class="buttonlink">
+    don't have account click <a  href=" " style="font-size:18px"> here </a>to sign up??
+  </p>
+</mat-card>
+</div>
+
+<router-outlet></router-outlet>

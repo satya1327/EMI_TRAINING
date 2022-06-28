@@ -1,0 +1,194 @@
+<div class="Dashboardbody">
+  <!-- header section-->
+  <mat-toolbar class="ToolBar">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+    <span class="example-spacer">
+      Notifications<mat-icon matBadge="15" matBadgeColor="warn"
+        >notifications
+      </mat-icon>
+    </span>
+
+    <span class="example-spacer"></span>
+    <span>Hi Satya</span>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <img src="../../../assets//images/Scr2.jpg" alt="" id="profileicon" />
+    </button>
+    <mat-menu #menu="matMenu" class="menu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>My Request</button>
+      <button mat-menu-item>View history</button>
+      <button mat-menu-item routerLink="/login">Logout</button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <!--Content-->
+  <div class="content">
+    <h2 style="text-align: center; font-size: xx-large; margin-top: 4%">
+      Approval Request
+    </h2>
+    <form class="example-form" [formGroup]="ApprovalFormDetails">
+      <!-- <mat-form-field class="example-full-width" appearance="outline">
+
+      <mat-label>Purpose</mat-label>
+      <input matInput  formControlName="purpose">
+    </mat-form-field>
+    <div *ngIf="this.ApprovalFormDetails.controls?.['purpose']?.touched && this.ApprovalFormDetails.controls?.['purpose']?.invalid" class="alert alert-danger">
+
+      <div *ngIf="this.ApprovalFormDetails.controls?.['purpose']?.errors?.['required']" style="color:red">
+       please fill this field as it required
+
+      </div>
+      </div> -->
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Select</mat-label>
+        <mat-select formControlName="purpose">
+          <mat-option value="Medical">Medical</mat-option>
+          <mat-option value="Travel">Travel</mat-option>
+          <mat-option value="Home Expenses">Home Expenses</mat-option>
+          <mat-option value="Education">Education</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div
+        *ngIf="this.ApprovalFormDetails.controls?.['purpose']?.touched && this.ApprovalFormDetails.controls?.['purpose']?.invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="this.ApprovalFormDetails.controls?.['purpose']?.errors?.['required']"
+          style="color: red"
+        >
+          please fill this field as it required
+        </div>
+      </div>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          placeholder="Briefly explain the purpose of request"
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+      <div
+        *ngIf="this.ApprovalFormDetails.controls?.['description']?.touched && this.ApprovalFormDetails.controls?.['description']?.invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="this.ApprovalFormDetails.controls?.['description']?.errors?.['required']"
+          style="color: red"
+        >
+          please fill this field as it required
+        </div>
+      </div>
+
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Who's your Approver?</mat-label>
+              <input matInput formControlName="approver" [readonly]="true" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Estimated Cost</mat-label>
+              <input matInput formControlName="estimateCost" type="number" />
+            </mat-form-field>
+            <div
+              *ngIf="this.ApprovalFormDetails.controls?.['estimateCost']?.touched && this.ApprovalFormDetails.controls?.['estimateCost']?.invalid"
+              class="alert alert-danger"
+            >
+              <div
+                *ngIf="this.ApprovalFormDetails.controls?.['estimateCost']?.errors?.['required']"
+                style="color: red"
+              >
+                please fill this field as it required
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Advance Amount</mat-label>
+              <input
+                matInput
+                placeholder="ex:-5000"
+                formControlName="advanceAmount"
+                type="number"
+              />
+            </mat-form-field>
+            <div
+              *ngIf="this.ApprovalFormDetails.controls?.['advanceAmount']?.touched && this.ApprovalFormDetails.controls?.['advanceAmount']?.invalid"
+              class="alert alert-danger"
+            >
+              <div
+                *ngIf="this.ApprovalFormDetails.controls?.['advanceAmount']?.errors?.['required']"
+                style="color: red"
+              >
+                please fill this field as it required
+              </div>
+            </div>
+          </td>
+          <td>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Pick a Date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="date"
+                min="{{ currentDate | date: 'yyyy-mm-dd' }}"
+              />
+
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div
+              *ngIf="this.ApprovalFormDetails.controls?.['date']?.touched && this.ApprovalFormDetails.controls?.['date']?.invalid"
+              class="alert alert-danger"
+            >
+              <div
+                *ngIf="this.ApprovalFormDetails.controls?.['date']?.errors?.['required']"
+                style="color: red"
+              >
+                Pick a Date
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="onSubmit()"
+          [disabled]="!ApprovalFormDetails.valid"
+        >
+          Submit
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          class="cancelbutton"
+          (click)="cancelForm()"
+        >
+          cancel
+        </button>
+      </mat-card-actions>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
