@@ -54,7 +54,6 @@ h1 {
 }
 #user:hover{
   transform: scale(1.2, 1.2);
-  color: brown;
 }
 #user{
   width:36%
