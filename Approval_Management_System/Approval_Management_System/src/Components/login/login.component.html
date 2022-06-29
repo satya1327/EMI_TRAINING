@@ -60,7 +60,7 @@
         </div>
       </div>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="login()" id="user">
+        <button mat-raised-button color="primary" (click)="login()" id="user" [disabled]="!loginForm.valid">
           Login
         </button>
 

@@ -1,0 +1,11 @@
+.container{
+  text-align: left;
+  margin-left:24%;
+}
+h1{
+  margin-left:32%;
+  text-decoration: underline;
+}
+.form-control{
+background-color: antiquewhite;
+}

@@ -11,10 +11,13 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { HomeComponent } from './Components/home/home.component';
 
 const modules = [MatSidenavModule,MatBadgeModule,MatMenuModule,MatSelectModule,MatIconModule, MatCardModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatToolbarModule,MatNativeDateModule];
 @NgModule({
-  declarations: [],
+  declarations: [
+    HomeComponent
+  ],
   imports: [CommonModule, modules],
   exports: [modules],
 })

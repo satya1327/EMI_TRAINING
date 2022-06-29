@@ -13,8 +13,8 @@ import {
 export class CustomDirective implements OnInit {
   @HostBinding('style.backgroundColor') bgColor!: string ;
   @HostBinding('style.fontSize') bgfont: string = '';
-  @HostBinding('style"') bghtml: string = 'hello';
-  constructor(private el: ElementRef, private render: Renderer2) {}
+
+  constructor(private el: ElementRef) {}
   ngOnInit() {}
   @HostListener('mouseenter') onmouseover() {
     this.bgfont = '25px';
