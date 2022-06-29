@@ -1,0 +1,16 @@
+<div class="form-group">
+  <div class="form-control">
+    <p>{{counter}}</p>
+    <button type="submit" (click)="increment()">increment</button>
+    <button type="submit" (click)="decrement()">decrement</button>
+    <button type="submit" (click)="stop()">Stop</button>
+    <button type="submit" (click)="reset()">reset</button>
+    <button type="submit" (click)="onupdtae()">updatevalue</button>
+
+  </div>
+</div>
+<div *ngFor="let item of details">
+    <p>{{item.name}}</p>
+    <p>{{item.age}}</p>
+    <p>{{item.height}}</p>
+</div>
