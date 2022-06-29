@@ -14,8 +14,8 @@
         <mat-card-title><h2>{{emp.Gender}}</h2></mat-card-title>
     </mat-card-header>
     <mat-card-actions>
-        <a mat-flat-button color="primary" [routerLink]="['edit',(emp.id)]"><mat-icon>edit</mat-icon></a>
-        <a mat-flat-button color="primary" (click)="deleteEmployee(emp.id)"><mat-icon>delete</mat-icon></a>
+        <a mat-raised-button color="primary" [routerLink]="['edit',(emp.id)]"><mat-icon color="primary">edit</mat-icon></a>
+        <a mat-raised-button color="primary" (click)="deleteEmployee(emp.id)"><mat-icon color="warn">delete</mat-icon></a>
     </mat-card-actions>
 </mat-card>
 <router-outlet></router-outlet>

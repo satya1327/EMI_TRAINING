@@ -24,19 +24,22 @@ isDataLoading=false;
       this.isDataLoading=false;
       this.emp=response;
       console.log(this.emp);
-    })
+    });
+
+
   }
 
   ngOnInit(): void {
     this.empForm=this.fb.group({
       name:['',this.disabled!= this.disabled ],
-      designation:['',Validators.required],
-      department:['',Validators.required],
+      designation:['',[Validators.required]],
+      department:['',[Validators.required]],
       Gender:['',Validators.required]
     });
     this.getEmployee(this.route.snapshot.params['id']);
 
-    this.empForm.get('name').disable()
+     this.empForm.get('name').disable();
+     this.empForm.get('Gender').disable();
 
   }
 

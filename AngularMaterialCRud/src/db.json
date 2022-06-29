@@ -1,45 +1,38 @@
 {
   "Employee": [
     {
-      "name": "",
-      "designation": "SDE4",
-      "department": "Technology4",
-      "Gender": "m",
-      "id": 4
-    },
-    {
-      "name": "",
-      "designation": "SDE2as",
-      "department": "Sharedsas",
-      "Gender": "Msas",
+      "name": "Rani",
+      "designation": "daaadada",
+      "department": "sfffsf",
+      "Gender": "F",
       "id": 5
     },
     {
-      "name": "",
-      "designation": "SDE2sas",
-      "department": "DT2sas",
-      "Gender": "Msasa",
+      "name": "Rangoli",
+      "designation": "dsd",
+      "department": "dsds",
+      "Gender": "F",
       "id": 6
     },
     {
-      "name": "",
-      "designation": "SDE13",
-      "department": "DT12",
-      "Gender": "Male2",
+      "name": "Subham",
+      "designation": "",
+      "department": "",
+      "Gender": "M",
       "id": 7
     },
     {
-      "name": "Anuragas",
-      "designation": "softwaredassfdfsdfsdfd",
-      "department": "dsadsaasdsdfsdfds",
-      "Gender": "Male2adssdffsdfsdf",
+      "name": "Anurag",
+      "designation": "",
+      "department": "",
+      "Gender": "M",
       "id": 8
     },
     {
       "name": "satya",
-      "designation": "sfdsfsdffess",
-      "department": "dfgdfgdfss",
-      "Gender": "cbcbcvbcfss",
+      "designation": "",
+      "department": "dadas",
+      "Gender": "M",
       "id": 12
     }
   ]
