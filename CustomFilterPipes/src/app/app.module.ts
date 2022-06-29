@@ -32,7 +32,6 @@ import {MatCardModule} from '@angular/material/card';
   ],
   imports: [
     BrowserModule,
-
     HttpClientModule,
     CommonModule,
     MatTableModule,
