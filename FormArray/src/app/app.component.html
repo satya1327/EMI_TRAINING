@@ -1,0 +1,20 @@
+<div class="container " >
+  <div class="row">
+    <form [formGroup]="formgroup" >
+    <div class="form-group">
+      <label for="EmployeeName">EmployeeName</label>
+      <input type="text" id="EmployeeName" formControlName="EmployeeName">
+    </div>
+    <div class="form-group">
+      <label for="Location">Location</label>
+      <input type="text" id="Location" formControlName="Location">
+    </div>
+    <div class="form-group">
+      <label for="EmployeeName">TrainingConducted</label>
+      <input type="text" id="TrainingConducted" formControlName="TrainingConducted">
+    </div>
+    <button class="btn btn-primary" (click)="addskills()">Add Skills</button>
+  </form>
+  </div>
+
+</div>
