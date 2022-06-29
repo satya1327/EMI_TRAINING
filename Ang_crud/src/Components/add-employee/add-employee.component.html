@@ -1,0 +1,78 @@
+
+  <h2>URL DETAILS</h2>
+
+<form [formGroup]="EmployeeDetails" >
+
+<table class="example-full-width" cellspacing="0">
+  <tr>
+  <td>
+     <!-- Div for ID  field -->
+    <mat-form-field class="example-full-width" appearance="standard">
+    <mat-label>ID</mat-label>
+    <input matInput formControlName="id">
+
+  </mat-form-field>
+  <div *ngIf="this.EmployeeDetails.get('id')?.touched && this.EmployeeDetails.get('id')?.invalid" class="help-block">
+  <span class="error"> please fill the ID</span>
+  </div>
+</td>
+
+ <!-- Div for TO  field -->
+
+  <td>
+    <mat-form-field class="example-full-width" appearance="standard">
+    <mat-label>TO</mat-label>
+    <input matInput formControlName="to">
+  </mat-form-field>
+  <div *ngIf="this.EmployeeDetails.get('to')?.touched && this.EmployeeDetails.get('to')?.invalid" class="help-block">
+    <span class="error"> please fill the field</span>
+    </div>
+</td>
+</tr>
+</table>
+
+ <!-- Div for FROM  field -->
+<table class="example-full-width" cellspacing="0">
+  <tr>
+  <td>
+    <mat-form-field class="example-full-width" appearance="standard">
+    <mat-label>FROM</mat-label>
+    <input matInput formControlName="from">
+
+  </mat-form-field>
+  <div *ngIf="this.EmployeeDetails.get('from')?.touched && this.EmployeeDetails.get('from')?.invalid" class="help-block">
+  <span class="error"> please fill the field</span>
+  </div>
+</td>
+
+ <!-- Div for CreatedDate  field -->
+
+
+ <td>
+  <mat-form-field appearance="outline" class="example-full-width"  >
+    <mat-label>Pick a Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dateCreated"  min="{{dateCreated|date:'yyyy-mm-dd'}}" >
+
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+</td>
+</tr>
+</table>
+
+
+ <!-- Div for permanent link field -->
+
+
+<mat-form-field class="example-full-width" appearance="standard" >
+  <mat-label>PermanentLink</mat-label>
+  <input matInput formControlName="permanentLink">
+
+</mat-form-field>
+<div *ngIf="this.EmployeeDetails.get('permanentLink')?.touched && this.EmployeeDetails.get('permanentLink')?.invalid" class="help-block">
+<span class="error"> please fill the field</span>
+</div><br>
+<button mat-raised-button color="warn" (click)="onclose()" >close</button>
+<button mat-raised-button color="primary" (click)="onsubmit()" [disabled]="!EmployeeDetails.valid">submit</button>
+</form>

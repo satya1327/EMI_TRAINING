@@ -1,0 +1,55 @@
+
+<h1><strong>URL Details</strong></h1>
+
+<div class="Datatable">
+    <table mat-table [dataSource]="dataSource">
+
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element" style="text-align: left"> {{element.id}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="from">
+        <th mat-header-cell *matHeaderCellDef> FROM </th>
+        <td mat-cell *matCellDef="let element"> {{element.from}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="to">
+        <th mat-header-cell *matHeaderCellDef > TO </th>
+        <td mat-cell *matCellDef="let element" > {{element.to}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="dateCreated">
+        <th mat-header-cell *matHeaderCellDef> DATECREATED </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateCreated|date:"d/M/YY"}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="permanentLink">
+        <th mat-header-cell *matHeaderCellDef> PERMANENTLINK </th>
+        <td mat-cell *matCellDef="let element"> <app-permanentlink [permanentLink]="element.permanentLink"></app-permanentlink> </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"  ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"class="headers"></tr>
+
+
+    </table>
+
+    <div class="spacer">
+      <mat-paginator [pageSizeOptions]="[3, 6, 15]"  showFirstLastButtons   aria-label="Select page of Employee"></mat-paginator>
+      <button class="btn_space" mat-fab color="accent" (click)="openDialog()">
+
+          <mat-icon class="material-icons-outlined">add</mat-icon>
+
+        </button>
+
+      </div>
+    </div>
+
+
+

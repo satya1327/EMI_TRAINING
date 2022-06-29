@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+}
+
+th{
+  background-color:rgb(43, 58, 226);
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+  justify-content: space-between;
+
+}
+h1{
+  text-align: center;
+}
+td{
+  background-color:rgb(4, 10, 7);
+  color:white;
+
+}
+strong{
+  text-align: center;
+  text-decoration: underline;
+}
+.spacer{
+
+  display: flex;
+
+  justify-content: flex-end;
+
+
+}
