@@ -1,0 +1,63 @@
+{
+  "books": [
+    {
+      "category": "action",
+      "Author": "Animei",
+      "quantity": 50,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh7OPjnE4TL5hs70wH-8Y2hEdCt79tCwfMgQ&usqp=CAU",
+      "id": 4
+    },
+    {
+      "category": "story",
+      "imageUrl": "https://wallpaperaccess.com/full/1209397.jpg",
+      "Author": "James",
+      "quantity": 25,
+      "id": 5
+    },
+    {
+      "category": "Engineering",
+      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
+      "Author": "Eienstine",
+      "quantity": 50,
+      "id": 6
+    }
+  ],
+  "Users": [
+    {
+      "role": "admin",
+      "username": "satya@hotmail.com",
+      "password": "Chintu@99",
+      "id": 3
+    },
+    {
+      "role": "user",
+      "username": "akjhsgdjhg",
+      "password": "gyuguyjg",
+      "id": 4
+    },
+    {
+      "role": "user",
+      "username": "satya",
+      "password": "chintu",
+      "id": 5
+    },
+    {
+      "role": "user",
+      "username": "satya",
+      "password": "satyajit",
+      "id": 6
+    },
+    {
+      "role": "",
+      "username": "shivam",
+      "password": "Shiavm@123",
+      "id": 7
+    },
+    {
+      "role": "user",
+      "username": "satyajit",
+      "password": "123456",
+      "id": 8
+    }
+  ]
+}

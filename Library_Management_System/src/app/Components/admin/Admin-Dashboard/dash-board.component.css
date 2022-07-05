@@ -1,0 +1,33 @@
+.example-spacer {
+  flex: 1.5 1.5 auto;
+}
+.header{
+  background-color: rgb(2, 2, 3);
+  color:white
+}
+.example-container {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  border: 1px solid #555;
+}
+.sidebar{
+background-color: rgb(252, 253, 254);
+color: rgb(10, 9, 9);
+
+}
+.contents{
+background-color: rgb(230, 231, 229);
+}
+table {
+  width: 100%;
+}
+th{
+  background-color: rgb(6, 6, 6);
+  color: white;
+  font: bolder;
+  font-size: larger;
+}
+.sidebarcontent{
+  margin-left:5%
+}

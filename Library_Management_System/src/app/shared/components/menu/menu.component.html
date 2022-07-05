@@ -1,0 +1,15 @@
+<mat-toolbar class="header">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>library_books</mat-icon>
+  </button>
+  <span class="header-content">Library Management System</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" matTooltip="login" mattool aria-label="Example icon-button with heart icon" (click)="openDialogLogin()">
+    <mat-icon ><span class="material-symbols-outlined">
+      login
+      </span></mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,11 @@
+.example-spacer {
+  flex: 1 1 auto;
+
+}
+.header-content{
+  margin-left:2%;
+font-family: 'Times New Roman', Times, serif;
+}
+.header{
+  background-color: rgb(238, 32, 32);
+}

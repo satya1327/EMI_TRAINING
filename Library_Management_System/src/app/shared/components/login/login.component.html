@@ -1,0 +1,13 @@
+<form [formGroup]="loginForm">
+  <h1>Login</h1>
+<mat-form-field appearance="standard">
+  <mat-label>username</mat-label>
+  <input matInput formControlName="username">
+</mat-form-field><br>
+<mat-form-field appearance="standard">
+  <mat-label >password</mat-label>
+  <input matInput formControlName="password">
+</mat-form-field><br>
+<button mat-raised-button color="primary" (click)="loginCredential()">login</button>
+<p>Don't have account?? <a style="text-decoration:underline" (click)="openDialogSignup()" [mat-dialog-close]="true"  matTooltip="signup"> signUp</a> here</p>
+</form>

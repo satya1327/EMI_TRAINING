@@ -1,0 +1,52 @@
+<!-- Header-->
+<mat-toolbar class="header">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon routerLink="/DashBoard" matTooltip="home">library_books</mat-icon>
+  </button>
+  <span class="header-content">Library Management System</span>
+  <span class="example-spacer"></span>
+ <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="margin-right: 1%;" matTooltip="View cart">
+    <mat-icon routerLink="/request"><span class="material-symbols-outlined">
+      <span class="material-symbols-outlined " >
+        shopping_cart
+        </span>
+      </span></mat-icon>
+  </button>
+
+<button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" matTooltip="logout">
+ <mat-icon routerLink="/mainPage">logout</mat-icon>
+</button>
+</mat-toolbar>
+
+<!--body-->
+
+<div class="container">
+  <mat-card class="example-card mat-elevation-z10" *ngFor="let item of allBookList;let i=index">
+    <mat-card-header style="text-align: center">
+
+      <mat-card-title>Title: {{item.category}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-header >
+     <mat-card-title>Author: {{item.Author}}</mat-card-title>
+    </mat-card-header>
+    <div class="imageContainer">
+    <img mat-card-image src="{{item.imageUrl}}" alt="Photo of a Shiba Inu" >
+  </div>
+    <mat-card-content>
+      <button mat-raised-button color="accent" matTooltip="Details" (click)="details(item.id)">Details</button>
+      <span ><button mat-raised-button color="primary"
+      mat-icon-button
+      class="example-icon"
+     style="margin-left:50%"
+    >
+    <mat-icon
+      matTooltip="add to cart" class="example-spacer">
+        add_shopping_cart
+
+      </mat-icon></button></span>
+    </mat-card-content>
+</mat-card>
+</div>
+
+
+<router-outlet></router-outlet>

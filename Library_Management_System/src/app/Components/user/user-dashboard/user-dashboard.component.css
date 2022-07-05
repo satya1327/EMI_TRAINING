@@ -1,0 +1,43 @@
+.example-spacer {
+  flex: 1 1 auto;
+
+}
+ .header{
+  background-color: rgb(7, 18, 238);
+  color:white
+}
+table {
+  width: 100%;
+}
+th{
+  background-color: rgb(6, 6, 6);
+  color: rgb(192, 227, 227);
+  font: bolder;
+  font-size: larger;
+}
+
+.example-card {
+  max-width: 350px;
+  height: 300px;
+  margin-top: 3%;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: lavenderblush;
+  width:100vw;
+  height:100vh;
+}
+img{
+  height:180px;
+  width:300px;
+}
+.imageContainer{
+  margin-top:5%
+}

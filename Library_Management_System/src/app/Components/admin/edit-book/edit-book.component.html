@@ -1,0 +1,21 @@
+
+<form [formGroup]="bookedit">
+
+  <mat-form-field appearance="standard">
+    <mat-label>category</mat-label>
+    <input matInput formControlName="category">
+  </mat-form-field><br>
+  <mat-form-field appearance="standard">
+    <mat-label>image</mat-label>
+    <input matInput formControlName="imageUrl" >
+  </mat-form-field><br>
+  <mat-form-field appearance="standard">
+    <mat-label>Author</mat-label>
+    <input matInput formControlName="Author" >
+  </mat-form-field><br>
+  <mat-form-field appearance="standard">
+    <mat-label>quantity</mat-label>
+    <input matInput formControlName="quantity" type="number">
+  </mat-form-field><br>
+  <button mat-raised-button color="primary" (click)="editBook()"><mat-icon class="mat-18">save</mat-icon></button>
+</form>

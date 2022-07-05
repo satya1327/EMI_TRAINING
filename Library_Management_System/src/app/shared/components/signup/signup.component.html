@@ -1,0 +1,19 @@
+<form [formGroup]="signupForm">
+  <h1>Sign Up</h1>
+
+<mat-form-field appearance="standard">
+  <mat-label>username</mat-label>
+  <input matInput formControlName="username">
+</mat-form-field><br>
+<mat-form-field appearance="standard">
+  <mat-label >password</mat-label>
+  <input matInput formControlName="confirmPassword">
+</mat-form-field><br>
+<mat-form-field appearance="standard">
+  <mat-label >confirmPassword</mat-label>
+  <input matInput formControlName="password">
+</mat-form-field><br>
+
+<button mat-raised-button color="primary" (click)="addUser()">signup</button>
+
+</form>

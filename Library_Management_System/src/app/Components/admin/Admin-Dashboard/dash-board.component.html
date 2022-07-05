@@ -1,0 +1,95 @@
+<!-- Header-->
+
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="sidebar">
+    <mat-toolbar class="header">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon routerLink="/adminDashBoard" matTooltip="admin"><span class="material-symbols-outlined">
+          admin_panel_settings
+          </span></mat-icon>
+      </button>
+      <span class="header-content">Library Management System</span>
+      <span class="example-spacer"></span>
+      <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon routerLink="/list">list</mat-icon>
+      </button> -->
+
+
+    <button mat-icon-button aria-label="Example icon-button with share icon">
+     <mat-icon routerLink="/mainPage" matTooltip="logout">logout</mat-icon>
+    </button>
+    </mat-toolbar>
+    <div class="sidebarcontent">
+    <button  matTooltip="add"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"  (click)="openAddDialog()">
+      <mat-icon>add</mat-icon>Add Books
+    </button>
+    <br><br>
+    <!-- <button matTooltip="Requests"  mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" >
+      <mat-icon >
+        request_page
+       </mat-icon>Requested Books
+    </button> -->
+  </div>
+
+  </mat-drawer>
+  <mat-drawer-content class="contents">
+
+<div class="mat-elevation-z8">
+  <!-- <span style="font-size:larger;font:bolder">Search Book By Name: </span> -->
+<!-- <mat-form-field class="example-full-width" appearance="standard">
+  <input matInput [(ngModel)]="bookByName">
+
+</mat-form-field> -->
+  <table mat-table [dataSource]="allBookList | filter:bookByName">
+
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="bookid">
+      <th mat-header-cell *matHeaderCellDef> BookId </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="image" >
+      <th mat-header-cell *matHeaderCellDef > image </th>
+      <td mat-cell *matCellDef="let element"  ><img src={{element.imageUrl}} style="height:50px;width:70px;margin-top:2%"> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category }} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Author">
+      <th mat-header-cell *matHeaderCellDef> Author </th>
+      <td mat-cell *matCellDef="let element"> {{element.Author}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> quantity </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element" ><mat-icon class="mat-18"  ><span class="material-symbols-outlined" (click)="editBook(element.id)" matTooltip="edit">
+        edit
+        </span></mat-icon><mat-icon class="mat-18" style="margin-left:15%" (click)="deleteBook(element.id)"><span class="material-symbols-outlined" matTooltip="dalete">
+          delete
+          </span></mat-icon></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; " ></tr>
+  </table>
+
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator> -->
+</div>
+    </mat-drawer-content>
+</mat-drawer-container>
+<!--body-->
+<router-outlet></router-outlet>
