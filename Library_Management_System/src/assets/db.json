@@ -1,20 +1,47 @@
 {
   "books": [
     {
-      "category": "action",
-      "Author": "Animei",
-      "quantity": 50,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh7OPjnE4TL5hs70wH-8Y2hEdCt79tCwfMgQ&usqp=CAU",
-      "id": 4
-    },
-    {
+      "bookname": "play",
       "category": "story",
       "imageUrl": "https://wallpaperaccess.com/full/1209397.jpg",
       "Author": "James",
-      "quantity": 25,
+      "quantity": 40,
       "id": 5
     },
     {
+      "bookname": "play",
+      "category": "Engineering",
+      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
+      "Author": "Eienstine",
+      "quantity": 52,
+      "id": 6
+    },
+    {
+      "bookname": "play",
+      "category": "Engineering",
+      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
+      "Author": "Eienstine",
+      "quantity": 50,
+      "id": 6
+    },
+    {
+      "bookname": "play",
+      "category": "Engineering",
+      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
+      "Author": "Eienstine",
+      "quantity": 50,
+      "id": 6
+    },
+    {
+      "bookname": "play",
+      "category": "Engineering",
+      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
+      "Author": "Eienstine",
+      "quantity": 50,
+      "id": 6
+    },
+    {
+      "bookname": "play",
       "category": "Engineering",
       "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
       "Author": "Eienstine",
@@ -27,7 +54,13 @@
       "role": "admin",
       "username": "satya@hotmail.com",
       "password": "Chintu@99",
-      "id": 3
+      "id": 3,
+      "books": {
+        "role": "admin",
+        "username": "satya@hotmail.com",
+        "password": "Chintu@99",
+        "id": 3
+      }
     },
     {
       "role": "user",
@@ -58,6 +91,41 @@
       "username": "satyajit",
       "password": "123456",
       "id": 8
+    },
+    {
+      "role": "user",
+      "username": "chintu@gmail.com",
+      "password": "Chintu@99",
+      "id": 9
+    },
+    {
+      "role": "user",
+      "username": "amrit",
+      "password": "SKS123",
+      "id": 10
+    },
+    {
+      "role": "user",
+      "username": "sada",
+      "password": "sasa",
+      "book": {},
+      "id": 11
+    },
+    {
+      "role": "user",
+      "username": "sasassa",
+      "password": "sasasa",
+      "book": [
+        {}
+      ],
+      "id": 12
+    },
+    {
+      "role": "user",
+      "username": "dsadsad",
+      "password": "dsadsadsa",
+      "book": [],
+      "id": 13
     }
   ]
 }

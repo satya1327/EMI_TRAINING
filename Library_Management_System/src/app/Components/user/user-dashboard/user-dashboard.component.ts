@@ -1,7 +1,10 @@
+import { DetailsBooksComponent } from './../details-books/details-books.component';
+import { DetailsidService } from './../../../shared/services/datasharebridge/detailsid.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookDataService } from 'src/app/shared/services/BookApiServices/book-data.service';
 import { NotificationService } from 'src/app/shared/services/notification/notification.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -9,10 +12,11 @@ import { NotificationService } from 'src/app/shared/services/notification/notifi
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-  detailsonebook:any;
+  detailsList:any;
+  bookByNameSearch:string;
   bookByName:any;
   allBookList:any;
-  constructor(private services:BookDataService,private toaster:NotificationService,private router:Router) { }
+  constructor(private detailsid:DetailsidService,private services:BookDataService,private toaster:NotificationService,private router:Router,private matdialog:MatDialog) { }
 
   displayedColumns: string[] = ['bookid', 'image', 'category', 'Author','quantity'];
 
@@ -30,9 +34,18 @@ export class UserDashboardComponent implements OnInit {
     })
 }
 public details(id:any){
-  this.services.getBookById(id).subscribe(response=>{
-    console.log(response);
-    this.detailsonebook=response;
-  })
+
+  this.services.getBookById(id).subscribe((response:any)=>{
+
+  this.detailsid.detailsId(response)
+  this.matdialog.open(DetailsBooksComponent,{
+    width:'400px'
+  });
+  });
+
+
+
+
+
 }
 }
