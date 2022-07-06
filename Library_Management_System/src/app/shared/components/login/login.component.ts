@@ -1,5 +1,5 @@
 import { NotificationService } from 'src/app/shared/services/notification/notification.service';
-import { AuthenticationService } from './../../services/authentication.service';
+import { AuthenticationService } from '../../services/authservices/authentication.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

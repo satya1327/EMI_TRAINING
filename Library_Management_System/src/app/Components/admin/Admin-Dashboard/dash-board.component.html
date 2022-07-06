@@ -16,14 +16,15 @@
       </button> -->
 
 
-    <button mat-icon-button aria-label="Example icon-button with share icon">
-     <mat-icon routerLink="/mainPage" matTooltip="logout">logout</mat-icon>
-    </button>
+
     </mat-toolbar>
     <div class="sidebarcontent">
-    <button  matTooltip="add"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"  (click)="openAddDialog()">
-      <mat-icon>add</mat-icon>Add Books
-    </button>
+    <button  matTooltip="add"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"  (click)=" openAddDialog()">
+      <mat-icon color="primary">add</mat-icon>Add Books
+    </button><br>
+    <button mat-icon-button aria-label="Example icon-button with share icon" style="margin-left:2%">
+      <mat-icon routerLink="/mainPage" matTooltip="logout" color="warn">logout</mat-icon>logout
+     </button>
     <br><br>
     <!-- <button matTooltip="Requests"  mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" >
       <mat-icon >
@@ -41,13 +42,17 @@
   <input matInput [(ngModel)]="bookByName">
 
 </mat-form-field> -->
-  <table mat-table [dataSource]="allBookList | filter:bookByName">
+  <table mat-table [dataSource]="dataSource | filter:bookByName">
 
     <!-- Position Column -->
     <!-- <ng-container matColumnDef="bookid">
       <th mat-header-cell *matHeaderCellDef> BookId </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container> -->
+    <ng-container matColumnDef="Bookname" >
+      <th mat-header-cell *matHeaderCellDef > Bookname </th>
+      <td mat-cell *matCellDef="let element"  >{{element.bookname}}  </td>
+    </ng-container>
 
     <ng-container matColumnDef="image" >
       <th mat-header-cell *matHeaderCellDef > image </th>
@@ -73,23 +78,34 @@
     </ng-container>
     <ng-container matColumnDef="Action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element" ><mat-icon class="mat-18"  ><span class="material-symbols-outlined" (click)="editBook(element.id)" matTooltip="edit">
+      <td mat-cell *matCellDef="let element" ><mat-icon class="mat-18" color="primary" ><span class="material-symbols-outlined" (click)="editBook(element.id)" matTooltip="edit" >
         edit
-        </span></mat-icon><mat-icon class="mat-18" style="margin-left:15%" (click)="deleteBook(element.id)"><span class="material-symbols-outlined" matTooltip="dalete">
+        </span></mat-icon><mat-icon class="mat-18" style="margin-left:15%" (click)="deleteBook(element.id)" color="accent"><span class="material-symbols-outlined" matTooltip="dalete">
           delete
           </span></mat-icon></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns; " ></tr>
+
   </table>
 
-  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  <mat-paginator [pageSizeOptions]="[3, 6, 9,15,18,25]"
                  showFirstLastButtons
                  aria-label="Select page of periodic elements">
-  </mat-paginator> -->
+
+  </mat-paginator>
+
 </div>
+
+
+
     </mat-drawer-content>
 </mat-drawer-container>
+<!-- <div class="spacer">
+  <mat-paginator [pageSizeOptions]="[3, 6, 15]"  showFirstLastButtons   aria-label="Select page of Employee"></mat-paginator>
+
+
+  </div> -->
 <!--body-->
 <router-outlet></router-outlet>

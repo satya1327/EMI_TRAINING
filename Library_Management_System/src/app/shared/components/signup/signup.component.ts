@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
       role:['user'],
       username:['',[Validators.required]],
       password:['',[Validators.required]],
+      book:[[]]
     })
   }
 

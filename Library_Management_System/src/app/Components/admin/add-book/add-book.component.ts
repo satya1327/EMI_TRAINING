@@ -16,6 +16,7 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookAddition=this.formBuilder.group({
+      bookname:['',[Validators.required]],
       category:['',[Validators.required]],
       imageUrl:['',Validators.required],
       Author:['',[Validators.required]],

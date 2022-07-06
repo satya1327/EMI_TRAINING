@@ -1,12 +1,16 @@
 <!-- Header-->
 <mat-toolbar class="header">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon routerLink="/DashBoard" matTooltip="home">library_books</mat-icon>
+    <mat-icon routerLink="/DashBoard" matTooltip="home" >home</mat-icon>
   </button>
-  <span class="header-content">Library Management System</span>
+  <span class="header-content">Home</span>
+  <span class="search">Search : <mat-form-field appearance="standard">
+
+    <input matInput [(ngModel)]="bookByNameSearch">
+  </mat-form-field></span>
   <span class="example-spacer"></span>
  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="margin-right: 1%;" matTooltip="View cart">
-    <mat-icon routerLink="/request"><span class="material-symbols-outlined">
+    <mat-icon routerLink="/request"><span class="material-symbols-outlined" >
       <span class="material-symbols-outlined " >
         shopping_cart
         </span>
@@ -21,10 +25,12 @@
 <!--body-->
 
 <div class="container">
-  <mat-card class="example-card mat-elevation-z10" *ngFor="let item of allBookList;let i=index">
+
+  <mat-card class="example-card mat-elevation-z10" *ngFor="let item of allBookList|filter:bookByNameSearch;let i=index">
+
     <mat-card-header style="text-align: center">
 
-      <mat-card-title>Title: {{item.category}}</mat-card-title>
+      <mat-card-title>category: {{item.category}}</mat-card-title>
     </mat-card-header>
     <mat-card-header >
      <mat-card-title>Author: {{item.Author}}</mat-card-title>

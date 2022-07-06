@@ -17,6 +17,7 @@ import { DetailsBooksComponent } from './Components/user/details-books/details-b
 import { ToastrModule } from 'ngx-toastr';
 import { UserDashboardComponent } from './Components/user/user-dashboard/user-dashboard.component';
 import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { MycartComponent } from './Components/user/mycart/mycart.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { Ng2SearchPipeModule } from "ng2-search-filter";
     DashBoardComponent,
     DetailsBooksComponent,
     UserDashboardComponent,
+    MycartComponent,
   ],
   imports: [
     Ng2SearchPipeModule,

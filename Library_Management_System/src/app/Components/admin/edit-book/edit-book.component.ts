@@ -5,6 +5,7 @@ import { BookDataService } from '../../../shared/services/BookApiServices/book-d
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { books } from 'src/app/models/books';
 
 @Component({
   selector: 'app-edit-book',
@@ -13,20 +14,37 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EditBookComponent implements OnInit {
   bookedit:FormGroup;
+  editBookDetails: books={id:0,category:'',bookname:'',Author:'',imageUrl:'',quantity:0};
   editid:any;
+  books=new books();
+
   constructor(private datashared:EditIdService,private services:BookDataService,private router:Router,private toastr:NotificationService,private fb:FormBuilder,private matdialog:MatDialog) {
       this.datashared.subject.subscribe(response=>{
         this.editid=response;
       });
+      this.bookedit=this.fb.group({
+        bookname:['',[Validators.required]],
+        category:[''],
+        Author:['',[Validators.required]],
+        quantity:['',[Validators.required]],
+        imageUrl:['',[Validators.required]]
+      });
+
 
   }
 
   ngOnInit(): void {
-    this.bookedit=this.fb.group({
-      category:[''],
-      Author:['',[Validators.required]],
-      quantity:['',[Validators.required]],
-      imageUrl:['',[Validators.required]]
+
+    this.services.getBookById(this.editid).subscribe((response:any)=>{
+
+
+      this.bookedit=this.fb.group({
+        bookname:[response['bookname']],
+        category:[response['category']],
+        Author:[response['Author']],
+        quantity:[response['quantity']],
+        imageUrl:[response['imageUrl']]
+      });
     });
 
   }
@@ -34,6 +52,7 @@ export class EditBookComponent implements OnInit {
     this.services.editBook(this.editid,this.bookedit.value).subscribe(response=>{
       console.log(response);
     this.toastr.showSuccess("Congratulations","Book record successfully updated");
+    location.reload();
     this.matdialog.closeAll();
    this.router.navigate(['/adminDashboard']);
   });
