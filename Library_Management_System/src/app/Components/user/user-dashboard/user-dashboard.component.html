@@ -1,65 +1,95 @@
 <!-- Header-->
 <mat-toolbar class="header">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon routerLink="/DashBoard" matTooltip="home" >home</mat-icon>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon routerLink="/userDashBoard" matTooltip="home" >home</mat-icon>
   </button>
   <span class="header-content">Home</span>
-  <span class="search">Search : <mat-form-field appearance="standard">
-
-    <input matInput [(ngModel)]="bookByNameSearch">
-  </mat-form-field></span>
+  <span class="search"
+    >Search :
+    <mat-form-field appearance="standard">
+      <input matInput [(ngModel)]="bookByNameSearch" /> </mat-form-field
+  ></span>
+  <p style="margin-left:58%">Hello.. {{ userName }}</p>
+  <mat-icon class="mat-18">person</mat-icon>
   <span class="example-spacer"></span>
-  <p>Hello.. {{userName}}</p>
 
 
- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="margin-right: 1%;" matTooltip="View cart">
-    <mat-icon routerLink="/request"><span class="material-symbols-outlined" >
-      <span class="material-symbols-outlined " routerLink="/cart">
-        shopping_cart
+
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+    style="margin-right: 1%"
+    matTooltip="View cart"
+  >
+    <mat-icon routerLink="/request"
+      ><span class="material-symbols-outlined">
+        <span class="material-symbols-outlined" routerLink="/cart">
+          shopping_cart
         </span>
-      </span></mat-icon>
+      </span></mat-icon
+    >
   </button>
 
-<button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" matTooltip="logout">
- <mat-icon routerLink="/mainPage">logout</mat-icon>
-</button>
+
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    matTooltip="logout"
+  >
+    <mat-icon routerLink="/mainPage">logout</mat-icon>
+  </button>
 
 </mat-toolbar>
 
 <!--body-->
 
 <div class="container">
-
-  <mat-card class="example-card mat-elevation-z10" *ngFor="let item of allBookList|filter:bookByNameSearch;let i=index">
+  <mat-card
+    class="example-card mat-elevation-z10"
+    *ngFor="let item of allBookList | filter: bookByNameSearch; let i = index"
+  >
     <mat-card-header style="text-align: center">
-
-      <mat-card-title>BookName: {{item.bookname}}</mat-card-title>
+      <mat-card-title>BookName: {{ item.bookname }}</mat-card-title>
     </mat-card-header>
     <mat-card-header style="text-align: center">
-
-      <mat-card-title>category: {{item.category}}</mat-card-title>
+      <mat-card-title>category: {{ item.category }}</mat-card-title>
     </mat-card-header>
-    <mat-card-header >
-     <mat-card-title>Author: {{item.Author}}</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>Author: {{ item.Author }}</mat-card-title>
     </mat-card-header>
     <div class="imageContainer">
-    <img mat-card-image src="{{item.imageUrl}}" alt="Photo of a Shiba Inu" >
-  </div>
+      <img
+        mat-card-image
+        src="{{ item.imageUrl }}"
+        alt="Photo of a Shiba Inu"
+      />
+    </div>
     <mat-card-content>
-
-      <span ><button mat-raised-button color="primary"
-      mat-icon-button
-      class="example-icon"
-     style="margin-left:80%"
-    >
-    <mat-icon
-      matTooltip="add to cart" class="example-spacer" (click)="addToCart(item.id)">
-        add_shopping_cart
-
-      </mat-icon></button></span>
+      <span
+        ><button
+          mat-raised-button
+          color="primary"
+          mat-icon-button
+          class="example-icon"
+          style="margin-left: 80%"
+        >
+          <mat-icon
+            matTooltip="add to cart"
+            class="example-spacer"
+            (click)="addToCart(item.id)"
+          >
+            add_shopping_cart
+          </mat-icon>
+        </button></span
+      >
     </mat-card-content>
-</mat-card>
+  </mat-card>
 </div>
-
 
 <router-outlet></router-outlet>

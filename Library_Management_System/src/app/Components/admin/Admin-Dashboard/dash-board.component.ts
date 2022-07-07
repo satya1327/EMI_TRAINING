@@ -12,66 +12,68 @@ import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-dash-board',
   templateUrl: './dash-board.component.html',
-  styleUrls: ['./dash-board.component.css']
+  styleUrls: ['./dash-board.component.css'],
 })
 export class DashBoardComponent implements OnInit {
-  bookByName:any;
-  allBookList:any;
-  adminName:any;
-  id:any;
+  bookByName: any;
+  allBookList: any;
+  adminName: any;
+  id: any;
 
-  constructor(private datashare:EditIdService,private services:BookDataService,private toaster:NotificationService,private router:Router,private matdialog:MatDialog) { }
+  constructor(
+    private datashare: EditIdService,
+    private services: BookDataService,
+    private toaster: NotificationService,
+    private router: Router,
+    private matdialog: MatDialog
+  ) {}
 
-  displayedColumns: string[] = [ 'image','Bookname', 'category', 'Author','quantity','Action'];
+  displayedColumns: string[] = [
+    'image',
+    'Bookname',
+    'category',
+    'Author',
+    'quantity',
+    'Action',
+  ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource!: MatTableDataSource<any>;
 
-
-
   ngOnInit(): void {
-    this.services.getAllBooks().subscribe({ next:(res)=>{
+    this.services.getAllBooks().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
 
-      this.dataSource=new MatTableDataSource(res);
-
-      this.dataSource.paginator=this.paginator;
-
-
-
-
-    }});
+        this.dataSource.paginator = this.paginator;
+      },
+    });
 
     this.adminName = localStorage.getItem('adminName');
     this.id = localStorage.getItem('adminId');
   }
-  openAddDialog(){
-    this.matdialog.open(AddBookComponent,{
-      width:'400px'
+  openAddDialog() {
+    this.matdialog.open(AddBookComponent, {
+      width: '400px',
     });
   }
-  openEditDialog(){
-    this.matdialog.open(EditBookComponent,{
-      width:'400px'
+  openEditDialog() {
+    this.matdialog.open(EditBookComponent, {
+      width: '400px',
     });
   }
 
-  public deleteBook(id:any){
-    this.services.deleteBook(id).subscribe (response=>{
-     {
-      this.toaster.showSuccess("congratulations","Successfully deleted");
-      window.location.reload();
+  public deleteBook(id: any) {
+    this.services.deleteBook(id).subscribe((response) => {
+      {
+        this.toaster.showSuccess('congratulations', 'Successfully deleted');
+        window.location.reload();
       }
     });
-
+  }
+  editBook(id: number) {
+    this.matdialog.open(EditBookComponent, {
+      width: '400px',
+    });
+    this.datashare.editId(id);
+  }
 }
-editBook(id:number){
-  this.matdialog.open(EditBookComponent,{
-    width:'400px'
-  });
-  this.datashare.editId(id);
-
-
-}
-
-}
-
-

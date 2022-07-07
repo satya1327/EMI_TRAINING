@@ -3,11 +3,25 @@
 <mat-form-field appearance="standard">
   <mat-label>email</mat-label>
   <input matInput formControlName="email">
-</mat-form-field><br>
+</mat-form-field>
+<div *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.invalid" class="help-block">
+  <span class="text-danger"> please fill the email</span>
+  <div *ngIf="this.loginForm.get('email').valid" class="help-block">
+    <span class="text-danger"> please fill the email</span>
+    </div>
+  </div>
+
+<br>
 <mat-form-field appearance="standard">
   <mat-label >password</mat-label>
-  <input matInput formControlName="password">
-</mat-form-field><br>
-<button mat-raised-button color="primary" (click)="loginCredential()">login</button>
+  <input matInput formControlName="password" type="password">
+</mat-form-field>
+<div *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.invalid" class="help-block">
+  <span class="text-danger"> please fill the password</span>
+  </div>
+<br>
+<button mat-raised-button color="primary" (click)="loginCredential()"><mat-icon class="mat-18" matTooltip="login"><span class="material-symbols-outlined">
+  login
+  </span></mat-icon></button>
 <p>Don't have account?? <a style="text-decoration:underline" (click)="openDialogSignup()" [mat-dialog-close]="true"  matTooltip="signup"> signUp</a> here</p>
 </form>

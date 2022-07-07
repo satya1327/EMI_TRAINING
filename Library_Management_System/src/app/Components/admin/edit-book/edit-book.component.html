@@ -1,26 +1,46 @@
 
-<form [formGroup]="bookedit" >
+<form [formGroup]="bookEdit" >
 
      <mat-form-field appearance="standard">
     <mat-label>Bookname</mat-label>
     <input matInput formControlName="bookname" >
-  </mat-form-field><br>
+  </mat-form-field>
+  <div *ngIf="this.bookEdit.get('bookname')?.touched && this.bookEdit.get('bookname')?.invalid" class="help-block">
+    <span class="text-danger"> please fill the BookName</span>
+    </div>
+  <br>
   <mat-form-field appearance="standard">
     <mat-label>category</mat-label>
     <input matInput formControlName="category" >
-  </mat-form-field><br>
+  </mat-form-field>
+  <div *ngIf="this.bookEdit.get('category')?.touched && this.bookEdit.get('category')?.invalid" class="help-block">
+    <span class="text-danger"> please fill the category</span>
+    </div>
+  <br>
   <mat-form-field appearance="standard">
     <mat-label>image</mat-label>
     <input matInput formControlName="imageUrl" >
-  </mat-form-field><br>
+  </mat-form-field>
+  <div *ngIf="this.bookEdit.get('imageUrl')?.touched && this.bookEdit.get('imageUrl')?.invalid" class="help-block">
+    <span class="text-danger"> please fill the imageUrl</span>
+    </div>
+  <br>
   <mat-form-field appearance="standard">
     <mat-label>Author</mat-label>
     <input matInput formControlName="Author"  >
-  </mat-form-field><br>
+  </mat-form-field>
+  <div *ngIf="this.bookEdit.get('Author')?.touched && this.bookEdit.get('Author')?.invalid" class="help-block">
+    <span class="text-danger"> please fill the Author</span>
+    </div>
+  <br>
   <mat-form-field appearance="standard">
     <mat-label>quantity</mat-label>
     <input matInput formControlName="quantity" type="number">
-  </mat-form-field><br>
+  </mat-form-field>
+  <div *ngIf="this.bookEdit.get('quantity')?.touched && this.bookEdit.get('quantity')?.invalid" class="help-block">
+    <span class="text-danger"> please fill the quantity</span>
+    </div>
+  <br>
   <button mat-raised-button color="primary" (click)="editBook()" ><mat-icon class="mat-18">save</mat-icon></button>
 
 

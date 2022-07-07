@@ -1,4 +1,4 @@
-import { carts } from './../../../models/carts';
+import { books } from './../../../models/books';
 import { CartService } from './../../../shared/services/cartservices/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,9 +15,9 @@ export class MycartComponent implements OnInit {
   constructor(private services:CartService) { }
 
   ngOnInit(): void {
-    this.services.getCartItems().subscribe({ next:(res:any)=>{
-      this.dataSource=new MatTableDataSource(res);
-      console.log(res)
+    this.services.getCartItems().subscribe({ next:(response:any)=>{
+      this.dataSource=new MatTableDataSource(response);
+
     }});
 
   }

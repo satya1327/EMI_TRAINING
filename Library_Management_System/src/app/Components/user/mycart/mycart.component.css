@@ -10,3 +10,11 @@ table {
 td, th {
   width: 25%;
 }
+.header{
+  background-color: rgb(7, 18, 238);
+  color:white
+}
+.example-spacer {
+  flex: 1 1 auto;
+
+}

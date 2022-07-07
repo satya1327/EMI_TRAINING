@@ -1,60 +1,92 @@
 {
   "books": [
     {
-      "bookname": "atr",
+      "bookname": "Art of honor",
       "category": "story",
       "imageUrl": "https://wallpaperaccess.com/full/1209397.jpg",
       "Author": "James",
       "quantity": 40,
-      "id": 5
+      "id": 1
     },
     {
-      "bookname": "Utility",
+      "bookname": "Energgy",
       "category": "Engineering",
       "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
       "Author": "Eienstine",
-      "quantity": 50,
-      "id": 6
+      "quantity": 10,
+      "id": 2
     },
     {
       "bookname": "Comedy",
-      "category": "Engineering",
-      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-      "Author": "Eienstine",
-      "quantity": 50,
-      "id": 7
+      "category": "Exclusive",
+      "imageUrl": "https://images.unsplash.com/photo-1543584756-8f40a802e14f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29tZWR5fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "Author": "grosly",
+      "quantity": 40,
+      "id": 3
     },
     {
       "bookname": "Romance",
-      "category": "Engineering",
-      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-      "Author": "Eienstine",
+      "category": "Love",
+      "imageUrl": "https://free4kwallpapers.com/uploads/originals/2015/11/29/love-book-wallpaper.jpg",
+      "Author": "peter",
+      "quantity": 60,
+      "id": 4
+    },
+    {
+      "bookname": "Action",
+      "category": "Movies",
+      "imageUrl": "https://www.highreshdwallpapers.com/wp-content/uploads/2017/05/High-Action-HD-Wallpaper.jpg",
+      "Author": "esmac",
+      "quantity": 54,
+      "id": 5
+    },
+    {
+      "bookname": "Love",
+      "category": "Love",
+      "imageUrl": "data:image/jpeg;base64,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",
+      "Author": "joy",
+      "quantity": 12,
+      "id": 6
+    },
+    {
+      "bookname": "spy",
+      "category": "Outdoor",
+      "imageUrl": "http://static.hd-trailers.net/images/spy-74864-poster-xlarge.jpg",
+      "Author": "ema",
+      "quantity": 10,
+      "id": 7
+    },
+    {
+      "bookname": "indian",
+      "category": "Nation",
+      "imageUrl": "https://images3.alphacoders.com/978/978899.jpg",
+      "Author": "Mahatma gandhi",
       "quantity": 50,
       "id": 8
     },
     {
-      "bookname": "Action",
-      "category": "Engineering",
-      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-      "Author": "Eienstine",
+      "bookname": "Unity",
+      "category": "Public",
+      "imageUrl": "https://thumbs.dreamstime.com/b/unity-achievement-concept-family-50129699.jpg",
+      "Author": "bros",
       "quantity": 50,
       "id": 9
     },
     {
-      "bookname": "God Gifted",
-      "category": "Engineering",
-      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-      "Author": "Eienstine",
+      "bookname": "GTA",
+      "category": "Game",
+      "imageUrl": "https://cdn.wallpapersafari.com/56/96/SrpuJD.jpg",
+      "Author": "Thomson",
       "quantity": 50,
       "id": 10
     },
     {
-      "bookname": "Love",
-      "category": "Engineering",
-      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-      "Author": "Eienstine",
+      "bookname": "Cart",
+      "category": "Festival",
+      "imageUrl": "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FydHxlbnwwfHwwfHw%3D&w=1000&q=80",
+      "Author": "eloy",
       "quantity": 50,
-      "id": 11
+      "id": 10
     }
   ],
   "Users": [
@@ -71,32 +103,16 @@
       "username": "Satya",
       "password": "123456",
       "id": 2
+    },
+    {
+      "role": "user",
+      "email": "satya@gmail.com",
+      "username": "Chintu",
+      "password": "123",
+      "id": 3
     }
   ],
   "CartItems": [
-    {
-      "bookname": "atr",
-      "category": "story",
-      "imageUrl": "https://wallpaperaccess.com/full/1209397.jpg",
-      "Author": "James",
-      "quantity": 40,
-      "id": 5
-    },
-    {
-      "bookname": "Utility",
-      "category": "Engineering",
-      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-      "Author": "Eienstine",
-      "quantity": 50,
-      "id": 6
-    },
-    {
-      "bookname": "Comedy",
-      "category": "Engineering",
-      "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-      "Author": "Eienstine",
-      "quantity": 50,
-      "id": 7
-    }
+
   ]
 }

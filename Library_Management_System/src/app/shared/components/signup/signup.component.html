@@ -3,20 +3,39 @@
   <mat-form-field appearance="standard">
     <mat-label>email</mat-label>
     <input matInput formControlName="email">
-  </mat-form-field><br>
+  </mat-form-field>
+  <div *ngIf="this.signupForm.get('email')?.touched && this.signupForm.get('email')?.invalid" class="help-block">
+    <span class="text-danger"> please fill the email</span>
+    </div>
+
+  <br>
 <mat-form-field appearance="standard">
   <mat-label>username</mat-label>
   <input matInput formControlName="username">
-</mat-form-field><br>
+</mat-form-field>
+<div *ngIf="this.signupForm.get('username')?.touched && this.signupForm.get('username')?.invalid" class="help-block">
+  <span class="text-danger"> please fill the username</span>
+  </div>
+<br>
 <mat-form-field appearance="standard">
   <mat-label >password</mat-label>
   <input matInput formControlName="confirmPassword">
-</mat-form-field><br>
+</mat-form-field>
+
+<div *ngIf="this.signupForm.get('confirmPassword')?.touched && this.signupForm.get('confirmPassword')?.invalid" class="help-block">
+  <span class="text-danger"> please fill the password</span>
+  </div><br>
 <mat-form-field appearance="standard">
   <mat-label >confirmPassword</mat-label>
   <input matInput formControlName="password">
-</mat-form-field><br>
+</mat-form-field>
+<div *ngIf="this.signupForm.get('password')?.touched && this.signupForm.get('password')?.invalid" class="help-block">
+  <span class="text-danger"> please fill the Password field</span>
+  </div><br>
+<br>
 
-<button mat-raised-button color="primary" (click)="addUser()">signup</button>
+<button mat-raised-button color="primary" (click)="addUser()"><mat-icon class="mat-18" matTooltip="signup"><span class="material-symbols-outlined">
+  file_upload
+  </span></mat-icon></button>
 
 </form>

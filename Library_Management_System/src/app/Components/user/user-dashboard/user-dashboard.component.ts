@@ -15,15 +15,24 @@ import { MatDialog } from '@angular/material/dialog';
 export class UserDashboardComponent implements OnInit {
   userName: any;
   id: any;
+
+  //logic for Date
+
   currentDate = new Date();
   day = this.currentDate.getDate();
   month = this.currentDate.getMonth() + 1;
   year = this.currentDate.getFullYear();
-  returnDate = (this.day + 3 + '/' + this.month + '/' + this.year);
-  detailsList: any;
+  returnDate = this.day + 3 + '/' + this.month + '/' + this.year;
+
+  //logic ends
+
+
   bookByNameSearch: string;
-  bookByName: any;
   allBookList: any;
+  count = 0;
+
+
+
   constructor(
     private services: BookDataService,
     private toaster: NotificationService,
@@ -39,21 +48,20 @@ export class UserDashboardComponent implements OnInit {
     this.userName = localStorage.getItem('userName');
     this.id = localStorage.getItem('userId');
   }
-count=0;
+
   addToCart(id: any) {
-    if(this.count<3){
+    if (this.count < 3) {
       this.services.getBookById(id).subscribe((response) => {
         this.cartServices.postCartItems(response).subscribe((response) => {});
         this.count++;
-
       });
 
-    this.toaster.showSuccess('Added to cart', `${"Return Date is "+this.returnDate}`);
+      this.toaster.showSuccess(
+        'Added to cart',
+        `${'Return Date is ' + this.returnDate}`
+      );
+    } else {
+      this.toaster.showWarning('Maximum Limit exceeded', 'falied');
     }
-    else{
-
-        this.toaster.showWarning("Maximum Limit exceeded","falied")
-    }
-
   }
 }

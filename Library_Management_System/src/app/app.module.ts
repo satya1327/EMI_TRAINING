@@ -19,6 +19,7 @@ import { UserDashboardComponent } from './Components/user/user-dashboard/user-da
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { MycartComponent } from './Components/user/mycart/mycart.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { MycartComponent } from './Components/user/mycart/mycart.component';
     DashBoardComponent,
     UserDashboardComponent,
     MycartComponent,
+
   ],
   imports: [
     Ng2SearchPipeModule,

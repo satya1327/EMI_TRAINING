@@ -26,8 +26,9 @@ export class UserCreationService {
 
   ngOnInit(): void {
   }
-  addUser(data:any):Observable<users>{
-      return this.http.post<users>(url,data);
+   addUser(data:any):Observable<users[]>{
+      return this.http.post<users[]>(url,data);
   }
+
 
 }

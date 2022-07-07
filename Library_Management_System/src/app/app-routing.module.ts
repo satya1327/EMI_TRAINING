@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'mainPage', component: MainPageComponent },
   {path:'adminDashboard',component:DashBoardComponent,canActivate:[AuthGuard]},
   {path:'userDashboard',component:UserDashboardComponent},
-  {path:'cart',component:MycartComponent}
+  {path:'cart',component:MycartComponent},
 
 
 

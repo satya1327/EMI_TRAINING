@@ -4,89 +4,111 @@
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" opened class="sidebar">
     <mat-toolbar class="header">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon routerLink="/adminDashBoard" matTooltip="admin"><span class="material-symbols-outlined">
-          admin_panel_settings
-          </span></mat-icon>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon routerLink="/adminDashBoard" matTooltip="admin"
+          ><span class="material-symbols-outlined">
+            admin_panel_settings
+          </span></mat-icon
+        >
       </button>
       <span class="header-content">Library Management System</span>
       <span class="example-spacer"></span>
-
-
-
     </mat-toolbar>
     <div class="sidebarcontent">
-      <p>hello..{{adminName}}</p>
-    <button  matTooltip="add"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"  (click)=" openAddDialog()">
-      <mat-icon color="primary">add</mat-icon>Add Books
-    </button><br>
-    <button mat-icon-button aria-label="Example icon-button with share icon" style="margin-left:2%">
-      <mat-icon routerLink="/mainPage" matTooltip="logout" color="warn">logout</mat-icon>logout
-     </button>
-    <br><br>
-
-
-  </div>
-
+      <button mat-raised-button style="margin-left:15%;color:blue">Welcome..{{ adminName }}</button><br>
+      <button
+        matTooltip="add"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+        (click)="openAddDialog()"
+      >
+        <mat-icon color="primary">add</mat-icon>Add Books</button
+      ><br />
+      <button
+        mat-icon-button
+        aria-label="Example icon-button with share icon"
+        style="margin-left: 2%"
+      >
+        <mat-icon routerLink="/mainPage" matTooltip="logout" color="warn"
+          >logout</mat-icon
+        >logout
+      </button>
+      <br /><br />
+    </div>
   </mat-drawer>
   <mat-drawer-content class="contents">
+    <h2 style="text-align: center;position:sticky">Book List</h2>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource | filter: bookByName">
+        <ng-container matColumnDef="Bookname">
+          <th mat-header-cell *matHeaderCellDef>Bookname</th>
+          <td mat-cell *matCellDef="let element">{{ element.bookname }}</td>
+        </ng-container>
 
-<div class="mat-elevation-z8">
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>image</th>
+          <td mat-cell *matCellDef="let element">
+            <img
+              src="{{ element.imageUrl }}"
+              style="height: 50px; width: 70px; margin-top: 2%"
+            />
+          </td>
+        </ng-container>
 
-  <table mat-table [dataSource]="dataSource | filter:bookByName">
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>category</th>
+          <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="Bookname" >
-      <th mat-header-cell *matHeaderCellDef > Bookname </th>
-      <td mat-cell *matCellDef="let element"  >{{element.bookname}}  </td>
-    </ng-container>
+        <ng-container matColumnDef="Author">
+          <th mat-header-cell *matHeaderCellDef>Author</th>
+          <td mat-cell *matCellDef="let element">{{ element.Author }}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="image" >
-      <th mat-header-cell *matHeaderCellDef > image </th>
-      <td mat-cell *matCellDef="let element"  ><img src={{element.imageUrl}} style="height:50px;width:70px;margin-top:2%"> </td>
-    </ng-container>
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>quantity</th>
+          <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon class="mat-18" color="primary"
+              ><span
+                class="material-symbols-outlined"
+                (click)="editBook(element.id)"
+                matTooltip="edit"
+              >
+                edit
+              </span></mat-icon
+            ><mat-icon
+              class="mat-18"
+              style="margin-left: 15%"
+              (click)="deleteBook(element.id)"
+              color="accent"
+              ><span class="material-symbols-outlined" matTooltip="dalete">
+                delete
+              </span></mat-icon
+            >
+          </td>
+        </ng-container>
 
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
 
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> category </th>
-      <td mat-cell *matCellDef="let element"> {{element.category }} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="Author">
-      <th mat-header-cell *matHeaderCellDef> Author </th>
-      <td mat-cell *matCellDef="let element"> {{element.Author}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef> quantity </th>
-      <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-    </ng-container>
-    <ng-container matColumnDef="Action">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element" ><mat-icon class="mat-18" color="primary" ><span class="material-symbols-outlined" (click)="editBook(element.id)" matTooltip="edit" >
-        edit
-        </span></mat-icon><mat-icon class="mat-18" style="margin-left:15%" (click)="deleteBook(element.id)" color="accent"><span class="material-symbols-outlined" matTooltip="dalete">
-          delete
-          </span></mat-icon></td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns; " ></tr>
-
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[3, 6, 9,15,18,25]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-
-  </mat-paginator>
-
-</div>
-
-
-
-    </mat-drawer-content>
+      <mat-paginator
+        [pageSizeOptions]="[3, 6, 9, 15, 18, 25]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>
 
 <router-outlet></router-outlet>
