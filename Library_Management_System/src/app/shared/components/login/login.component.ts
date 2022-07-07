@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
-      username:['',[Validators.required]],
+      email:['',[Validators.required]],
       password:['',[Validators.required]]
     })
   }
@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
   }
   loginCredential(){
     this.services.authenticateUser(this.loginForm.value);
-
     this.MatDialog.closeAll();
   }
 

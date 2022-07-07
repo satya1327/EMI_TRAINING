@@ -9,6 +9,9 @@
     <input matInput [(ngModel)]="bookByNameSearch">
   </mat-form-field></span>
   <span class="example-spacer"></span>
+  <p>Hello.. {{userName}}</p>
+
+
  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="margin-right: 1%;" matTooltip="View cart">
     <mat-icon routerLink="/request"><span class="material-symbols-outlined" >
       <span class="material-symbols-outlined " routerLink="/cart">
@@ -20,6 +23,7 @@
 <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" matTooltip="logout">
  <mat-icon routerLink="/mainPage">logout</mat-icon>
 </button>
+
 </mat-toolbar>
 
 <!--body-->

@@ -25,7 +25,6 @@ export class AddBookComponent implements OnInit {
   }
   addBooks(){
     this.addBook.addBooks(this.bookAddition.value).subscribe(response=>{
-      console.log(response);
       this.toaster.showSuccess("Congratulations","Book Added Successfully");
       this.matdialog.closeAll();
      this.router.navigate(['/adminDashboard']);

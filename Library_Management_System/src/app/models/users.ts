@@ -3,6 +3,7 @@ export class users{
   username:string;
   password:string;
   role:string;
-  book:Object;
+  email:string;
+
 
 }

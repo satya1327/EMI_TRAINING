@@ -16,6 +16,7 @@
 
     </mat-toolbar>
     <div class="sidebarcontent">
+      <p>hello..{{adminName}}</p>
     <button  matTooltip="add"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"  (click)=" openAddDialog()">
       <mat-icon color="primary">add</mat-icon>Add Books
     </button><br>
@@ -23,6 +24,7 @@
       <mat-icon routerLink="/mainPage" matTooltip="logout" color="warn">logout</mat-icon>logout
      </button>
     <br><br>
+
 
   </div>
 
@@ -86,10 +88,5 @@
 
     </mat-drawer-content>
 </mat-drawer-container>
-<!-- <div class="spacer">
-  <mat-paginator [pageSizeOptions]="[3, 6, 15]"  showFirstLastButtons   aria-label="Select page of Employee"></mat-paginator>
 
-
-  </div> -->
-<!--body-->
 <router-outlet></router-outlet>

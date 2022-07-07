@@ -1,6 +1,9 @@
 <form [formGroup]="signupForm">
   <h1>Sign Up</h1>
-
+  <mat-form-field appearance="standard">
+    <mat-label>email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field><br>
 <mat-form-field appearance="standard">
   <mat-label>username</mat-label>
   <input matInput formControlName="username">

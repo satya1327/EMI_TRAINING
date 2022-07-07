@@ -26,7 +26,7 @@ return this.http.get(url).subscribe(response=>{
   }
   authenticateUsers(){
     this.response=(this.user.find((x:any)=>{
-      return x.username==this.data.username  && x.password==this.data.password
+      return x.email==this.data.email  && x.password==this.data.password
     }));
   }
   navigateUser(){
@@ -44,12 +44,18 @@ return this.http.get(url).subscribe(response=>{
       this.isAuthenticated=true;
       this.toastr.showSuccess("logged in successfully","congratulations");
       this.router.navigate(['/adminDashboard']);
+      localStorage.setItem('adminId',this.response.id);
+
+      localStorage.setItem('adminName',this.response.username);
     }
     else if(this.response.role==='user'){
       this.isUser=true;
       this.isAuthenticated=true;
       this.toastr.showSuccess("logged in successfully","congratulations");
       this.router.navigate(['/userDashboard']);
+      localStorage.setItem('userId',this.response.id);
+
+      localStorage.setItem('userName',this.response.username);
     }
     else{
       this.toastr.showError("invalid credential","failed");

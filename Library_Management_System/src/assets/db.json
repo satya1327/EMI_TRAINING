@@ -60,92 +60,26 @@
   "Users": [
     {
       "role": "admin",
-      "username": "satya@hotmail.com",
+      "email": "admin123@gmail.com",
+      "username": "satyajit Das",
       "password": "Chintu@99",
-      "id": 3,
-      "books": {}
+      "id": 1
     },
     {
       "role": "user",
-      "username": "akjhsgdjhg",
-      "password": "gyuguyjg",
-      "id": 4
-    },
-    {
-      "role": "user",
-      "username": "satya",
-      "password": "chintu",
-      "id": 5,
-      "books": {
-        "bookname": "Love",
-        "category": "Engineering",
-        "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
-        "Author": "Eienstine",
-        "quantity": 50,
-        "id": 6
-      }
-    },
-    {
-      "role": "user",
-      "username": "satya",
-      "password": "satyajit",
-      "id": 6
-    },
-    {
-      "role": "",
-      "username": "shivam",
-      "password": "Shiavm@123",
-      "id": 7
-    },
-    {
-      "role": "user",
-      "username": "satyajit",
+      "email": "satyajitdas159@gmail.com",
+      "username": "Satya",
       "password": "123456",
-      "id": 8
-    },
-    {
-      "role": "user",
-      "username": "chintu@gmail.com",
-      "password": "Chintu@99",
-      "id": 9
-    },
-    {
-      "role": "user",
-      "username": "amrit",
-      "password": "SKS123",
-      "id": 10
-    },
-    {
-      "role": "user",
-      "username": "sada",
-      "password": "sasa",
-      "book": {},
-      "id": 11
-    },
-    {
-      "role": "user",
-      "username": "sasassa",
-      "password": "sasasa",
-      "book": [
-        {}
-      ],
-      "id": 12
-    },
-    {
-      "role": "user",
-      "username": "dsadsad",
-      "password": "dsadsadsa",
-      "book": [],
-      "id": 13
+      "id": 2
     }
   ],
   "CartItems": [
     {
-      "bookname": "play",
+      "bookname": "atr",
       "category": "story",
       "imageUrl": "https://wallpaperaccess.com/full/1209397.jpg",
       "Author": "James",
-      "quantity": 45,
+      "quantity": 40,
       "id": 5
     },
     {
@@ -157,12 +91,12 @@
       "id": 6
     },
     {
-      "bookname": "God Gifted",
+      "bookname": "Comedy",
       "category": "Engineering",
       "imageUrl": "https://i.pinimg.com/736x/2b/50/70/2b50709ff1719de34f832bb6cb652483.jpg",
       "Author": "Eienstine",
       "quantity": 50,
-      "id": 10
+      "id": 7
     }
   ]
 }

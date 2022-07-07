@@ -17,6 +17,8 @@ import { MatPaginator } from '@angular/material/paginator';
 export class DashBoardComponent implements OnInit {
   bookByName:any;
   allBookList:any;
+  adminName:any;
+  id:any;
 
   constructor(private datashare:EditIdService,private services:BookDataService,private toaster:NotificationService,private router:Router,private matdialog:MatDialog) { }
 
@@ -35,8 +37,11 @@ export class DashBoardComponent implements OnInit {
 
 
 
-      console.log(res)
+
     }});
+
+    this.adminName = localStorage.getItem('adminName');
+    this.id = localStorage.getItem('adminId');
   }
   openAddDialog(){
     this.matdialog.open(AddBookComponent,{
@@ -68,7 +73,5 @@ editBook(id:number){
 }
 
 }
-function next(next: any, arg1: (res: any) => void) {
-  throw new Error('Function not implemented.');
-}
+
 
