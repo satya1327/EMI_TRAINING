@@ -36,7 +36,10 @@ export class DashBoardComponent implements OnInit {
     'quantity',
     'Action',
   ];
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   dataSource!: MatTableDataSource<any>;
 
   ngOnInit(): void {
