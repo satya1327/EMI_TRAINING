@@ -11,9 +11,6 @@
       </button>
       <span class="header-content">Library Management System</span>
       <span class="example-spacer"></span>
-      <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon routerLink="/list">list</mat-icon>
-      </button> -->
 
 
 
@@ -26,29 +23,16 @@
       <mat-icon routerLink="/mainPage" matTooltip="logout" color="warn">logout</mat-icon>logout
      </button>
     <br><br>
-    <!-- <button matTooltip="Requests"  mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" >
-      <mat-icon >
-        request_page
-       </mat-icon>Requested Books
-    </button> -->
+
   </div>
 
   </mat-drawer>
   <mat-drawer-content class="contents">
 
 <div class="mat-elevation-z8">
-  <!-- <span style="font-size:larger;font:bolder">Search Book By Name: </span> -->
-<!-- <mat-form-field class="example-full-width" appearance="standard">
-  <input matInput [(ngModel)]="bookByName">
 
-</mat-form-field> -->
   <table mat-table [dataSource]="dataSource | filter:bookByName">
 
-    <!-- Position Column -->
-    <!-- <ng-container matColumnDef="bookid">
-      <th mat-header-cell *matHeaderCellDef> BookId </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container> -->
     <ng-container matColumnDef="Bookname" >
       <th mat-header-cell *matHeaderCellDef > Bookname </th>
       <td mat-cell *matCellDef="let element"  >{{element.bookname}}  </td>
@@ -59,19 +43,19 @@
       <td mat-cell *matCellDef="let element"  ><img src={{element.imageUrl}} style="height:50px;width:70px;margin-top:2%"> </td>
     </ng-container>
 
-    <!-- Name Column -->
+
     <ng-container matColumnDef="category">
       <th mat-header-cell *matHeaderCellDef> category </th>
       <td mat-cell *matCellDef="let element"> {{element.category }} </td>
     </ng-container>
 
-    <!-- Weight Column -->
+
     <ng-container matColumnDef="Author">
       <th mat-header-cell *matHeaderCellDef> Author </th>
       <td mat-cell *matCellDef="let element"> {{element.Author}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef> quantity </th>
       <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>

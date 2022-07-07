@@ -1,3 +1,4 @@
+import { carts } from './../../../models/carts';
 import { books } from './../../../models/books';
 import { environment } from './../../../../environments/environment';
 import { Observable } from 'rxjs';
@@ -10,8 +11,12 @@ const url=environment.cartbaseurl;
 export class CartService {
 
   constructor(private http:HttpClient) { }
-  public userCartPost(data:any):Observable<books[]>{
-    return this.http.post<books[]>(url,data);
+  public postCartItems(data:any):Observable<carts[]>{
+    return this.http.post<carts[]>(url,data);
+
+  }
+  public getCartItems():Observable<carts>{
+    return this.http.get<carts>(url);
   }
 
 }

@@ -1,5 +1,5 @@
-export class books{
-
+export class carts{
+  id:number;
   category:string;
   bookname:string;
   Author:string;

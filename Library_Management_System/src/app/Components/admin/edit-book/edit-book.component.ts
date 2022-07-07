@@ -14,7 +14,7 @@ import { books } from 'src/app/models/books';
 })
 export class EditBookComponent implements OnInit {
   bookedit:FormGroup;
-  editBookDetails: books={id:0,category:'',bookname:'',Author:'',imageUrl:'',quantity:0};
+  editBookDetails: books={category:'',bookname:'',Author:'',imageUrl:'',quantity:0};
   editid:any;
   books=new books();
 

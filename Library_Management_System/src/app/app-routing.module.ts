@@ -1,7 +1,8 @@
+import { MycartComponent } from './Components/user/mycart/mycart.component';
 import { AuthGuard } from './shared/services/authservices/auth.guard';
 import { UserDashboardComponent } from './Components/user/user-dashboard/user-dashboard.component';
 
-import { DetailsBooksComponent } from './Components/user/details-books/details-books.component';
+
 
 import { DashBoardComponent } from '../app/Components/admin/Admin-Dashboard/dash-board.component';
 import { MainPageComponent } from './shared/components/main-page/main-page.component';
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: 'mainPage', component: MainPageComponent },
   {path:'adminDashboard',component:DashBoardComponent,canActivate:[AuthGuard]},
   {path:'userDashboard',component:UserDashboardComponent},
-  {path:'details/:bookid',component:DetailsBooksComponent}
+  {path:'cart',component:MycartComponent}
+
+
 
 ];
 

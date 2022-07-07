@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashBoardComponent } from '../app/Components/admin/Admin-Dashboard/dash-board.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { DetailsBooksComponent } from './Components/user/details-books/details-books.component';
+
 import { ToastrModule } from 'ngx-toastr';
 import { UserDashboardComponent } from './Components/user/user-dashboard/user-dashboard.component';
 import { Ng2SearchPipeModule } from "ng2-search-filter";
@@ -29,7 +29,6 @@ import { MycartComponent } from './Components/user/mycart/mycart.component';
     MenuComponent,
     MainPageComponent,
     DashBoardComponent,
-    DetailsBooksComponent,
     UserDashboardComponent,
     MycartComponent,
   ],
@@ -43,8 +42,6 @@ import { MycartComponent } from './Components/user/mycart/mycart.component';
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot()
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
