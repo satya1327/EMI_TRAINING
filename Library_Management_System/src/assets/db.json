@@ -110,9 +110,15 @@
       "username": "Chintu",
       "password": "123",
       "id": 3
+    },
+    {
+      "role": "user",
+      "email": "satya@gmail.com",
+      "username": "Chintu",
+      "password": "123",
+      "id": 4
     }
   ],
   "CartItems": [
-
-  ]
+    ]
 }

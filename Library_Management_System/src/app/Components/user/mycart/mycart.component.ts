@@ -10,13 +10,17 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class MycartComponent implements OnInit {
   cartItemLog:any;
-  displayedColumns: string[] =  [ 'image','Bookname', 'category', 'Author'];
+  issueDate=new Date();
+
+  displayedColumns: string[] =  [ 'image','Bookname', 'category', 'Author','username','issueDate','returnDate'];
   dataSource!: MatTableDataSource<any>;
   constructor(private services:CartService) { }
 
   ngOnInit(): void {
     this.services.getCartItems().subscribe({ next:(response:any)=>{
       this.dataSource=new MatTableDataSource(response);
+      this.cartItemLog=response;
+      console.log(this.dataSource)
 
     }});
 

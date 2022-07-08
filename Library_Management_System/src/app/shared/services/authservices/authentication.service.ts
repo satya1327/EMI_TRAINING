@@ -54,6 +54,7 @@ return this.http.get(url).subscribe(response=>{
       this.toastr.showSuccess("logged in successfully","congratulations");
       this.router.navigate(['/userDashboard']);
       localStorage.setItem('userId',this.response.id);
+      localStorage.setItem('email',this.response.email);
 
       localStorage.setItem('userName',this.response.username);
     }

@@ -7,9 +7,7 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: 25%;
-}
+
 .header{
   background-color: rgb(7, 18, 238);
   color:white
