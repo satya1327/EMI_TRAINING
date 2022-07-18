@@ -1,0 +1,76 @@
+.example-container {
+  width: 100%;
+  height: 100vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  position: fixed;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  display: block;
+  position: absolute;
+
+
+
+}
+#avtar {
+  margin-left: 25%;
+  height: 50px;
+  width: 50px;
+}
+
+.example-sidenav {
+  padding: 25px;
+  background-color: black;
+  color: rgb(81, 220, 242);
+  text-decoration: none;
+}
+.material-symbols-outlined {
+  color: white;
+}
+.sliderMenu {
+  color: white;
+  margin-top: 5px;
+}
+.OuterBox {
+  margin-top: 60%;
+  margin-right: 5%;
+}
+.example-spacer {
+  flex: 1 1 auto;
+  position: fixed;
+}
+.example-card {
+  max-width: 200px;
+  height: auto;
+  background-color: rgb(255, 253, 253);
+  margin-top: 15%;
+}
+
+.example-header-image {
+  /* background-image: url("../../../assets/images/chart-graph-business-finance.jpg"); */
+  background-size: cover;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
+.toolBar {
+  background-color: rgb(18, 189, 246);
+  width: 100%;
+  height: 6%;
+  color: black;
+
+}
+/* .main{
+  position: absolute;
+  height: 100vh;
+  width:100%;
+} */
+

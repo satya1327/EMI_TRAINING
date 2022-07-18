@@ -1,0 +1,74 @@
+
+<ng-container *ngIf="allRequest.length != 0">
+  <div class="container">
+    <img src="" alt="" />
+    <mat-card
+      class="example-card mat-elevation-z10"
+      *ngFor="let item of allRequest"
+    >
+      <mat-card-header style="margin-left: -5px;">
+        <mat-card-title>Ticket Id : {{ item.id }}</mat-card-title>
+
+        <button
+          mat-raised-button
+          style="right: 0; position: absolute; background-color: pink"
+        >
+          Initiated
+        </button>
+        <mat-card-title>name : {{ item.name }}</mat-card-title>
+      </mat-card-header>
+      <hr />
+
+      <mat-card-header>
+
+
+        <mat-card-title>purpose : {{ item.purpose }}</mat-card-title>
+
+        <mat-card-title>description : {{ item.description }}</mat-card-title>
+
+        <mat-card-title>estimateCost : {{ item.estimateCost }}</mat-card-title>
+
+        <mat-card-title
+          >advanceAmount : {{ item.advanceAmount }}</mat-card-title
+        >
+        <mat-card-title>date : {{ item.date | date }}</mat-card-title>
+      </mat-card-header>
+      <hr />
+      <mat-card-header>
+        <mat-card-title>Approver : {{ item.approver }}</mat-card-title>
+      </mat-card-header>
+      <hr />
+      <mat-card-actions class="buttons">
+        <span *ngIf="this.item.estimateCost <= 200000; else elseBlock">
+          <mat-icon mat-raised-button color="primary" style="margin-left: 10%" matTooltip="approve">
+            <span class="material-symbols-outlined">
+              done
+              </span>
+          </mat-icon>
+        </span>
+        <ng-template #elseBlock
+          ><mat-icon mat-raised-button color="primary" style="margin-left: 35%" matTooltip="forward">
+            <span class="material-symbols-outlined">
+              forward
+              </span>
+          </mat-icon></ng-template
+        >
+
+        <span *ngIf="this.item.estimateCost <= 200000; else elseB">
+          <mat-icon mat-raised-button color="warn" style="margin-left: 25%" (click)="openRejectDialog()" matTooltip="reject">
+            <span class="material-symbols-outlined">
+              delete_forever
+              </span>
+          </mat-icon>
+        </span>
+        <ng-template #elseB
+          ><button
+            mat-raised-button
+            color="primary"
+            style="margin-left: 10%"
+          ></button
+        ></ng-template>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</ng-container>

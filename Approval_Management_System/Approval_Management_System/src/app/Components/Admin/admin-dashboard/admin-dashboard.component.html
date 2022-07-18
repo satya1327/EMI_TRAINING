@@ -1,0 +1,86 @@
+<mat-drawer-container class="example-container" autosize>
+
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    <p style="font-size: 20px;">welcome..{{firstName+" "+lastName}}</p>
+    <div class="OuterBox">
+
+      <div id="avtar">
+      <img style="height:60px;width:70px;border-radius:50%" src="../../../../assets/images/user-3331256__340.webp" alt="">
+
+      </div>
+      <br>
+    <button  class="sliderMenu" mat-menu-item routerLink="dashboard">
+      <mat-icon class="mat-18"
+        ><span class="material-symbols-outlined">
+          dashboard
+          </span></mat-icon
+      >
+      dashboard
+    </button><br>
+    <button  class="sliderMenu" mat-menu-item (click)="opneAddRequestDialog()">
+      <mat-icon class="mat-18"
+        ><span class="material-symbols-outlined" > add_circle </span></mat-icon
+      >
+      createRequest
+    </button><br>
+    <button class="sliderMenu" mat-menu-item routerLink="myRequestComp">
+      <mat-icon class="mat-18"
+        ><span class="material-symbols-outlined">
+          request_quote
+        </span></mat-icon
+      >
+      MyRequest
+    </button><br>
+    <button  class="sliderMenu" mat-menu-item>
+      <mat-icon class="mat-18"
+        ><span class="material-symbols-outlined"> history </span></mat-icon
+      >View-History
+    </button><br>
+    <button  class="sliderMenu" mat-menu-item routerLink="latestRequest">
+      <mat-icon class="mat-18"
+        ><span class="material-symbols-outlined">
+          notifications_active
+          </span></mat-icon
+      >latestRequest
+    </button><br>
+    <button  class="sliderMenu" mat-menu-item routerLink="allRequest">
+      <mat-icon class="mat-18"
+        ><span class="material-symbols-outlined">
+          notifications
+          </span></mat-icon
+      >allRequest
+    </button><br>
+    <button  class="sliderMenu" mat-menu-item routerLink="/login" >
+      <mat-icon class="mat-18" color="primary"
+        ><span class="material-symbols-outlined" > logout </span></mat-icon
+      >Logout
+    </button>
+
+  </div>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+
+      <div class="toolBar">
+       <p>
+  <mat-toolbar>
+   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="example-spacer"></span>
+
+</mat-toolbar>
+</p>
+
+      </div>
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+
+
+    </div>
+
+
+
+
+</mat-drawer-container>

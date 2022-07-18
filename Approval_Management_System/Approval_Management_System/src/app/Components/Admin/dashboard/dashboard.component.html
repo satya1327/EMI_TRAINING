@@ -1,0 +1,46 @@
+<!--  -->
+
+<div class="container">
+  <img src="" alt="" />
+  <mat-card class="example-card" style="background-color: rgb(245, 189, 67)">
+    <mat-card-title-group>
+      <mat-card-title>Total No. Of Request</mat-card-title>
+      <mat-card-subtitle
+        style="
+          font-weight: bold;
+          font-size: 40px;
+          margin: 0 auto;
+          text-align: center;
+        "
+      >{{
+        totalRequest
+      }}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card" style="background-color: rgb(51, 255, 0)">
+    <mat-card-title-group>
+      <mat-card-title>Approved Request</mat-card-title>
+      <mat-card-subtitle style="
+      font-weight: bold;
+      font-size: 40px;
+      margin: 0 auto;
+      text-align: center;
+    ">0</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card" style="background-color: red">
+    <mat-card-title-group>
+      <mat-card-title>Latest Request</mat-card-title>
+      <mat-card-subtitle style="
+      font-weight: bold;
+      font-size: 40px;
+      margin: 0 auto;
+      text-align: center;
+    ">{{latestRequest}}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+</div>

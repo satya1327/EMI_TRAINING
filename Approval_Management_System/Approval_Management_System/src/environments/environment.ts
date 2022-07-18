@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiurl:'http://localhost:3000/UserData'
+  apiurl:'http://localhost:3000/requestedData',
+  authUrl:'http://localhost:3000/userAuth'
 };
 
 /*
