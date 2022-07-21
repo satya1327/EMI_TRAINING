@@ -2,18 +2,21 @@
 .example-card {
   width: 330px;
   height: auto;
-  background-color: rgb(255, 255, 252);
+  background-color: rgb(252, 252, 248);
   margin-top: 10rem;
 }
 
 .example-header-image {
   /* background-image: url('../../../assets/images/electronic-ap-approval.png'); */
-  background-size: cover;
+  /* background-size: cover; */
 }
 .container{
+  max-width: 90%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
+
+
 
 }
 header{
@@ -22,9 +25,11 @@ header{
   height: 7%;
 }
 
-.body{
-  background-image: url('https://boostlikes-bc85.kxcdn.com/blog/wp-content/uploads/2019/08/Facebook-Page-Admin.jpg');
-  height: 100vh;
-  width:100vw;
-  background-size: cover;
-}
+/* body{
+  background-image: url('../../../../assets/images/meet.jpg');
+background-size:cover;
+background-attachment: fixed;
+
+height: 100%;
+  width: 100%;
+} */

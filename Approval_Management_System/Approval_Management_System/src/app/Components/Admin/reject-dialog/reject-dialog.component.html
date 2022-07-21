@@ -6,7 +6,7 @@
     <textarea matInput formControlName="comments"></textarea>
   </mat-form-field><br>
   <mat-icon
-  mat-raised-button color="primary" matTooltip="Save"
+  mat-raised-button color="primary" matTooltip="Save"  (click)="submitRejectRequest()"
 >
 <span class="material-symbols-outlined">
   done
@@ -14,7 +14,7 @@
 </mat-icon>&nbsp;
 
 <mat-icon
-mat-raised-button color="accent"
+mat-raised-button color="accent" (click)="onCancel()" matTooltip="cancel"
 >
 cancel
 </mat-icon>

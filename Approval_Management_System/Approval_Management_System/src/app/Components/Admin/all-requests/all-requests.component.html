@@ -1,5 +1,5 @@
 
-<ng-container *ngIf="allRequest.length != 0">
+
   <div class="container">
     <img src="" alt="" />
     <mat-card
@@ -9,12 +9,18 @@
       <mat-card-header style="margin-left: -5px;">
         <mat-card-title>Ticket Id : {{ item.id }}</mat-card-title>
 
-        <button
+        <div *ngIf="item.approved==true;  else elseBlock">  <button
           mat-raised-button
-          style="right: 0; position: absolute; background-color: pink"
+          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(22, 242, 11)"
         >
-          Initiated
-        </button>
+        approved
+        </button></div>
+        <ng-template #elseBlock><button
+          mat-raised-button
+          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(242, 242, 11)"
+        >
+       pending
+        </button></ng-template>
         <mat-card-title>name : {{ item.name }}</mat-card-title>
       </mat-card-header>
       <hr />
@@ -39,14 +45,14 @@
       </mat-card-header>
       <hr />
       <mat-card-actions class="buttons">
-        <span *ngIf="this.item.estimateCost <= 200000; else elseBlock">
-          <mat-icon mat-raised-button color="primary" style="margin-left: 10%" matTooltip="approve">
+        <span *ngIf="this.item.estimateCost <= 200000; else elseB">
+          <mat-icon mat-raised-button color="primary" style="margin-left: 10%" matTooltip="approve" (click)="approved(item.id)">
             <span class="material-symbols-outlined">
               done
               </span>
           </mat-icon>
         </span>
-        <ng-template #elseBlock
+        <ng-template #elseB
           ><mat-icon mat-raised-button color="primary" style="margin-left: 35%" matTooltip="forward">
             <span class="material-symbols-outlined">
               forward
@@ -54,8 +60,8 @@
           </mat-icon></ng-template
         >
 
-        <span *ngIf="this.item.estimateCost <= 200000; else elseB">
-          <mat-icon mat-raised-button color="warn" style="margin-left: 25%" (click)="openRejectDialog()" matTooltip="reject">
+        <span *ngIf="this.item.estimateCost <= 200000;">
+          <mat-icon mat-raised-button color="warn" style="margin-left: 25%" (click)="openRejectDialog()" matTooltip="reject" (click)="rejected(item.id)">
             <span class="material-symbols-outlined">
               delete_forever
               </span>
@@ -71,4 +77,4 @@
       </mat-card-actions>
     </mat-card>
   </div>
-</ng-container>
+

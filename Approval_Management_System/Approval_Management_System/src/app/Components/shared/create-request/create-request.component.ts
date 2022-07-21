@@ -36,15 +36,21 @@ name:any=this.firstName+this.lastName;
       approver: ['jurgen', [Validators.required]],
       advanceAmount: ['', [Validators.required]],
       date: ['', [Validators.required]],
-      name:[this.name]
+      name:[this.name],
+      approved:[],
+      reject:[]
     });
     this.createForm.get('approver').setValue('Jurgen');
+    this.createForm.get('approved').setValue(false);
+    this.createForm.get('reject').setValue(false);
   }
 
   onSubmit() {
     this.services.postUserData(this.createForm.value).subscribe((data) => {
+      console.log(data);
       this.toaster.showSuccess('Request sent successfully', 'Congratulations');
       this.matdialog.closeAll();
+
       this.createForm.reset();
       let currentUrl=this.router.url;
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;

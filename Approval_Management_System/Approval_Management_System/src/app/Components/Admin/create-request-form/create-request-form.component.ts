@@ -1,3 +1,4 @@
+import { requestModel } from 'src/app/Models/RequestModel';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,7 +15,8 @@ export class CreateRequestFormComponent implements OnInit {
   firstName: any = localStorage.getItem('AdminfirstName');
   lastName: any = localStorage.getItem('AdminlastName');
   name: any = this.firstName + this.lastName;
-
+  requestModel=new requestModel();
+  approve:any=this.requestModel.approved;
   createForm: FormGroup;
   date = new Date();
   constructor(
@@ -34,12 +36,18 @@ export class CreateRequestFormComponent implements OnInit {
       advanceAmount: ['', [Validators.required]],
       date: ['', [Validators.required]],
       name: [this.name],
+      approved:[],
+      reject:[],
+      comments:[],
     });
     this.createForm.get('approver').setValue('Jurgen');
+    this.createForm.get('approved').setValue(false);
+    this.createForm.get('reject').setValue(false);
   }
 
   onSubmit() {
     this.services.postUserData(this.createForm.value).subscribe((data) => {
+      console.log(data);
       this.toaster.showSuccess('Request sent successfully', 'Congratulations');
       this.matdialog.closeAll();
       this.createForm.reset();

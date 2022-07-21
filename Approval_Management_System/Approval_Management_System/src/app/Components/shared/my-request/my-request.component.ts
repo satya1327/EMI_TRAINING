@@ -1,6 +1,6 @@
 
 import { Router } from '@angular/router';
-import { EditRequestComponent } from '../../../Components/User/edit-request/edit-request.component';
+import { EditRequestComponent } from '../../User/edit-request/edit-request.component';
 import { NotificationService } from 'src/app/Core/notification.service';
 import { DataServicesService } from 'src/app/Core/data-services.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';

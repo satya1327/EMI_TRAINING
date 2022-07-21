@@ -2,7 +2,7 @@
 
 <div class="container">
   <img src="" alt="" />
-  <mat-card class="example-card" style="background-color: rgb(245, 189, 67)">
+  <mat-card class="example-card" style="background-color: rgb(67, 67, 245)">
     <mat-card-title-group>
       <mat-card-title>Total No. Of Request</mat-card-title>
       <mat-card-subtitle
@@ -26,12 +26,12 @@
       font-size: 40px;
       margin: 0 auto;
       text-align: center;
-    ">0</mat-card-subtitle>
+    ">{{approvedRequest}}</mat-card-subtitle>
     </mat-card-title-group>
     <mat-card-content> </mat-card-content>
   </mat-card>
 
-  <mat-card class="example-card" style="background-color: red">
+  <mat-card class="example-card" style="background-color: rgb(255, 242, 0)">
     <mat-card-title-group>
       <mat-card-title>Latest Request</mat-card-title>
       <mat-card-subtitle style="
@@ -40,6 +40,18 @@
       margin: 0 auto;
       text-align: center;
     ">{{latestRequest}}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card" style="background-color: rgb(223, 19, 19)">
+    <mat-card-title-group>
+      <mat-card-title>reject Request</mat-card-title>
+      <mat-card-subtitle style="
+      font-weight: bold;
+      font-size: 40px;
+      margin: 0 auto;
+      text-align: center;
+    ">{{rejectRequest}}</mat-card-subtitle>
     </mat-card-title-group>
     <mat-card-content> </mat-card-content>
   </mat-card>

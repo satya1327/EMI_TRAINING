@@ -2,7 +2,7 @@ import { NotificationService } from '../../../Core/notification.service';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserCreationService } from 'src/app/Core/user-creation.service';
-import { CustomValidators } from '../../pipes/custom-validators';
+import { CustomValidators } from '../../../shared/pipes/custom-validators';
 
 @Component({
   selector: 'app-signup',

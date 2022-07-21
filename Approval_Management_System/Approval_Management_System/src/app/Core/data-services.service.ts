@@ -45,7 +45,8 @@ export class DataServicesService {
     const editUrl = `${api}/${id}`;
     return this.http.patch<requestModel>(editUrl, formdata);
   }
-  public sharedata(data: any) {
+  public sharedata(data: number) {
+    console.log(data);
     return this.subject.next(data);
   }
 }

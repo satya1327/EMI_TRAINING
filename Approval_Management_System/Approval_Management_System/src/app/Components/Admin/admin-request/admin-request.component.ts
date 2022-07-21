@@ -12,6 +12,7 @@ import { EditRequestComponent } from '../../User/edit-request/edit-request.compo
 })
 export class AdminRequestComponent implements OnInit {
 
+
   firstName:any=localStorage.getItem('AdminfirstName');
   lastName:any=localStorage.getItem('AdminlastName');
   name:any=this.firstName+this.lastName;
@@ -26,7 +27,11 @@ export class AdminRequestComponent implements OnInit {
 
  ngOnInit(): void {
    this.getservice.getuserData().subscribe((response) => {
+    console.log(response)
+
+
      this.myRequestList = response;
+
    });
    this.getservice.subject.subscribe(resposne=>{
      console.log(resposne);

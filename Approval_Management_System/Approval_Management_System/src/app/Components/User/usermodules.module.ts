@@ -2,22 +2,24 @@
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RequestComponent } from './request/request.component';
 import { EditRequestComponent } from './edit-request/edit-request.component';
-import { SharedModuleModule } from 'src/app/shared/shared-module.module';
+import { SharedModuleModule } from '../shared/shared-module.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
 import { landingPageComponent } from './landingPage/landingPage.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatModulesModule } from 'src/app/shared/mat-modules.module';
+import { MatModulesModule } from 'src/app/shared/material/mat-modules.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserViewHistoryComponent } from './user-view-history/user-view-history.component';
 @NgModule({
   declarations: [
 
     EditRequestComponent,
     RequestComponent,
     landingPageComponent,
+    UserViewHistoryComponent,
 
 
 
@@ -36,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   exports: [
 
-landingPageComponent
+landingPageComponent,
+UserViewHistoryComponent
 
 
 

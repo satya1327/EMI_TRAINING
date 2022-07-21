@@ -9,12 +9,10 @@ export class requestModel {
   approved:boolean;
   reject:boolean;
   name:string;
+  comments:string
 
 
 }
 
-export class comments{
-  description:string;
-  id:number;
-}
+
 

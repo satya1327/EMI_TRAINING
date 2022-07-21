@@ -16,7 +16,7 @@ export class landingPageComponent implements OnInit {
   lastName: any = localStorage.getItem('lastName');
 
   ApprovalFormDetails: FormGroup;
-  userModel = new requestModel();
+  userModel :requestModel;
   currentDate: any = new Date();
 
 

@@ -20,7 +20,8 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.userdata.getuserData().subscribe((response: any) => {
       this.latestRequest =response;
-      this.totalRequest=Object.values(response).length;
+      this.totalRequest=Object.values(response.filter((item:any)=>item.approved==true && item.reject==true)).length;
+      console.log(this.totalRequest);
     });
 
 

@@ -8,13 +8,18 @@
     >
       <mat-card-header style="margin-left: -5px;">
         <mat-card-title>Ticket Id : {{ item.id }}</mat-card-title>
-
-        <button
+        <div *ngIf="item.approved==true;  else elseBlock">  <button
           mat-raised-button
-          style="right: 0; position: absolute; background-color: pink"
+          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(22, 242, 11)"
         >
-          Initiated
-        </button>
+        approved
+        </button></div>
+        <ng-template #elseBlock><button
+          mat-raised-button
+          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(242, 242, 11)"
+        >
+       initiated
+        </button></ng-template>
         <mat-card-title>name : {{ item.name }}</mat-card-title>
       </mat-card-header>
       <hr />
@@ -39,6 +44,7 @@
       </mat-card-header>
       <hr />
       <mat-card-actions class="buttons">
+        <div *ngIf="item.approved==false;  else elseBl">
         <mat-icon
           mat-raised-button
           color="primary"
@@ -54,13 +60,28 @@
           mat-raised-button
           color="warn"
           (click)="deleteCart(item.id)"
-          style="margin-left: 20%"
-          matTooltip="Withdraw"
+          style="margin-left: 10%"
+          color="accent"
+          matTooltip="withdraw"
         >
         <span class="material-symbols-outlined">
-          delete
+          delete_forever
           </span>
+
         </mat-icon>
+      </div>
+      <ng-template #elseBl> <mat-icon
+        mat-raised-button
+        color="primary"
+        style="margin-left: 45%"
+        (click)="openEditDialog(item.id)"
+        matTooltip="upload"
+      >
+      <span class="material-symbols-outlined">
+        file_upload
+        </span>
+      </mat-icon></ng-template>
+
       </mat-card-actions>
     </mat-card>
   </div>

@@ -9,12 +9,19 @@
       <mat-card-header style="margin-left: -5px;">
         <mat-card-title>Ticket Id : {{ item.id }}</mat-card-title>
 
-        <button
+
+        <div *ngIf="item.approved==true;  else elseBl">  <button
           mat-raised-button
-          style="right: 0; position: absolute; background-color: pink"
+          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(22, 242, 11)"
         >
-          Initiated
-        </button>
+        approved
+        </button></div>
+        <ng-template #elseBl><button
+          mat-raised-button
+          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(242, 242, 11)"
+        >
+       pending
+        </button></ng-template>
         <mat-card-title>name : {{ item.name }}</mat-card-title>
       </mat-card-header>
       <hr />
@@ -40,7 +47,7 @@
       <hr />
       <mat-card-actions class="buttons">
         <span *ngIf="this.item.estimateCost <= 200000; else elseBlock">
-          <mat-icon mat-raised-button color="primary" style="margin-left: 10%" matTooltip="Approve">
+          <mat-icon mat-raised-button color="primary" style="margin-left: 10%" matTooltip="Approve" (click)="approved(item.id)">
             <span class="material-symbols-outlined">
               done
               </span>

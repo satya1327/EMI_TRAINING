@@ -1,17 +1,21 @@
+import { ViewHistoryComponent } from './../view-history/view-history.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminRequestComponent } from '../../Admin/admin-request/admin-request.component';
 import { AllRequestsComponent } from '../../Admin/all-requests/all-requests.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { SharedModuleModule } from '../../../shared/shared-module.module';
+import { SharedModuleModule } from '../../shared/shared-module.module';
 import { CreateRequestFormComponent } from '../../Admin/create-request-form/create-request-form.component';
 import { LatestRequestComponent } from '../latest-request/latest-request.component';
 import { AppRoutingModule } from '../../../app-routing.module';
 import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatModulesModule } from 'src/app/shared/mat-modules.module';
+import { MatModulesModule } from 'src/app/shared/material/mat-modules.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component';
+import { AgGridModule } from 'ag-grid-angular';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,8 @@ import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component'
  CreateRequestFormComponent,
  RejectDialogComponent,
  DashboardComponent,
- AdminRequestComponent
+ AdminRequestComponent,
+ ViewHistoryComponent
 
   ],
   imports: [
@@ -31,7 +36,10 @@ import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component'
     AppRoutingModule,
     FormsModule,
     SharedModuleModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AgGridModule
+
+
   ],
   exports: [
     AdminDashboardComponent,
@@ -40,7 +48,9 @@ import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component'
     RejectDialogComponent,
     DashboardComponent,
     AllRequestsComponent,
-    AdminRequestComponent
+    AdminRequestComponent,
+    ViewHistoryComponent,
+
   ],
 })
 export class AdminModule {}
