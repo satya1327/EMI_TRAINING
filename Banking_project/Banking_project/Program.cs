@@ -33,43 +33,44 @@ namespace Bank
 
         public int Create_Acc()
         {
-            //for (int i = 0; i < index.Length;i++ )
-            //{
 
-            //}
+
             try
             {
-                Console.Write("Enter The Account Number:\t");
-                Acc_no = Console.ReadLine();
-                if (Acc_no == null)
-                    throw new Errors("You must enter the Account number!");
+                {
+                    Console.Write("Enter The Account Number:\t");
+                    Acc_no = Console.ReadLine();
+                    if (Acc_no == null)
+                        throw new Errors("You must enter the Account number!");
 
-                Console.Write("Enter The Customer Name:\t");
-                Customer_name = Console.ReadLine();
-                if (Customer_name == null)
-                    throw new Errors("You must enter the Account number!");
+                    Console.Write("Enter The Customer Name:\t");
+                    Customer_name = Console.ReadLine();
+                    if (Customer_name == null)
+                        throw new Errors("You must enter the Account number!");
 
-                Console.Write("Age:\t\t\t\t");
-                Age = int.Parse(Console.ReadLine());
-                if (Age <= 0)
-                    throw new Errors("You must enter the Account number!");
+                    Console.Write("Age:\t\t\t\t");
+                    Age = int.Parse(Console.ReadLine());
+                    if (Age <= 0)
+                        throw new Errors("You must enter the Account number!");
 
-                Console.Write("Enter The Address:\t\t");
-                Customer_address = Console.ReadLine();
-                if (Customer_name == null)
-                    throw new Errors("You must enter the Account number!");
+                    Console.Write("Enter The Address:\t\t");
+                    Customer_address = Console.ReadLine();
+                    if (Customer_name == null)
+                        throw new Errors("You must enter the Account number!");
 
-                Console.Write("Deposite amount:\t\t");
-                Balance = double.Parse(Console.ReadLine());
-                if (Balance <= 0)
-                    throw new Errors("You must enter the Account number!");
+                    Console.Write("Deposite amount:\t\t");
+                    Balance = double.Parse(Console.ReadLine());
+                    if (Balance <= 0)
+                        throw new Errors("You must enter the Account number!");
+                }
+                return 1;
             }
             catch (Errors e)
             {
                 Console.Write(e.Message);
             }
 
-            return 1;
+            return 0;
 
         }
 
