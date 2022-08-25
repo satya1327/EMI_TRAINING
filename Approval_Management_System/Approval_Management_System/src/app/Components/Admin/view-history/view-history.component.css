@@ -1,3 +1,6 @@
+
+@import "~ag-grid-community/styles/ag-grid.css";
+@import "~ag-grid-community/styles/ag-theme-alpine.css";
 table {
   width: 100%;
   padding-top:5%
@@ -5,7 +8,8 @@ table {
 th{
   background-color: rgb(0, 1, 1);
   color: white;
-  font-weight: bold;
+
+  font-size: medium;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
 tr:nth-child(odd) {background-color: #9bf0f8;}
@@ -14,7 +18,13 @@ tr:nth-child(odd) {background-color: #9bf0f8;}
   font-size: 14px;
   width: 100%;
 }
+#aggrid{
+  padding-top: 5%;
 
+}
+.ag-theme-acmecorp {
+  --ag-odd-row-background-color: #aaa;
+}
 
 
 .example-spacer {
@@ -24,3 +34,5 @@ tr:nth-child(odd) {background-color: #9bf0f8;}
 .mat-elevation-z8{
   padding-top:5%
 }
+
+

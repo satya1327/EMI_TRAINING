@@ -1,3 +1,4 @@
+import { UploadBillsComponent } from './upload-bills/upload-bills.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MyRequestComponent } from './my-request/my-request.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
@@ -19,7 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
-  declarations: [HomeComponent  , SignupComponent  , PageNotFoundComponent  ,CreateRequestComponent,MyRequestComponent],
+  declarations: [HomeComponent  , SignupComponent  , PageNotFoundComponent  ,CreateRequestComponent,MyRequestComponent,UploadBillsComponent],
   imports: [
     CommonModule,
     SharedModuleRoutingModule,

@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
-import { requestModel } from 'src/app/Models/RequestModel';
+import { requestModel } from 'src/app/Models/Request.model';
 
 
 const api = environment.apiurl;

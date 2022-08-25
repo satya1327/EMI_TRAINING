@@ -23,7 +23,7 @@ export class AddBookComponent implements OnInit {
       quantity:['',[Validators.required]]
     });
   }
-  addBooks(){
+ public addBooks(){
     this.addBook.addBooks(this.bookAddition.value).subscribe(response=>{
       this.toaster.showSuccess("Congratulations","Book Added Successfully");
       this.matdialog.closeAll();

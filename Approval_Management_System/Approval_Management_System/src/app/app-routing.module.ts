@@ -1,6 +1,6 @@
 import { UserViewHistoryComponent } from './Components/User/user-view-history/user-view-history.component';
 import { ViewHistoryComponent } from './Components/Admin/view-history/view-history.component';
-import { AuthguardGuard } from './Core/authguard.guard';
+import { AuthguardGuard } from './Core/auth-guard.guard';
 import { AdminRequestComponent } from '../app/Components/Admin/admin-request/admin-request.component';
 import { AllRequestsComponent } from '../app/Components/Admin/all-requests/all-requests.component';
 import { DashboardComponent } from '../app/Components/Admin/dashboard/dashboard.component';
@@ -10,7 +10,7 @@ import { MyRequestComponent } from './Components/shared/my-request/my-request.co
 import { SignupComponent } from './Components/shared/signup/signup.component';
 import { HomeComponent } from './Components/shared/home/home.component';
 import { AdminDashboardComponent } from '../app/Components/Admin/admin-dashboard/admin-dashboard.component';
-import { landingPageComponent } from '../app/Components/User/landingPage/landingPage.component';
+import { landingPageComponent} from './Components/User/landing-page/landingPage.component';
 import { LoginComponent } from './Components/shared/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

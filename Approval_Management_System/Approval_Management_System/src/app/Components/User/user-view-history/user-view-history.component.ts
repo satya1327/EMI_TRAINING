@@ -19,7 +19,7 @@ export class UserViewHistoryComponent implements OnInit {
 
   dataSource!: MatTableDataSource<any>;
 
-  displayedColumns: string[] =  [ 'id','name','purpose', 'description', 'estimateCost','status','comments'];
+  displayedColumns: string[] =  [ 'id','name','purpose', 'description', 'estimateCost','Requestdate','status','comments'];
 
 
 

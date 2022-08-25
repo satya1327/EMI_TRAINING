@@ -3,7 +3,7 @@ import { Route, Router } from '@angular/router';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { requestModel } from 'src/app/Models/RequestModel';
+import { requestModel } from 'src/app/Models/Request.model';
 import { DataServicesService } from '../../../Core/data-services.service';
 import { RejectDialogComponent } from '../../Admin/reject-dialog/reject-dialog.component';
 

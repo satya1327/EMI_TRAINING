@@ -62,7 +62,7 @@
         >
 
         <span *ngIf="this.item.estimateCost <= 200000; else elseB">
-          <mat-icon mat-raised-button color="warn" style="margin-left: 25%" (click)="openRejectDialog()" matTooltip="reject">
+          <mat-icon mat-raised-button color="warn" style="margin-left: 25%" (click)="openRejectDialog()" matTooltip="reject "  (click)="rejected(item.id)">
             <span class="material-symbols-outlined">
               delete_forever
               </span>

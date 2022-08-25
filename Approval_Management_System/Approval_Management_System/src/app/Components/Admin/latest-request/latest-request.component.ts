@@ -47,11 +47,10 @@ export class LatestRequestComponent implements OnInit {
     this.userdata.getuserDataById(id).subscribe(response=>{
       response.reject=true;
       response.approved=false;
-      this.userdata.editUserData(id,response).subscribe(response=>{
 
-        console.log(response);
-      })
     });
+      this.userdata.sharedata(id);
+
   }
 
 }

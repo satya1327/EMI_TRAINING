@@ -5,7 +5,9 @@
   "projects": {
     "Library_Management_System": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",

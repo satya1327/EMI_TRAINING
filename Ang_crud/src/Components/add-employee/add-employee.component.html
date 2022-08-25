@@ -49,7 +49,7 @@
 
 
  <td>
-  <mat-form-field appearance="outline" class="example-full-width"  >
+  <mat-form-field appearance="standard" class="example-full-width"  >
     <mat-label>Pick a Date</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="dateCreated"  min="{{dateCreated|date:'yyyy-mm-dd'}}" >
 
@@ -73,6 +73,6 @@
 <div *ngIf="this.EmployeeDetails.get('permanentLink')?.touched && this.EmployeeDetails.get('permanentLink')?.invalid" class="help-block">
 <span class="error"> please fill the field</span>
 </div><br>
-<button mat-raised-button color="warn" (click)="onclose()" >close</button>
+<button mat-raised-button color="warn" [mat-dialog-close]="true">close</button>
 <button mat-raised-button color="primary" (click)="onsubmit()" [disabled]="!EmployeeDetails.valid">submit</button>
 </form>

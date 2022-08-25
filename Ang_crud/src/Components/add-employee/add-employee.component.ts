@@ -36,7 +36,5 @@ export class AddEmployeeComponent implements OnInit {
     this.EmployeeDetails.reset();
   this.MatDialog.closeAll();
   }
-onclose(){
-  this.MatDialog.closeAll();
-}
+
 }

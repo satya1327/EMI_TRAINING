@@ -1,3 +1,4 @@
+import { UploadBillsComponent } from './../upload-bills/upload-bills.component';
 
 import { Router } from '@angular/router';
 import { EditRequestComponent } from '../../User/edit-request/edit-request.component';
@@ -6,7 +7,7 @@ import { DataServicesService } from 'src/app/Core/data-services.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { requestModel } from 'src/app/Models/RequestModel';
+import { requestModel } from 'src/app/Models/Request.model';
 
 @Component({
   selector: 'app-my-request',
@@ -52,5 +53,13 @@ export class MyRequestComponent implements OnInit {
     });
 
     this.getservice.sharedata(id);
+  }
+  openUploadDialog(id: any){
+    this.matdialog.open(UploadBillsComponent,{
+      width:'450px'
+    });
+    this.getservice.sharedata(id);
+
+
   }
 }
