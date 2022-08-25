@@ -1,0 +1,145 @@
+select * from countries;
+select * from regions;
+select * from dependents;
+select * from employees;
+select * from departments;
+select * from jobs;
+select * from locations;
+
+
+--query 1
+select j.job_id,avg(e.salary) as 'Avarage',j.min_salary,j.max_salary
+from jobs j join employees e on j.job_id=e.job_id
+group by j.job_id,j.min_salary,j.max_salary order by [job_id] asc
+
+--query 2
+
+select d.department_name from departments
+select d.department_name as 'Department_Name',count(*) as 'Number_of_employee'
+from departments d join employees e on d.department_id=e.department_id
+group by d.department_name
+
+--query 3 
+
+SELECT COUNT(*) AS 'Count_Employees',e.manager_id AS 'Manager_Id', m.first_name AS 'ManagerName' FROM employees e, employees m
+
+WHERE e.manager_id = m.employee_id GROUP BY e.manager_id,m.first_name
+
+ORDER BY e.manager_id
+
+--query 4 
+select e.last_name,d.department_id,d.department_name
+from employees e join departments d on e.department_id=d.department_id
+order by e.last_name asc
+
+--query 5
+select j.job_title,l.street_address,l.city,l.country_id
+from employees e join jobs j on e.job_id=j.job_id
+join departments d on d.department_id=e.department_id
+join locations l on d.location_id=l.location_id
+where l.street_address='8204 Arthur St' and job_title='Human Resources Representative'
+
+
+--query 6
+
+select e.last_name,d.department_name,l.location_id,l.city
+
+from employees e join departments d on e.department_id=d.department_id
+join locations l on d.location_id=l.location_id where l.location_id in (1400,1700) and department_name in ('IT','Finance','Purchasing') order by [location_id] asc
+
+
+--query 7 
+select e.last_name,d.department_name from employees e join departments d on  e.department_id=d.department_id
+
+--query 8
+
+select e.last_name,d.department_id,d.department_name,j.job_title
+from employees e join departments d on e.department_id=d.department_id
+join jobs j on e.job_id=j.job_id
+
+--query 9 
+
+select e.first_name as 'Employee Name',e.employee_id as 'Employee Number',m.first_name as 'Manager',m.manager_id as 'Manager Number'
+from employees e join employees m 
+on e.manager_id=m.employee_id
+order by e.employee_id asc
+
+
+--query 10
+
+select e.last_name,d.department_id as 'department_number'
+from employees e join departments d on e.department_id=d.department_id 
+group by d.department_id ,e.last_name order by [last_name] asc 
+
+--query 11 
+select e.first_name+' '+e.last_name as 'Name',j.job_title,d.department_id,e.salary
+from employees e join jobs j on e.job_id=j.job_id 
+ join departments d on e.department_id=d.department_id
+
+
+--sub query
+
+--query 1
+select last_name,hire_date from employees where department_id=(select department_id from departments where department_id=8)
+
+
+--query 2
+select employee_id ,first_name,salary from employees where salary in (select salary from employees where salary>=8200)order by salary asc
+
+--query 3
+
+select employee_id as 'Employee Number',last_name from employees where employee_id in (select employee_id from employees where employee_id in (103,105,112,118,122,145))
+
+--query 4
+select last_name,department_id as 'Department Number',job_id from employees where last_name =(select last_name from employees where last_name='Mavris')
+
+--query 5
+
+select last_name,salary from employees where manager_id in (select manager_id from employees where manager_id=100)
+
+--query 6
+select department_id as 'department Number',last_name,job_id from employees where department_id in (select department_id from employees where department_id=6)
+
+--query 7
+select employee_id,last_name,salary from employees where employee_id in (select employee_id from employees where employee_id in (103,145))
+
+--query 8
+
+select distinct  first_name from employees where employee_id in (select employee_id from employees where phone_number is null)
+
+
+--query 9
+select top 3 last_name,salary from employees
+
+--query 10
+select distinct (first_name),salary,department_id from employees where first_name in (select first_name from employees where first_name in ('Neena','Lex','John')) 
+
+
+
+
+store procedure:--
+--------------------------------
+1.
+
+create proc sp_increaseSalaryByManager(@salary money,@result float out)
+as
+begin
+select @result=count(*) from employees e,employees m where e.employee_id=m.manager_id;
+
+if(@result>0)
+begin
+print('Total number of manager is ')+cast (@result as varchar)
+ update employees set salary=salary+@salary where manager_id is not null;
+end
+
+else
+begin
+print 'manager count should be greater than 0';
+end
+end
+
+declare @c int
+exec  sp_increaseSalaryByManager 5000,@c out
+print 'The result is '+cast(@c as varchar);
+select * from employees;
+
