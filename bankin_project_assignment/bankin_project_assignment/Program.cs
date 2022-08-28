@@ -18,10 +18,9 @@ namespace Bank
     }
     class Accounts
     {
-        public string Account_number = "", Customer_name = "", Customer_address = "";
+        public string Account_number = "", name = "", location = "",email="",state="",country="",type;
         public double Balance = 0;
         public int age;
-        public string type;
 
         public Accounts()
         {
@@ -30,11 +29,14 @@ namespace Bank
 
 
 
-        public Accounts(string acc_number, string c_name, string c_address, double bal)
+        public Accounts(string acc_number, string c_name, string c_location,string c_state,string c_email,string c_country, double bal)
         {
             this.Account_number = acc_number;
-            this.Customer_name = c_name;
-            this.Customer_address = c_address;
+            this.name = c_name;
+            this.location = c_location;
+            this.state = c_state;
+            this.country= c_country;
+            this.email = c_email;
             this.Balance = bal;
             
 
@@ -55,31 +57,46 @@ namespace Bank
                     this.type = "savings";
                     Random random = new Random();
                     long newAccountNumber = random.Next(32000000, 33000000);
-                    Account_number = Convert.ToString(newAccountNumber);
+                    Account_number = Convert.ToString("Sav"+newAccountNumber);
 
                     if (Account_number == "")
                         throw new Errors("must enter the account number");
 
 
                     Write("enter the name of the customer : ");
-                    Customer_name = ReadLine();
+                    name = ReadLine();
 
-                    if (Customer_name == "")
+                    if (name == "")
                         throw new Errors("must enter the name of the customer");
 
 
-                    Write("enter the address of the customer : ");
-                    Customer_address = ReadLine();
+                    Write("enter the location of the customer : ");
+                    location = ReadLine();
 
-                    if (Customer_address == "")
-                        throw new Errors("must enter the address of the customer");
+                    if (location == "")
+                        throw new Errors("must enter the location of the customer");
+                   Write("enter the state of the customer : ");
+                            state = ReadLine();
+
+                    if (state == "")
+                      throw new Errors("must enter the state of the customer");
+                    Write("enter the country of the customer : ");
+                            country = ReadLine();
+
+                  if (country == "")
+                   throw new Errors("must enter the country of the customer");
+                   Write("enter the email of the customer : ");
+                            email = ReadLine();
+                   if (email == "")
+                     throw new Errors("must enter the email of the customer");
 
 
-                    Write("enter the age of the customer : ");
+
+                            Write("enter the age of the customer : ");
                     age = int.Parse(ReadLine());
 
-                    if (age < 0)
-                        throw new Errors("age must be above zero");
+                    if (age > 68)
+                        throw new Errors("age must be less than 68");
 
                     Write("enter the amount to be deposited : ");
                     Balance = double.Parse(ReadLine());
@@ -105,37 +122,52 @@ namespace Bank
                             this.type = "current";
                             Random random = new Random();
                             long newAccountNumber = random.Next(32000000, 33000000);
-                            Account_number = Convert.ToString(newAccountNumber);
+                            Account_number = Convert.ToString("Curr" + newAccountNumber);
 
                             if (Account_number == "")
                                 throw new Errors("must enter the account number");
 
 
                             Write("enter the name of the customer : ");
-                            Customer_name = ReadLine();
+                            name = ReadLine();
 
-                            if (Customer_name == "")
+                            if (name == "")
                                 throw new Errors("must enter the name of the customer");
 
 
-                            Write("enter the address of the customer : ");
-                            Customer_address = ReadLine();
+                            Write("enter the location of the customer : ");
+                            location = ReadLine();
 
-                            if (Customer_address == "")
-                                throw new Errors("must enter the address of the customer");
+                            if (location == "")
+                                throw new Errors("must enter the location of the customer");
+                            Write("enter the state of the customer : ");
+                            state = ReadLine();
+
+                            if (state == "")
+                                throw new Errors("must enter the state of the customer");
+                            Write("enter the country of the customer : ");
+                            country = ReadLine();
+
+                            if (country == "")
+                                throw new Errors("must enter the country of the customer");
+                            Write("enter the email of the customer : ");
+                            email = ReadLine();
+                            if (email == "")
+                                throw new Errors("must enter the email of the customer");
+
 
 
                             Write("enter the age of the customer : ");
                             age = int.Parse(ReadLine());
 
-                            if (age < 0)
-                                throw new Errors("age must be above zero");
+                            if (age >68)
+                                throw new Errors("age must be less than 68");
 
                             Write("enter the amount to be deposited : ");
                             Balance = double.Parse(ReadLine());
 
-                            if (Balance <800 )
-                                throw new Errors("entered deposite amount must greater than 800\n");
+                            if (Balance < 500)
+                                throw new Errors("entered deposite amount must greater than 500 \n");
                         }
                         return 1;
 
@@ -144,9 +176,9 @@ namespace Bank
                     {
                         Write(e.Message);
                     }
+
+
                     break;
-
-
 
 
             }
@@ -155,16 +187,15 @@ namespace Bank
 
         
         
-        public void acc_availability(string Account_num)
+        public void acc_availability(string acc_number)
         {
-            if (Account_number.Equals(Account_num))
+            if (Account_number.Equals(acc_number))
             {
                 WriteLine("----------------------------------------------------");
-                WriteLine($"the account number is : {Account_number}");
-                WriteLine($"account type  is: {type}");
-                WriteLine($"the name of the customer is : {Customer_name}");
-                WriteLine($"age of the customer is : {age}");
-                WriteLine($"address of the customer is : {Customer_address}");
+
+                WriteLine($"the name of the customer is : {name}");
+                WriteLine($"email of the customer is : {email}");
+                WriteLine($"opening balance is: {type}");
                 WriteLine($"opening balance is: {Balance}");
 
                 WriteLine("-----------------------------------------------------");
@@ -212,45 +243,60 @@ namespace Bank
 
         public void withdraw(string Account_num)
         {
-            try
-            {
-                if (Account_number.Equals(Account_num))
+            if(type=="current"){
+                try
                 {
-                    WriteLine("please enter the amount to be withdrawn");
-                    double amount = double.Parse(ReadLine());
-                    if (amount == 0)
-                        throw new Errors("insufficient fund");
-                    else if (amount > Balance)
-                        throw new Errors("insufficient fund available");
-                    else
-                        Balance = Balance - amount;
-                    WriteLine("---------------------------------------");
-                    WriteLine($"The available amount is {Balance}");
-                    WriteLine("---------------------------------------");
+                    if (Account_number.Equals(Account_num))
+                    {
+                        WriteLine("please enter the amount to be withdrawn");
+                        double amount = double.Parse(ReadLine());
+                        
+                           
+                        if (amount == 0)
+                            throw new Errors("insufficient fund");
+                        else if (Balance < 800)
+                            throw new Errors("can't be withdrawn");
+                        else if (amount > Balance)
+                            throw new Errors("insufficient fund available");
+                        else
+                            Balance = Balance - amount;
+                       if (Balance < 800) 
+                            Balance = Balance + amount;
+
+                        throw new Errors("can't be withdrawn");
+
+                        
+
+                        WriteLine("---------------------------------------");
+                        WriteLine($"The available amount is {Balance}");
+                        WriteLine("---------------------------------------");
+                    }
                 }
-            }
-            catch(Errors e)
-            {
-                WriteLine(e.Message);
+                catch (Errors e)
+                {
+                    WriteLine(e.Message);
+                }
             }
             
         }
 
-        //public void balanceEquery(string account_number)
-        //{
-        //    WriteLine($"Available balance is {Balance}");
-        //}
+        public void balanceEquery(string name)
+        {
+            if(name.Equals(name))
+            WriteLine($"Available balance is {Balance}");
+        }
         static void Main(string[] args)
         {
             int result;
             string account_number;
+            string name;
             int ch;
             Accounts acc = new Accounts();
             for(; ; )
             {
-                WriteLine("----------------------------------------------------------------------------------------------------------");
-                WriteLine("1.Create_New_Account\t2.account_availability\t3.Deposite money\t4.Withdraw money\t5.exit");
-                WriteLine("----------------------------------------------------------------------------------------------------------");
+                WriteLine("-------------------------------------------------------------------------------------------------------------------------");
+                WriteLine("1.Create_New_Account\t2.account_availability\t3.balance_enquery\t4.Deposite money\t5.Withdraw money\t6.exit");
+                WriteLine("-------------------------------------------------------------------------------------------------------------------------");
 
                 ch = int.Parse(ReadLine());
                 switch (ch)
@@ -273,18 +319,23 @@ namespace Bank
                         account_number = ReadLine();
                         acc.acc_availability(account_number);
                         break;
-
                     case 3:
+                        WriteLine("Enter the name : \t");
+                        name = ReadLine();
+                        acc.balanceEquery(name);
+                        break;
+
+                    case 4:
                         WriteLine("Enter the account number");
                         account_number = ReadLine();
                         acc.deposite(account_number);
                         break;
-                    case 4:
+                    case 5:
                         WriteLine("enter the account number");
                         account_number = ReadLine();
                         acc.withdraw(account_number);
                         break;
-                    case 5:
+                    case 6:
                         System.Environment.Exit(0);
                         break;
                     default:
