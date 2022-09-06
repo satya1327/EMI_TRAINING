@@ -1,0 +1,15 @@
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\bin\Debug\net6.0\bankin_project_assignment.exe
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\bin\Debug\net6.0\bankin_project_assignment.deps.json
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\bin\Debug\net6.0\bankin_project_assignment.runtimeconfig.json
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\bin\Debug\net6.0\bankin_project_assignment.dll
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\bin\Debug\net6.0\bankin_project_assignment.pdb
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.csproj.AssemblyReference.cache
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.AssemblyInfoInputs.cache
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.AssemblyInfo.cs
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.csproj.CoreCompileInputs.cache
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.dll
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\refint\bankin_project_assignment.dll
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.pdb
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\bankin_project_assignment.genruntimeconfig.cache
+C:\Users\Satyajit.Das\source\repos\bankin_project_assignment\bankin_project_assignment\obj\Debug\net6.0\ref\bankin_project_assignment.dll
