@@ -10,8 +10,6 @@ using static System.Console;
 namespace Bank
 {
     class Program { 
-
-
         static void Main(string[] args)
         {
             int result;

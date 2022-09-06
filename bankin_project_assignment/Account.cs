@@ -9,10 +9,13 @@ namespace bankin_project_assignment
 {
     internal class Account : IAccounts
     {
-        public string Account_number = "", Customer_name = "", Customer_address = "";
-        public double Balance = 0;
-        public int age;
-        public string type;
+        public string Account_number { get; set; }
+        public string Customer_name { get; set; }
+        public string Customer_address { get; set; }
+
+        private double Balance = 0;
+        private int age;
+        private string type;
 
         public Account()
         {
