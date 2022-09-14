@@ -20,6 +20,7 @@ tr:nth-child(odd) {background-color: #9bf0f8;}
 }
 #aggrid{
   padding-top: 5%;
+  background-color: aquamarine;
 
 }
 .ag-theme-acmecorp {

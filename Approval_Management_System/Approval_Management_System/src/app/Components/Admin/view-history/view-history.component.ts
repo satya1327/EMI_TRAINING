@@ -3,7 +3,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
-import { formatDate } from '@angular/common';
+import { formatDate, formatNumber } from '@angular/common';
+import { CheckboxSelectionCallbackParams, ValueFormatterParams } from 'ag-grid-community';
 
 @Component({
   selector: 'app-view-history',
@@ -12,6 +13,7 @@ import { formatDate } from '@angular/common';
 })
 export class ViewHistoryComponent implements OnInit {
   detailedRequest: any;
+
   dateFormatter:any="dd/m/yyyy";
   firstName: any = localStorage.getItem('AdminfirstName');
   lastName: any = localStorage.getItem('AdminlastName');
@@ -23,7 +25,7 @@ export class ViewHistoryComponent implements OnInit {
 
   // displayedColumns: string[] =  [ 'id','name','purpose', 'description', 'estimateCost','status','comments','date'];
 
-  columnDefs = [
+  columnDefs:any = [
     {
       headerName: 'id',
       field: 'id',
@@ -32,11 +34,17 @@ export class ViewHistoryComponent implements OnInit {
       resizable: true,
       sortable: true,
       animateRows: true,
-      rowDrag: true,
+      rowDrag: true
+
+
+      // lockpinned:true,
+
+
+      // pinned: 'left'
     },
-    { headerName: 'name', field: 'name', sortable: true },
+    { headerName: 'name', field: 'name', sortable: true,filter:'agTextColumnFilter'},
     { headerName: 'purpose', field: 'purpose' },
-    { headerName: 'description', field: 'description' },
+    { headerName: 'description', field: 'description' ,valueFormatter:this.bracketsFormatter},
     {
       headerName: 'estimateCost',
       field: 'estimateCost',
@@ -44,23 +52,36 @@ export class ViewHistoryComponent implements OnInit {
       filterParams: {
         applyMiniFilterWhileTyping: true,
       },
+      valueFormatter: this.currencyFormatter
     },
     { headerName: 'status', field: 'status', filter: true },
     {
       headerName: 'comments',
       field: 'comments',
-      filter: 'agTextColumnFilter',
+      filter: 'agDateColumnFilter',
       editable: true,
       // pass in additional parameters to the text filter
       filterParams: {
         buttons: ['reset', 'apply'],
         debounceMs: 200,
       },
+
+
     }
 //     { headerName: 'date', field: 'date' ,cellRenderer: 'dd/m/yyyy'
 
 // },
   ];
+
+  public currencyFormatter(rowData: ValueFormatterParams) {
+    return '£' + rowData.value;
+  }
+
+  public bracketsFormatter(rowData: ValueFormatterParams) {
+    return '(' + rowData.value + ')';
+  }
+
+
   rowData: any;
   ngOnInit(): void {
     // this.userdata.getuserData().subscribe({next:(response:any)=>{

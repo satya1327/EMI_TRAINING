@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav #drawer mode="side" opened>
-    <p style="font-size: 20px;margin-left: 10%;margin-top:10%">welcome..{{firstName+" "+lastName}}</p>
+    <p style="font-size: 20px;margin-left: 30%;margin-top:10%">Hi!   {{firstName}}</p>
     <div id="avtar">
       <img style="height:40px;width:70px;border-radius:50%" src="../../../../assets/images/user-3331256__340.webp" alt="">
 
@@ -12,13 +12,13 @@
           dashboard
           </span></mat-icon
       >
-      dashboard
+      Dashboard
     </button><br>
     <button style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item (click)="opneAddRequestDialog()">
       <mat-icon class="mat-18" style="color:rgb(6, 45, 222)"
         ><span class="material-symbols-outlined" > add_circle </span></mat-icon
       >
-      createRequest
+      Create Request
     </button><br>
     <button style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="myRequestComp">
       <mat-icon class="mat-18" style="color:rgb(9, 232, 31)"
@@ -26,7 +26,7 @@
           request_quote
         </span></mat-icon
       >
-      MyRequest
+      My Request
     </button><br>
     <!-- <button style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item >
       <mat-icon class="mat-18" style="color:white"
@@ -46,14 +46,14 @@
         ><span class="material-symbols-outlined">
           notifications_active
           </span></mat-icon
-      >latestRequest
+      >Latest Request
     </button><br>
     <button  style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="allRequest">
       <mat-icon class="mat-18"  style="color:rgb(244, 101, 19)"
         ><span class="material-symbols-outlined">
           notifications
           </span></mat-icon
-      >allRequest
+      >All Request
     </button><br>
     <button  style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="/login" >
       <mat-icon class="mat-18"  style="color:rgb(241, 5, 5)"

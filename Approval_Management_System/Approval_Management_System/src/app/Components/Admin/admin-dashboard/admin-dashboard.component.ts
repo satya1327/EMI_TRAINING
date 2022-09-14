@@ -14,7 +14,7 @@ export class AdminDashboardComponent implements OnInit {
   totalRequest:any;
 
   firstName: any = localStorage.getItem('AdminfirstName');
-  lastName: any = localStorage.getItem('AdminlastName');
+
   constructor(private matdialog: MatDialog,private userdata: DataServicesService) {}
 
   ngOnInit(): void {

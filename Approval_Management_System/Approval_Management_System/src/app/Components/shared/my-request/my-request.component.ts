@@ -15,36 +15,34 @@ import { requestModel } from 'src/app/Models/Request.model';
   styleUrls: ['./my-request.component.css'],
 })
 export class MyRequestComponent implements OnInit {
-   firstName:any=localStorage.getItem('firstName');
-   lastName:any=localStorage.getItem('lastName');
-   name:any=this.firstName+this.lastName;
+  firstName: any = localStorage.getItem('firstName');
+  lastName: any = localStorage.getItem('lastName');
+  name: any = this.firstName + this.lastName;
 
   myRequestList: any;
   constructor(
     private getservice: DataServicesService,
     private toaster: NotificationService,
     private matdialog: MatDialog,
-    private router:Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getservice.getuserData().subscribe((response) => {
       this.myRequestList = response;
     });
-    this.getservice.subject.subscribe(resposne=>{
+    this.getservice.subject.subscribe((resposne) => {
       console.log(resposne);
-    })
+    });
   }
 
   deleteCart(id: number) {
     this.getservice.DeleteUserData(id).subscribe((response) => {
-
-      let deleteItem=this.router.url;
+      let deleteItem = this.router.url;
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
       this.router.navigate([deleteItem]);
       this.toaster.showWarning('Congratulation', 'SuccessFully Deleted');
-
     });
   }
   openEditDialog(id: any) {
@@ -54,12 +52,10 @@ export class MyRequestComponent implements OnInit {
 
     this.getservice.sharedata(id);
   }
-  openUploadDialog(id: any){
-    this.matdialog.open(UploadBillsComponent,{
-      width:'450px'
+  openUploadDialog(id: any) {
+    this.matdialog.open(UploadBillsComponent, {
+      width: '450px',
     });
     this.getservice.sharedata(id);
-
-
   }
 }

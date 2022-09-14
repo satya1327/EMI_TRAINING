@@ -135,11 +135,13 @@
 
 </div> -->
 
-<ag-grid-angular id="aggrid" style="height:400px ;width:100%;padding-top:5%"
-class="ag-theme-alpine ag-theme-acmecorp"
+<ag-grid-angular id="aggrid" style="height:400px ;width:100%;padding-top:5%;color: white;"
+class="ag-theme-alpine-dark ag-theme-acmecorp"
 [rowData]="rowData | async" [columnDefs]="columnDefs"
 rowSelection="multiple"
- [animateRows]="true" [pagination]="true"
+  [pagination]="true"
+  [rowHeight]='30'
+
  [paginationAutoPageSize]="true"
 >
 

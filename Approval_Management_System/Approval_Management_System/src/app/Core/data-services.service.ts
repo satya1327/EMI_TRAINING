@@ -1,10 +1,8 @@
-
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { requestModel } from 'src/app/Models/Request.model';
-
 
 const api = environment.apiurl;
 @Injectable({
@@ -13,16 +11,11 @@ const api = environment.apiurl;
 export class DataServicesService {
   subject = new Subject();
   constructor(private http: HttpClient) {}
-  private handleError(errorResponse:HttpErrorResponse)
-  {
-    if(errorResponse.error instanceof ErrorEvent)
-    {
-      console.log('Client Side Error',errorResponse.error);
-    }
-
-    else
-    {
-      console.log('Server Side Error',errorResponse.error)
+  private handleError(errorResponse: HttpErrorResponse) {
+    if (errorResponse.error instanceof ErrorEvent) {
+      console.log('Client Side Error', errorResponse.error);
+    } else {
+      console.log('Server Side Error', errorResponse.error);
     }
     return throwError('Their is a problem in ur code');
   }

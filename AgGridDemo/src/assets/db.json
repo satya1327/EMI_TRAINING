@@ -1,0 +1,92 @@
+{
+  "registration": [{
+    "id":1,
+    "firstName":"satyajit",
+    "lastName":"Das",
+    "age":25,
+    "contact":9937854658
+
+  },
+  {
+    "id":2,
+    "firstName":"mayura",
+    "lastName":"sonar",
+    "age":32,
+    "contact":9947854658
+
+  },
+  {
+    "id":3,
+    "firstName":"shivam",
+    "lastName":"vishvakarma",
+    "age":25,
+    "contact":9937844658
+
+  },
+  {
+    "id":4,
+    "firstName":"anurag",
+    "lastName":"raghuwansi",
+    "age":23,
+    "contact":9937554658
+
+  },
+  {
+    "id":5,
+    "firstName":"aniket",
+    "lastName":"tiwari",
+    "age":22,
+    "contact":9937554658
+
+  },
+  {
+    "id":6,
+    "firstName":"sachin",
+    "lastName":"mittalkod",
+    "age":26,
+    "contact":9937545658
+
+  },
+  {
+    "id":7,
+    "firstName":"Rambhu",
+    "lastName":"Mukhia",
+    "age":23,
+    "contact":9937454658
+
+  },
+  {
+    "id":8,
+    "firstName":"Abhinav",
+    "lastName":"Josh",
+    "age":26,
+    "contact":9937354658
+
+  },
+  {
+    "id":9,
+    "firstName":"Rushikesh",
+    "lastName":"yadav",
+    "age":26,
+    "contact":9937454658
+
+  },
+  {
+    "id":10,
+    "firstName":"vishnu",
+    "lastName":"sankar",
+    "age":23,
+    "contact":9935458555
+
+  },
+  {
+    "id":11,
+    "firstName":"saurav",
+    "lastName":"kumar",
+    "age":24,
+    "contact":9637554658
+
+  }
+
+]
+}
