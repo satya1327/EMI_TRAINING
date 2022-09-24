@@ -2,3 +2,7 @@ mat-card{
   width:50%;
   height: auto;;
 }
+.outerdivs{
+  display: flex;
+  flex-wrap: wrap;
+}

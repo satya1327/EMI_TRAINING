@@ -1,15 +1,57 @@
+<div class="outerdivs">
 <mat-card class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <h2>details</h2>
-  <mat-card-content>
+    <mat-card-title>Request Details </mat-card-title>
 
-  </mat-card-content>
+  </mat-card-header>
+<hr/>
+  <mat-card-header>
+    <div *ngFor="let i of userDetails">
+    <mat-card-title>id :   {{i.id}} </mat-card-title>
+    <mat-card-title>name :   {{i.name}} </mat-card-title>
+    <mat-card-title>description :   {{i.description}} </mat-card-title>
+    <mat-card-title>estimated amount :   {{i.estimateCost}} </mat-card-title>
+    <mat-card-title>advance amount :   {{i.advanceAmount}} </mat-card-title>
+    <mat-card-title>plan date :   {{i.date|date:'M/d/yy'}} </mat-card-title>
+      <mat-card-title>status: {{status}}</mat-card-title>
+  </div>
+</mat-card-header>
+<hr/>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <mat-card-title ><button mat-raised-button
+      style="margin-left:90px;background-color: rgb(22, 242, 11)">{{status}}</button></mat-card-title>
   </mat-card-actions>
 </mat-card>
+<div class="outerdivs">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Request Details </mat-card-title>
+
+    </mat-card-header>
+  <hr/>
+    <mat-card-header>
+      <div *ngFor="let i of userDetails">
+      <mat-card-title>id :   {{i.id}} </mat-card-title>
+      <mat-card-title>name :   {{i.name}} </mat-card-title>
+      <mat-card-title>description :   {{i.description}} </mat-card-title>
+      <mat-card-title>estimated amount :   {{i.estimateCost}} </mat-card-title>
+      <mat-card-title>advance amount :   {{i.advanceAmount}} </mat-card-title>
+      <mat-card-title>plan date :   {{i.date|date:'M/d/yy'}} </mat-card-title>
+        <mat-card-title>status: {{status}}</mat-card-title>
+    </div>
+  </mat-card-header>
+  <hr/>
+    <mat-card-actions>
+      <mat-card-title ><button mat-raised-button
+        style="margin-left:90px;background-color: rgb(22, 242, 11)">{{status}}</button></mat-card-title>
+    </mat-card-actions>
+  </mat-card>
+
+
+
+</div>
+
+
+</div>

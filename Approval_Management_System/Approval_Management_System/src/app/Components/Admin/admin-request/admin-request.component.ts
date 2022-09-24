@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataServicesService } from '../../../Core/data-services.service';
 import { NotificationService } from '../../../Core/notification.service';
+import { UploadBillsComponent } from '../../shared/upload-bills/upload-bills.component';
 import { EditRequestComponent } from '../../User/edit-request/edit-request.component';
 
 @Component({
@@ -55,6 +56,13 @@ export class AdminRequestComponent implements OnInit {
    });
 
    this.getservice.sharedata(id);
+ }
+ openUploadDialog(id:number){
+  this.matdialog.open(UploadBillsComponent,{
+    width:'800px'
+  });
+  this.getservice.sharedata(id);
+
  }
 
 
