@@ -1,5 +1,6 @@
 ﻿using Approval_Api.DataModel_.entities;
 using Approval_Api.DataModel_.Repository;
+using Approval_Api.ServiceModel.DTO.Response;
 using System.Collections.Generic;
 
 namespace Approval_Api.Services
@@ -22,7 +23,7 @@ namespace Approval_Api.Services
             return _userRepository.DeleteUser(id);
         }
 
-        public List<User> GetAllUsers()
+        public List<UserViewModelDTO> GetAllUsers()
         {
             return _userRepository.GetAllUsers();
         }

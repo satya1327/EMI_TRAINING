@@ -1779,6 +1779,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Approval_Api.ServiceModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Approval_Api.ServiceModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Approval_Api.ServiceModel.dll": {}
+        }
       }
     }
   },
@@ -6062,10 +6075,16 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Approval_Api.ServiceModel/1.0.0": {
+      "type": "project",
+      "path": "../Approval_Api.ServiceModel/Approval_Api.ServiceModel.csproj",
+      "msbuildProject": "../Approval_Api.ServiceModel/Approval_Api.ServiceModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Approval_Api.ServiceModel >= 1.0.0",
       "AutoMapper >= 11.0.1",
       "Microsoft.EntityFrameworkCore >= 5.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.13",
@@ -6104,7 +6123,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\SD-DT2-Approval_Management_System-API\\Approval_Api\\Approval_Api.ServiceModel\\Approval_Api.ServiceModel.csproj": {
+              "projectPath": "C:\\SD-DT2-Approval_Management_System-API\\Approval_Api\\Approval_Api.ServiceModel\\Approval_Api.ServiceModel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

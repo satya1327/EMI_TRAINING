@@ -1,4 +1,5 @@
 ﻿using Approval_Api.DataModel_.entities;
+using Approval_Api.ServiceModel.DTO.Response;
 using Approval_Api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace Approval_Api.Controllers
             _userService = userService;
         }
         [HttpGet("GetAllUser")]
-        public async Task<ActionResult<List<User>>> GetAllUser()
+        public async Task<ActionResult<List<UserViewModelDTO>>> GetAllUser()
         {
             var data = _userService.GetAllUsers().ToList();
             if (data == null)

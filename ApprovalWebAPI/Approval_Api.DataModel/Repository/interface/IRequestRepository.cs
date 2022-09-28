@@ -1,5 +1,6 @@
 ﻿
 using Approval_Api.DataModel_.entities;
+using Approval_Api.ServiceModel.DTO.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,11 @@ namespace Approval_Api.DataModel.Repository.Interface
 {
     public interface IRequestRepository
 {
-        List<Request> GetAllRequest();
+        List<RequestDetailsDTO> GetAllRequest();
         Request GetRequestById(int id);
         int AddRequest(Request request);
         public int RejectRequest(Request request, int id);
+        public int ApprovedRequest(Request request, int id);
 
         int DeleteRequest(int id);
         int UpdateRequest(Request request,int id);

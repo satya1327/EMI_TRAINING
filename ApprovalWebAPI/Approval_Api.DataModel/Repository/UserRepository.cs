@@ -1,4 +1,5 @@
 ﻿using Approval_Api.DataModel_.entities;
+using Approval_Api.ServiceModel.DTO.Response;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -41,10 +42,20 @@ namespace Approval_Api.DataModel_.Repository
 
         }
 
-        public List<User> GetAllUsers()
+        public List<UserViewModelDTO> GetAllUsers()
         {
-            var data = _approval_data.Users.ToList();
-            return data;
+            var userList = (from u in _approval_data.Users
+                            join r in _approval_data.Roles on u.RoleId equals r.RoleId
+                            select new UserViewModelDTO
+                            {
+                                UserId = u.UserId,
+                                FirstName = u.FirstName,
+                                LastName = u.LastName,
+                                Email = u.Email,
+                                roleName = r.RoleName,
+                                UserName = u.UserName,
+                            }).ToList();
+            return userList;
         }
 
         public User GetUserById(int id)
@@ -69,6 +80,6 @@ namespace Approval_Api.DataModel_.Repository
             return 1;
         }
 
-        
+       
     }
 }

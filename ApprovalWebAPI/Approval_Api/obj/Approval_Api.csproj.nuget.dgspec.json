@@ -31,7 +31,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\SD-DT2-Approval_Management_System-API\\Approval_Api\\Approval_Api.ServiceModel\\Approval_Api.ServiceModel.csproj": {
+                "projectPath": "C:\\SD-DT2-Approval_Management_System-API\\Approval_Api\\Approval_Api.ServiceModel\\Approval_Api.ServiceModel.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

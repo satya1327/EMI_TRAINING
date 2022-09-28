@@ -26,7 +26,7 @@ namespace Approval_Api.Services
            return _requestRepository.DeleteRequest(id);
         }
 
-        public List<Request> GetAllRequest()
+        public List<RequestDetailsDTO> GetAllRequest()
         {
             return _requestRepository.GetAllRequest();
         }
@@ -60,8 +60,9 @@ namespace Approval_Api.Services
             return _requestRepository.RejectRequest(request, id);
         }
 
-
-
-
+        public int ApprovedRequest(Request request,int id)
+        {
+            return _requestRepository.ApprovedRequest(request, id);
+        }
     }
 }

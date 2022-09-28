@@ -97,55 +97,34 @@ namespace Approval_Api.Controllers
             }
 
         }
-        [HttpGet("TotalRequest")]
-        public async Task<ActionResult<int>>GetTotalRequest()
-        {
-            var data=_services.GetTotalRequest();
-            if (data==null)
-            {
-                return BadRequest("No record found"); 
-            }
-            return Ok($"Total record is {data}");
-        }
-
-        [HttpGet("TotalApprovedRequest")]
-        public async Task<ActionResult<List<RequestDetailsDTO>>> GetTotalApprovedRequest()
-        {
-            var data = _services.GetTotalApprovedRequest();
-            if (data == null)
-                return BadRequest("no approved request found");
-            else
-            {
-                var response = _mapper.Map<List<RequestDetailsDTO>>(data);
-                return Ok(response);
-            }
-        }
-
-        [HttpGet("TotalRejectedRequest")]
-        public async Task<ActionResult<List<RequestDetailsDTO>>> GetTotalRejectedRequest()
-        {
-            var data = _services.GetTotalRejectedRequest();
-            if (data == null)
-                return BadRequest("no approved request found");
-            
-            else
-            {
-                var response = _mapper.Map<List<RequestDetailsDTO>>(data);
-                return Ok(response);
-            }
-        }
         [HttpPut("RejectRequest")]
 
-        public async Task<ActionResult<int>> RejectRequest(Request request,int id)
+        public async Task<ActionResult<int>> RejectRequest(RequestDataDTO request, int id)
         {
-            var data = _services.RejectRequest(request, id);
-            if (data == null)
-                return BadRequest("No comments");
+            var data = _mapper.Map<Request>(request);
+            var requestNew = _services.RejectRequest(data, id);
+            var requestDetails = _mapper.Map<RequestDetailsDTO>(data);
+
+            if (requestNew == null)
+                return 0;
             else
-                return Ok(data);
+                return 1;
+        }
+        [HttpPut("ApproveRequest")]
+
+        public async Task<ActionResult<int>> ApproveRequest(RequestDataDTO request, int id)
+        {
+            var data = _mapper.Map<Request>(request);
+            var requestNew = _services.ApprovedRequest(data, id);
+            var requestDetails = _mapper.Map<RequestDetailsDTO>(data);
+
+            if (requestNew == null)
+                return 0;
+            else
+                return 1;
         }
 
-        
+
 
     }
 }

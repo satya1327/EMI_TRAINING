@@ -1,6 +1,7 @@
 ﻿
 using Approval_Api.DataModel.Repository.Interface;
 using Approval_Api.DataModel_.entities;
+using Approval_Api.ServiceModel.DTO.Response;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,33 @@ namespace Approval_Api.DataModel.Repository
         }
 
        
-        public List<Request> GetAllRequest()
+        public List<RequestDetailsDTO> GetAllRequest()
         {
-            var data = _databaseContext.Requests.ToList();
-            return data;
-           
-        }
+            var userList = (from u in _databaseContext.Users
+                            join r in  _databaseContext.Requests on u.UserId equals r.UserId
+                           
+                            select new RequestDetailsDTO
+                            {
+                                ReqId = r.ReqId,
+                                first_name=u.FirstName,
+                                last_name=u.LastName,
+                                Purpose=r.Purpose,
+                                Description=r.Description,
+                                AdvAmount=r.AdvAmount,
+                                EstimatedAmount=r.EstimatedAmount,
+                                Approver=r.Approver,
+                                Date=r.Date,
+                                Comments=r.Comments,
+                                UserId=u.UserId
+                              
+
+                            }).ToList();
+            return userList;
+              
+
+
+
+    }
 
         public Request GetRequestById(int id)
         {
@@ -36,6 +58,7 @@ namespace Approval_Api.DataModel.Repository
                 if (request != null)
                 {
                     _databaseContext.Entry(request).State = EntityState.Detached;
+                    
                     return request;
                 }
                 return null;
@@ -164,7 +187,7 @@ namespace Approval_Api.DataModel.Repository
                     //   book.CoverFileName=oldbookData.CoverFileName;
 
                     data.UserId = request.UserId;
-                    data.Approver = "Nagaraja";
+                    
 
                 }
                 _databaseContext.Entry(data).State = EntityState.Modified;
@@ -186,8 +209,8 @@ namespace Approval_Api.DataModel.Repository
 
         public List<Request> GetTotalApprovedRequest()
         {
+
             var status = _databaseContext.Requests.Select(x=>x).Where(x=>x.StatusId==2).ToList();
-            
             return status;
         }
         public List<Request> GetTotalRejectedRequest()

@@ -1418,6 +1418,7 @@
       },
       "Approval_Api.DataModel/1.0.0": {
         "dependencies": {
+          "Approval_Api.ServiceModel": "1.0.0",
           "AutoMapper": "11.0.1",
           "Microsoft.EntityFrameworkCore": "5.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13"

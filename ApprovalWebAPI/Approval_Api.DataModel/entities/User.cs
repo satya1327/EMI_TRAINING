@@ -20,7 +20,7 @@ namespace Approval_Api.DataModel_.entities
         public string Password { get; set; }
         public int? RoleId { get; set; }
         public DateTime? JoiningDate { get; set; }
-
+        
         public virtual Role Role { get; set; }
         public virtual ICollection<Request> Requests { get; set; }
     }

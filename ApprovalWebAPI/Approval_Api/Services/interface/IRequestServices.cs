@@ -6,10 +6,11 @@ namespace Approval_Api.Services.Interface
 {
     public interface IRequestServices
 {
-        List<Request> GetAllRequest();
+        List<RequestDetailsDTO> GetAllRequest();
         Request GetRequestById(int id);
         int AddRequest(Request request);
         public int RejectRequest(Request request, int id);
+        public int ApprovedRequest(Request request, int id);
         int DeleteRequest(int id);
         int UpdateRequest(Request request,int id);
 
