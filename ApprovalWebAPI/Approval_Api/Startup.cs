@@ -41,6 +41,7 @@ namespace Approval_Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Approval_Api", Version = "v1" });
+
             });
         }
 

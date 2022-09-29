@@ -24,25 +24,27 @@ namespace Approval_Api.DataModel.Repository
        
         public List<RequestDetailsDTO> GetAllRequest()
         {
-            var userList = (from u in _databaseContext.Users
-                            join r in  _databaseContext.Requests on u.UserId equals r.UserId
-                           
-                            select new RequestDetailsDTO
-                            {
-                                ReqId = r.ReqId,
-                                first_name=u.FirstName,
-                                last_name=u.LastName,
-                                Purpose=r.Purpose,
-                                Description=r.Description,
-                                AdvAmount=r.AdvAmount,
-                                EstimatedAmount=r.EstimatedAmount,
-                                Approver=r.Approver,
-                                Date=r.Date,
-                                Comments=r.Comments,
-                                UserId=u.UserId
-                              
+            var userList =  (from u in _databaseContext.Users
+                                  join r in _databaseContext.Requests on u.UserId equals r.UserId
 
-                            }).ToList();
+                                  select new RequestDetailsDTO
+                                  {
+
+                                      
+                                      first_name = u.FirstName,
+                                      last_name = u.LastName,
+                                      Purpose = r.Purpose,
+                                      Description = r.Description,
+                                      AdvAmount = r.AdvAmount,
+                                      EstimatedAmount = r.EstimatedAmount,
+                                      Approver = r.Approver,
+                                      Date = r.Date,
+                                      StatusId = r.StatusId,
+                                      Comments = r.Comments,
+                                      UserId = u.UserId
+
+
+                                  }).ToList();
             return userList;
               
 
@@ -50,16 +52,16 @@ namespace Approval_Api.DataModel.Repository
 
     }
 
-        public Request GetRequestById(int id)
+        public  Request GetRequestById(int id)
         {
             try
             {
                 Request request = _databaseContext.Requests.FirstOrDefault(x => x.ReqId == id);
                 if (request != null)
                 {
-                    _databaseContext.Entry(request).State = EntityState.Detached;
-                    
-                    return request;
+                     _databaseContext.Entry(request).State = EntityState.Detached;
+
+                     return  request;
                 }
                 return null;
             }
@@ -68,7 +70,7 @@ namespace Approval_Api.DataModel.Repository
                 throw;
             }
         }
-        public int AddRequest(Request request)
+        public   int AddRequest(Request request)
         {
           
             if (request == null)
@@ -87,10 +89,11 @@ namespace Approval_Api.DataModel.Repository
                     request.Approver = "Jurgen";
                     request.Comments = "NULL";
                 }
-                _databaseContext.Requests.Add(request);
+                request.StatusId = 1;
+                 _databaseContext.Requests.Add(request);
+
                 
-              
-                _databaseContext.SaveChanges();
+                 _databaseContext.SaveChanges();
                 return 1;
             }
         }
@@ -140,7 +143,7 @@ namespace Approval_Api.DataModel.Repository
 
         }
 
-        public int RejectRequest(Request request, int id)
+        public int ActionRequest(Request request, int id)
         {
             try
             {
@@ -153,39 +156,14 @@ namespace Approval_Api.DataModel.Repository
                         data.StatusId = 3;
                         data.Comments = request.Comments;
                     }
-                    //   book.CoverFileName=oldbookData.CoverFileName;
-                    
-                    data.UserId = request.UserId;
-                    
-
-                }
-                _databaseContext.Entry(data).State = EntityState.Modified;
-                _databaseContext.SaveChanges();
-                return 1;
-            }
-            catch
-            {
-                throw;
-            }
-
-        }
-
-
-        public int ApprovedRequest(Request request, int id)
-        {
-            try
-            {
-                var data = _databaseContext.Requests.Find(id);
-                if (data != null)
-                {
-
-                    if (request.StatusId == 2)
+                    else if (request.StatusId == 2)
                     {
                         data.StatusId = 2;
-                        
                     }
-                    //   book.CoverFileName=oldbookData.CoverFileName;
 
+
+                    //   book.CoverFileName=oldbookData.CoverFileName;
+                    
                     data.UserId = request.UserId;
                     
 
@@ -200,6 +178,37 @@ namespace Approval_Api.DataModel.Repository
             }
 
         }
+
+
+        //public int ApprovedRequest(Request request, int id)
+        //{
+        //    try
+        //    {
+        //        var data = _databaseContext.Requests.Find(id);
+        //        if (data != null)
+        //        {
+
+        //            if (request.StatusId == 2)
+        //            {
+        //                data.StatusId = 2;
+                        
+        //            }
+        //            //   book.CoverFileName=oldbookData.CoverFileName;
+
+        //            data.UserId = request.UserId;
+                    
+
+        //        }
+        //        _databaseContext.Entry(data).State = EntityState.Modified;
+        //        _databaseContext.SaveChanges();
+        //        return 1;
+        //    }
+        //    catch
+        //    {
+        //        throw;
+        //    }
+
+        //}
 
         public int GetTotlRequest()
         {

@@ -59,7 +59,20 @@ namespace Approval_Api.Controllers
                 return Ok(response);
             }
         }
-       
+        [HttpPut("ActionRequest")]
+
+        public async Task<ActionResult<int>> ActionRequest(RequestDataDTO request, int id)
+        {
+            var data = _mapper.Map<Request>(request);
+            var requestNew = _services.ActionRequest(data, id);
+            //var requestDetails = _mapper.Map<RequestDetailsDTO>(data);
+
+            if (requestNew == null)
+                return 0;
+            else
+                return 1;
+        }
+
 
 
     }

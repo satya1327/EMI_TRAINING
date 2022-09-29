@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "AutoMapper/11.0.1": {
+      "AutoMapper/11.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0"
@@ -1867,7 +1867,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Approval_Api.ServiceModel": "1.0.0",
-          "AutoMapper": "11.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13"
         },
@@ -1882,7 +1882,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "AutoMapper": "11.0.1"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0"
         },
         "compile": {
           "bin/placeholder/Approval_Api.ServiceModel.dll": {}
@@ -1894,15 +1894,15 @@
     }
   },
   "libraries": {
-    "AutoMapper/11.0.1": {
-      "sha512": "WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
+    "AutoMapper/11.0.0": {
+      "sha512": "+596AnKykYCk9RxXCEF4GYuapSebQtFVvIA1oVG1rrRkCLAC7AkWehJ0brCfYUbdDW3v1H/p0W3hob7JoXGjMw==",
       "type": "package",
-      "path": "automapper/11.0.1",
+      "path": "automapper/11.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "automapper.11.0.1.nupkg.sha512",
+        "automapper.11.0.0.nupkg.sha512",
         "automapper.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
@@ -6287,7 +6287,6 @@
     "net5.0": [
       "Approval_Api.DataModel >= 1.0.0",
       "Approval_Api.ServiceModel >= 1.0.0",
-      "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -6343,10 +6342,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[11.0.1, )"
-          },
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[11.0.0, )"

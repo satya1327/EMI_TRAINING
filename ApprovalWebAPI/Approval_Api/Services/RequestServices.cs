@@ -5,6 +5,7 @@ using Approval_Api.DataModel.Repository.Interface;
 using Approval_Api.DataModel_.entities;
 using Approval_Api.Services.Interface;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Approval_Api.Services
 {
@@ -28,7 +29,7 @@ namespace Approval_Api.Services
 
         public List<RequestDetailsDTO> GetAllRequest()
         {
-            return _requestRepository.GetAllRequest();
+            return  _requestRepository.GetAllRequest();
         }
 
         public Request GetRequestById(int id)
@@ -41,7 +42,7 @@ namespace Approval_Api.Services
             return _requestRepository.GetTotalApprovedRequest();
         }
 
-        public List<Request> GetTotalRejectedRequest()
+        public List<Request>GetTotalRejectedRequest()
         {
             return _requestRepository.GetTotalRejectedRequest();
         }
@@ -55,14 +56,19 @@ namespace Approval_Api.Services
         {
            return _requestRepository.UpdateRequest(request, id);
         }
-        public int RejectRequest(Request request, int id)
+        //public int RejectRequest(Request request, int id)
+        //{
+        //    return _requestRepository.ActionRequest(request, id);
+        //}
+
+        public int ActionRequest(Request request, int id)
         {
-            return _requestRepository.RejectRequest(request, id);
+            return _requestRepository.ActionRequest(request, id);
         }
 
-        public int ApprovedRequest(Request request,int id)
-        {
-            return _requestRepository.ApprovedRequest(request, id);
-        }
+        //public int ApprovedRequest(Request request,int id)
+        //{
+        //    return _requestRepository.ApprovedRequest(request, id);
+        //}
     }
 }

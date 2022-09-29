@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2uEUNNMF6J7rcdkhf7YygR5s9l9bbme3uFrE23vhlHqp46c+RRQ0IYNm2LIHrpMgyK5LomrKywywrNeWz+RJMg==",
+  "dgSpecHash": "GqBEsZMwi6qwR3unYTNpY3UsMoUUew3Yd70lPdqHeMp9fbuuoPnblEKOQpME2BCBFwIErsqcUXjCD1bnz/DngQ==",
   "success": true,
   "projectFilePath": "C:\\SD-DT2-Approval_Management_System-API\\Approval_Api\\Approval_Api\\Approval_Api.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Satyajit.Das\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Satyajit.Das\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Satyajit.Das\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Satyajit.Das\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Satyajit.Das\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

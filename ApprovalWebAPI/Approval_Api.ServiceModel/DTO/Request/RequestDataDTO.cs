@@ -9,8 +9,7 @@ namespace Approval_Api.ServiceModel.DTO.Request
 {
     public class RequestDataDTO
     {
-        [Key]
-        public int ReqId { get; set; }
+        
         public int? UserId { get; set; }
         public string Purpose { get; set; }
         public string Description { get; set; }

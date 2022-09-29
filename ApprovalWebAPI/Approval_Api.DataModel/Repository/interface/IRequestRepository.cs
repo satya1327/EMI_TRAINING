@@ -11,17 +11,17 @@ namespace Approval_Api.DataModel.Repository.Interface
 {
     public interface IRequestRepository
 {
-        List<RequestDetailsDTO> GetAllRequest();
-        Request GetRequestById(int id);
+        List<RequestDetailsDTO>GetAllRequest();
+         Request GetRequestById(int id);
         int AddRequest(Request request);
-        public int RejectRequest(Request request, int id);
-        public int ApprovedRequest(Request request, int id);
+        int ActionRequest(Request request, int id);
+        
 
         int DeleteRequest(int id);
         int UpdateRequest(Request request,int id);
         int GetTotlRequest();
-        List<Request> GetTotalApprovedRequest();
-        List<Request> GetTotalRejectedRequest();
+        List<Request>GetTotalApprovedRequest();
+        List<Request>GetTotalRejectedRequest();
 
     }
 }
