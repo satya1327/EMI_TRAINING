@@ -13,6 +13,7 @@ import { MatModulesModule } from 'src/app/shared/material/mat-modules.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserViewHistoryComponent } from './user-view-history/user-view-history.component';
+import { AgGridModule } from 'ag-grid-angular';
 @NgModule({
   declarations: [
 
@@ -34,7 +35,8 @@ import { UserViewHistoryComponent } from './user-view-history/user-view-history.
     AppRoutingModule,
     ToastrModule.forRoot(),
     SharedModuleModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AgGridModule
   ],
   exports: [
 

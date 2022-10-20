@@ -1,7 +1,9 @@
+import { RequestStatusServiceService } from './../../../Core/RequestOperations/RequestStatusOperations/request-status-service.service';
+import { RequestServicesService } from 'src/app/Core/RequestOperations/CrudOperations/request-services.service';
 import { NotificationService } from './../../../Core/notification.service';
 import { Route, Router } from '@angular/router';
 import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component';
-import { DataServicesService } from 'src/app/Core/data-services.service';
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -12,11 +14,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class LatestRequestComponent implements OnInit {
   latestRequest: any;
-  status:any="initiated";
-  constructor(private userdata: DataServicesService,private matDialog:MatDialog,private route:Router,private toaster:NotificationService) {}
+  statusId:any=1;
+
+  managerId:any=localStorage.getItem('adminId');
+  constructor(private request: RequestServicesService,private matDialog:MatDialog,private route:Router,private toaster:NotificationService,private requeststatus:RequestStatusServiceService) {}
   ngOnInit(): void {
-    this.userdata.getuserData().subscribe((response: any) => {
-      this.latestRequest = Object.values(response.filter((item:any)=>item.approved==false && item.reject==false)).reverse().slice(0, 3);
+    this.request.getRequests().subscribe((response: any) => {
+      this.latestRequest = Object.values(response.filter((item:any)=>item.statusName=='pending' && item.managerId==this.managerId || item.statusName=='forwarded')).reverse().slice(0, 3);
     });
   }
   openRejectDialog(){
@@ -27,13 +31,12 @@ export class LatestRequestComponent implements OnInit {
   approved(id:number)
   {
 
-    this.userdata.getuserDataById(id).subscribe(response=>{
-      response.approved=true;
-      response.reject=false;
+    this.request.GetRequestById(id).subscribe(response=>{
+      response.statusId=2;
 
-    this.userdata.editUserData(id,response).subscribe(res=>{
+    this.request.UpdateRequestById(id,response).subscribe(res=>{
       console.log(res);
-      this.status="approved";
+      this.statusId=2;
       let currentUrl = this.route.url;
       this.route.routeReuseStrategy.shouldReuseRoute = () => false;
       this.route.onSameUrlNavigation = 'reload';
@@ -44,12 +47,13 @@ export class LatestRequestComponent implements OnInit {
     })
   }
   rejected(id:any){
-    this.userdata.getuserDataById(id).subscribe(response=>{
-      response.reject=true;
-      response.approved=false;
+    this.request.GetRequestById(id).subscribe(response=>{
+
+      this.openRejectDialog();
+
 
     });
-      this.userdata.sharedata(id);
+      this.request.sharedata(id);
 
   }
 

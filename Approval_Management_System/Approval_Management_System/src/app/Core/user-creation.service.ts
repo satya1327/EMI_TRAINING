@@ -1,8 +1,10 @@
 import { environment } from '../../environments/environment';
-import { authentication } from '../Models/authentication';
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
+import { employee } from '../Models/employee.model';
+
 
 const url = environment.authUrl;
 @Injectable({
@@ -20,7 +22,7 @@ export class UserCreationService {
   }
 
   ngOnInit(): void {}
-  public addUser(data: any): Observable<authentication[]> {
-    return this.http.post<authentication[]>(url, data);
+  public addUser(data: any): Observable<employee[]> {
+    return this.http.post<employee[]>(url, data);
   }
 }

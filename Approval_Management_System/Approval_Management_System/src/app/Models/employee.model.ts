@@ -1,9 +1,10 @@
-export class authentication {
-  id: number;
+export class employee {
+  userId: number;
   firstName: string;
   lastName: string;
-  role: string;
+  RoleId: number;
   email: string;
   password: string;
   userName: string;
+  ManagerId:number;
 }

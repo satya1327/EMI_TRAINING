@@ -1,15 +1,20 @@
 export class requestModel {
-  id: number;
+  ReqId: number;
   purpose: string;
   description: string;
-  estimateCost: number;
+  estimatedAmount: number;
   approver: string;
-  advanceAmount: number;
+  advAmount: number;
   date: Date;
   approved:boolean;
   reject:boolean;
   name:string;
-  comments:string
+  comments:string;
+  SpendAmount:number;
+  statusId:number;
+  ManagerId:number;
+  userId:number;
+  file:File
 }
 
 

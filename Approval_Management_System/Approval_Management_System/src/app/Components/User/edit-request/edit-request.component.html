@@ -41,12 +41,7 @@
   <!-- Div for approver  field -->
   <table class="example-full-width" cellspacing="0">
     <tr>
-      <td>
-        <mat-form-field class="example-full-width" appearance="standard">
-          <mat-label>approver</mat-label>
-          <input matInput formControlName="approver" [readonly]="true" />
-        </mat-form-field>
-      </td>
+
 
       <!-- Div for CreatedDate  field -->
 
@@ -57,7 +52,7 @@
             matInput
             [matDatepicker]="picker"
             formControlName="date"
-            min="{{ date | date: 'yyyy-mm-dd' }}"
+
           />
 
           <mat-datepicker-toggle
@@ -76,12 +71,12 @@
         <!-- Div for estimateCost  field -->
         <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>estimateCost</mat-label>
-          <input matInput formControlName="estimateCost" />
+          <input matInput formControlName="estimatedAmount" />
         </mat-form-field>
         <div
           *ngIf="
-            this.editForm.get('estimateCost')?.touched &&
-            this.editForm.get('estimateCost')?.invalid
+            this.editForm.get('estimatedAmount')?.touched &&
+            this.editForm.get('estimatedAmount')?.invalid
           "
           class="help-block"
         >
@@ -94,12 +89,12 @@
       <td>
         <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>advanceAmount</mat-label>
-          <input matInput formControlName="advanceAmount" />
+          <input matInput formControlName="advAmount" />
         </mat-form-field>
         <div
           *ngIf="
-            this.editForm.get('advanceAmount')?.touched &&
-            this.editForm.get('advanceAmount')?.invalid
+            this.editForm.get('advAmount')?.touched &&
+            this.editForm.get('advAmount')?.invalid
           "
           class="help-block"
         >

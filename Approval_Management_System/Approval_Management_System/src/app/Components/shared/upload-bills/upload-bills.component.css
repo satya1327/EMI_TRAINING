@@ -4,5 +4,13 @@ mat-card{
 }
 .outerdivs{
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap:nowrap;
+
 }
+/* mat-card-header
+{
+  background-color:rgb(47, 243, 47);
+  justify-content: center;
+
+} */

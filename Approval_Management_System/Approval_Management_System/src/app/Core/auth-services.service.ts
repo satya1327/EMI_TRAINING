@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
+import { Token } from '@angular/compiler';
 
 const usersUrl = environment.authUrl;
 @Injectable({
@@ -14,6 +15,7 @@ export class AuthServicesService {
   isAdmin = false;
   isUser = false;
   response: any;
+  token:any;
   data: any;
   constructor(
     private http: HttpClient,
@@ -21,50 +23,54 @@ export class AuthServicesService {
     private router: Router
   ) {}
   public authenticateUser(data: any) {
-    return this.http.get(usersUrl).subscribe((response) => {
-      console.log(response);
+    return this.http.post(usersUrl,data).subscribe((response:any) => {
+      // console.log(response);
       this.user = response;
       this.data = data;
-      this.authenticateUsers();
-      this.navigateUser();
-    });
-  }
-  authenticateUsers() {
-    this.response = this.user.find((x: any) => {
-      return x.email == this.data.email && x.password == this.data.password;
-    });
-  }
-  navigateUser() {
-    if (this.response) {
-      this.checkRole();
-    } else {
-      this.toastr.showError('Invalid credential', 'Failed');
-    }
-  }
-  checkRole() {
-    this.isAuthenticated = true;
-    if (this.response.role === 'admin') {
-      this.isAdmin = true;
-      this.isAuthenticated = true;
-      this.toastr.showSuccess('logged in successfully', 'congratulations');
-      this.router.navigate(['/AdminDashboard/dashboard']);
-      localStorage.setItem('adminId', this.response.id);
-      localStorage.setItem('AdminfirstName', this.response.firstName);
-      localStorage.setItem('AdminlastName', this.response.lastName);
+      console.log(this.user);
 
-      localStorage.setItem('adminName', this.response.username);
-    } else if (this.response.role === 'user') {
-      this.isUser = true;
-      this.isAuthenticated = true;
-      this.toastr.showSuccess('logged in successfully', 'congratulations');
-      this.router.navigate(['/UserlandingPage']);
-      localStorage.setItem('id', this.response.id);
-      localStorage.setItem('email', this.response.email);
-      localStorage.setItem('firstName', this.response.firstName);
-      localStorage.setItem('lastName', this.response.lastName);
-      localStorage.setItem('userName', this.response.userName);
-    } else {
-      this.toastr.showError('invalid credential', 'failed');
-    }
+
+      // this.authenticateUsers();
+      if (response.userDetails.roleId === 2 ||response.userDetails.roleId=== 3 ) {
+        this.isAdmin = true;
+        this.isAuthenticated = true;
+        this.toastr.showSuccess('logged in successfully', 'congratulations');
+        this.router.navigate(['/AdminDashboard/dashboard']);
+        localStorage.setItem('adminId', response.userDetails.userId);
+        localStorage.setItem('AdminfirstName', response.userDetails.firstName);
+        localStorage.setItem('AdminlastName', response.userDetails.lastName);
+        localStorage.setItem('adminmanagerId',response.userDetails.managerId);
+
+        localStorage.setItem('adminName', response.userDetails.firstName + " "+response.userDetails.lastName);
+      } else if (response.userDetails.roleId === 1) {
+        this.isUser = true;
+        this.isAuthenticated = true;
+        this.toastr.showSuccess('logged in successfully', 'congratulations');
+        this.router.navigate(['/UserlandingPage']);
+        localStorage.setItem('userId', response.userDetails.userId);
+        localStorage.setItem('email',response.userDetails.email);
+        localStorage.setItem('firstName',  response.userDetails.firstName);
+        localStorage.setItem('lastName', response.userDetails.lastName);
+        localStorage.setItem('userName', response.userDetails.userName);
+        localStorage.setItem('managerId',response.userDetails.managerId);
+      } else  {
+
+
+        this.toastr.showError('invalid credential', 'failed');
+
+      }
+
+    });
+
+
   }
 }
+  // authenticateUsers() {
+  //   this.response = this.user.find((x: any) => {
+  //     return x.email == this.data.email && x.password == this.data.password;
+  //   });
+  // }
+  // navigateUser() {
+  //   if (this.response) {
+  //     this.checkRole();
+  //

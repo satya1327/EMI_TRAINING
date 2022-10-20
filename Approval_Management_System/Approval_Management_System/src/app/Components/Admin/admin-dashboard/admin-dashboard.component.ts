@@ -1,6 +1,7 @@
+import { FetchRequestService } from './../../../Core/RequestOperations/FetchOperations/fetch-request.service';
 import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component';
 import { CreateRequestFormComponent } from '../create-request-form/create-request-form.component';
- import { DataServicesService } from '../../../Core/data-services.service';
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -15,14 +16,15 @@ export class AdminDashboardComponent implements OnInit {
 
   firstName: any = localStorage.getItem('AdminfirstName');
 
-  constructor(private matdialog: MatDialog,private userdata: DataServicesService) {}
+  constructor(private matdialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.userdata.getuserData().subscribe((response: any) => {
-      this.latestRequest =response;
-      this.totalRequest=Object.values(response.filter((item:any)=>item.approved==true && item.reject==true)).length;
-      console.log(this.totalRequest);
-    });
+    // this.userdata.getuserData().subscribe((response: any) => {
+    //   this.latestRequest =response;
+    //   this.totalRequest=Object.values(response.filter((item:any)=>item.statusName=='pending')).length;
+    //   console.log(this.totalRequest);
+    // });
+
 
 
   }

@@ -4,8 +4,13 @@
 
 export const environment = {
   production: false,
-  apiurl:'http://localhost:3000/requestedData',
-  authUrl:'http://localhost:3000/userAuth'
+  // apiurl:'http://localhost:3000/requestedData',
+  authUrl:'https://localhost:44322/api/Login',
+  RequestStatusUrl:"https://localhost:44322/",
+  RequestUrl:"https://localhost:44322/api/Request/",
+  EmployeeUrl:"https://localhost:44322/api/Employee/",
+  FileuploadUrl:"https://localhost:44322/api/FileUpload"
+
 };
 
 /*

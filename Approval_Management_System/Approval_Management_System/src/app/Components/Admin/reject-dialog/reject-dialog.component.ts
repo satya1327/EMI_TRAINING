@@ -1,5 +1,6 @@
+import { RequestServicesService } from 'src/app/Core/RequestOperations/CrudOperations/request-services.service';
 import { NotificationService } from './../../../Core/notification.service';
-import { DataServicesService } from 'src/app/Core/data-services.service';
+
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,10 +16,11 @@ export class RejectDialogComponent implements OnInit {
 
   id:any;
 
-  constructor(private fb:FormBuilder,private mat:MatDialog,private dataService:DataServicesService,private toaster:NotificationService,private route:Router) {
+  constructor(private fb:FormBuilder,private mat:MatDialog,private request:RequestServicesService,private toaster:NotificationService,private route:Router) {
 
-    this.dataService.subject.subscribe(response=>{
+    this.request.subject.subscribe(response=>{
       this.id=response;
+      console.log("i m from reject"+this.id)
 
     })
    }
@@ -30,13 +32,12 @@ export class RejectDialogComponent implements OnInit {
   }
   submitRejectRequest(){
 
-    this.dataService.getuserDataById(this.id).subscribe(response=>{
-
-      response.reject=true;
-      response.approved=false;
+    this.request.GetRequestById(this.id).subscribe(response=>{
+      console.log(response);
+     response.statusId=3;
       response.comments=this.RejectForm.get('comments').value;
-      this.dataService.editUserData(this.id,response).subscribe(response=>{
-
+      this.request.UpdateRequestById(this.id,response).subscribe(response=>{
+        console.log("from response"+response);
         let currentUrl = this.route.url;
         this.route.routeReuseStrategy.shouldReuseRoute = () => false;
         this.route.onSameUrlNavigation = 'reload';

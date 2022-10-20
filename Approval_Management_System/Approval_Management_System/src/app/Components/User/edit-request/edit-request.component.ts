@@ -1,8 +1,9 @@
+import { RequestServicesService } from 'src/app/Core/RequestOperations/CrudOperations/request-services.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DataServicesService } from '../../../Core/data-services.service';
+
 import { NotificationService } from '../../../Core/notification.service';
 
 @Component({
@@ -13,44 +14,45 @@ import { NotificationService } from '../../../Core/notification.service';
 export class EditRequestComponent implements OnInit {
   id: any;
   editForm: FormGroup;
-  date = new Date();
+  // date = new Date();
   constructor(
     private fb: FormBuilder,
     private toaster: NotificationService,
     private router: Router,
-    private services: DataServicesService,
-    private matdialog: MatDialog
+
+    private matdialog: MatDialog,
+    private request:RequestServicesService
   ) {
-    this.services.subject.subscribe((data) => {
+    this.request.subject.subscribe((data) => {
       this.id = data;
     });
       this.editForm = this.fb.group({
         purpose: ['', [Validators.required]],
         description: ['', [Validators.required]],
-        estimateCost: ['', [Validators.required]],
-        approver: ['jurgen', [Validators.required]],
-        advanceAmount: ['', [Validators.required]],
+        estimatedAmount: ['', [Validators.required]],
+
+        advAmount: ['', [Validators.required]],
         date: ['', [Validators.required]],
       });
-      this.editForm.get('approver').setValue('Jurgen');
+
     }
 
     ngOnInit(): void {
-      this.services.getuserDataById(this.id).subscribe((response) => {
+      this.request.GetRequestById(this.id).subscribe((response) => {
         console.log(response);
         this.editForm = this.fb.group({
           purpose: [response['purpose']],
           description: [response['description']],
-          estimateCost: [response['estimateCost']],
-          approver: [response['approver']],
-          advanceAmount: [response['advanceAmount']],
+          estimatedAmount: [response['estimatedAmount']],
+
+          advAmount: [response['advAmount']],
           date: [response['date']],
         });
       });
     }
   onSubmit() {
-    this.services
-      .editUserData(this.id, this.editForm.value)
+    this.request
+      .UpdateRequestById(this.id, this.editForm.value)
       .subscribe((data) => {
 
         this.matdialog.closeAll();

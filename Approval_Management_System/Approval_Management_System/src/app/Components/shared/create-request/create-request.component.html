@@ -41,12 +41,12 @@
   <!-- Div for approver  field -->
   <table class="example-full-width" cellspacing="0">
     <tr>
-      <td>
+      <!-- <td>
         <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>approver</mat-label>
           <input matInput formControlName="approver" [readonly]="true" />
         </mat-form-field>
-      </td>
+      </td> -->
 
       <!-- Div for CreatedDate  field -->
 
@@ -76,12 +76,12 @@
         <!-- Div for estimateCost  field -->
         <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>estimateCost</mat-label>
-          <input matInput formControlName="estimateCost" type="number" />
+          <input matInput formControlName="estimatedAmount" type="number" />
         </mat-form-field>
         <div
           *ngIf="
-            this.createForm.get('estimateCost')?.touched &&
-            this.createForm.get('estimateCost')?.invalid
+            this.createForm.get('estimatedAmount')?.touched &&
+            this.createForm.get('estimatedAmount')?.invalid
           "
           class="help-block"
         >
@@ -94,12 +94,12 @@
       <td>
         <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>advanceAmount</mat-label>
-          <input matInput formControlName="advanceAmount" type="number" />
+          <input matInput formControlName="advAmount" type="number" />
         </mat-form-field>
         <div
           *ngIf="
-            this.createForm.get('advanceAmount')?.touched &&
-            this.createForm.get('advanceAmount')?.invalid
+            this.createForm.get('advAmount')?.touched &&
+            this.createForm.get('advAmount')?.invalid
           "
           class="help-block"
         >

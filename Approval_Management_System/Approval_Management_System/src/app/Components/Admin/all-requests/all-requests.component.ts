@@ -1,10 +1,12 @@
+import { RequestStatusServiceService } from './../../../Core/RequestOperations/RequestStatusOperations/request-status-service.service';
+import { RequestServicesService } from 'src/app/Core/RequestOperations/CrudOperations/request-services.service';
 import { NotificationService } from './../../../Core/notification.service';
 import { Route, Router } from '@angular/router';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { requestModel } from 'src/app/Models/Request.model';
-import { DataServicesService } from '../../../Core/data-services.service';
+
 import { RejectDialogComponent } from '../../Admin/reject-dialog/reject-dialog.component';
 
 @Component({
@@ -17,13 +19,16 @@ export class AllRequestsComponent implements OnInit {
   firstName:any=localStorage.getItem('AdminfirstName');
   lastName:any=localStorage.getItem('AdminlastName');
   name:any=this.firstName+this.lastName;
+  managerId:any=localStorage.getItem('adminId');
+
+
   allRequest: any;
   requestModel:requestModel;
 
-  constructor(private userdata: DataServicesService,private matDialog:MatDialog,private route:Router,private toaster:NotificationService) {}
+  constructor(private requset: RequestServicesService,private matDialog:MatDialog,private route:Router,private toaster:NotificationService,private requeststatus:RequestStatusServiceService) {}
   ngOnInit(): void {
-    this.userdata.getuserData().subscribe((response: any) => {
-      this.allRequest=response.filter((item:any)=>item.approved==false && item.reject==false);
+    this.requset.getRequests().subscribe((response: any) => {
+      this.allRequest=response.filter((item:any)=>item.statusName=='pending' && item.managerId==this.managerId || item.statusName=='forwarded').reverse();
     });
   }
   openRejectDialog(){
@@ -31,14 +36,15 @@ export class AllRequestsComponent implements OnInit {
       width:'400px'
     })
   }
-  approved(id:number)
+  approved(id:any)
   {
 
-    this.userdata.getuserDataById(id).subscribe(response=>{
-      response.approved=true;
-      response.reject=false;
+    this.requset.GetRequestById(id).subscribe(response=>{
+      response.statusId=2;
 
-    this.userdata.editUserData(id,response).subscribe(res=>{
+
+
+    this.requset.UpdateRequestById(id,response).subscribe(res=>{
       console.log(res);
       let currentUrl = this.route.url;
       this.route.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -50,12 +56,34 @@ export class AllRequestsComponent implements OnInit {
     })
   }
   rejected(id:any){
-    this.userdata.getuserDataById(id).subscribe(response=>{
-      response.reject=true;
-      response.approved=false;
+    this.requset.GetRequestById(id).subscribe(response=>{
+
+
+      })
+
+      this.requset.sharedata(id);
+
+  }
+  forward(id:any)
+  {
+    this.requset.GetRequestById(id).subscribe(response=>{
+      response.statusId=2002;
+      response.ManagerId=2;
+
+
+
+
+      this.requset.UpdateRequestById(id,response).subscribe(res=>{
+        console.log(res);
+        let currentUrl = this.route.url;
+        this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.route.onSameUrlNavigation = 'reload';
+        this.route.navigate([currentUrl]);
+      });
+      this.toaster.showSuccess("forwarded","congratulations");
+
 
     });
-      this.userdata.sharedata(id);
 
   }
 }

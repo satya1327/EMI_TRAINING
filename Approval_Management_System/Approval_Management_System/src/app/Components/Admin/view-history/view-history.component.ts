@@ -1,4 +1,5 @@
-import { DataServicesService } from 'src/app/Core/data-services.service';
+import { RequestServicesService } from 'src/app/Core/RequestOperations/CrudOperations/request-services.service';
+
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -14,21 +15,22 @@ import { CheckboxSelectionCallbackParams, ValueFormatterParams } from 'ag-grid-c
 export class ViewHistoryComponent implements OnInit {
   detailedRequest: any;
 
-  dateFormatter:any="dd/m/yyyy";
-  firstName: any = localStorage.getItem('AdminfirstName');
-  lastName: any = localStorage.getItem('AdminlastName');
-  name: any = this.firstName + this.lastName;
-  constructor(private userdata: DataServicesService) {}
+  // dateFormatter:any="dd/m/yyyy";
+  // firstName: any = localStorage.getItem('AdminfirstName');
+  // lastName: any = localStorage.getItem('AdminlastName');
+  // name: any = this.firstName + this.lastName;
+  constructor(private requestDetails: RequestServicesService) {}
   // @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   // dataSource!: MatTableDataSource<any>;
 
   // displayedColumns: string[] =  [ 'id','name','purpose', 'description', 'estimateCost','status','comments','date'];
+    status:any[]=[];
 
   columnDefs:any = [
     {
-      headerName: 'id',
-      field: 'id',
+      headerName: 'reqId',
+      field: 'reqId',
       filter: 'agNumberColumnFilter',
       columnGroupShow: 'open',
       resizable: true,
@@ -44,17 +46,16 @@ export class ViewHistoryComponent implements OnInit {
     },
     { headerName: 'name', field: 'name', sortable: true,filter:'agTextColumnFilter'},
     { headerName: 'purpose', field: 'purpose' },
-    { headerName: 'description', field: 'description' ,valueFormatter:this.bracketsFormatter},
+    { headerName: 'description', field: 'description' },
     {
-      headerName: 'estimateCost',
-      field: 'estimateCost',
+      headerName: 'estimatedAmount',
+      field: 'estimatedAmount',
       filter: 'agSetColumnFilter',
       filterParams: {
         applyMiniFilterWhileTyping: true,
-      },
-      valueFormatter: this.currencyFormatter
+      }
     },
-    { headerName: 'status', field: 'status', filter: true },
+    { headerName: 'statusName' ,field:'statusName', filter: true },
     {
       headerName: 'comments',
       field: 'comments',
@@ -73,13 +74,13 @@ export class ViewHistoryComponent implements OnInit {
 // },
   ];
 
-  public currencyFormatter(rowData: ValueFormatterParams) {
-    return '£' + rowData.value;
-  }
+  // public currencyFormatter(rowData: ValueFormatterParams) {
+  //   return '£' + rowData.value;
+  // }
 
-  public bracketsFormatter(rowData: ValueFormatterParams) {
-    return '(' + rowData.value + ')';
-  }
+  // public bracketsFormatter(rowData: ValueFormatterParams) {
+  //   return '(' + rowData.value + ')';
+  // }
 
 
   rowData: any;
@@ -90,6 +91,8 @@ export class ViewHistoryComponent implements OnInit {
     //   this.dataSource.paginator = this.paginator;
     //   console.log(this.dataSource)
     // }});
-    this.rowData = this.userdata.getuserData();
+    this.rowData = this.requestDetails.GetAllRequestHistory();
+
+
   }
 }

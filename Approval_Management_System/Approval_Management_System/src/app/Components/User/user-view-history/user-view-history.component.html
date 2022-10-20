@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<!-- <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>id</th>
@@ -75,4 +75,17 @@
     ></mat-paginator>
   </div>
 </div>
+ -->
+
+ <ag-grid-angular id="aggrid" style="height:400px ;width:100%;padding-top:5%;color: white;"
+class="ag-theme-alpine-dark ag-theme-acmecorp"
+[rowData]="rowData | async" [columnDefs]="columnDefs"
+rowSelection="multiple"
+  [pagination]="true"
+  [rowHeight]='30'
+
+ [paginationAutoPageSize]="true"
+>
+
+</ag-grid-angular>
 
