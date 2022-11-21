@@ -22,7 +22,8 @@ import { AgGridModule } from 'ag-grid-angular';
     AdminModule,
     SharedModuleModule,
     Ng2SearchPipeModule,
-    AgGridModule
+    AgGridModule,
+
 
 
 

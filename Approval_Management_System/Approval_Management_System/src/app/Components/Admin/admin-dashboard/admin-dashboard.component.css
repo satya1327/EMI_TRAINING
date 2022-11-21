@@ -7,7 +7,7 @@ z-index: 1;
 mat-sidenav-content{
   height: 100vh;
   background: transparent;
-  background-image: url('../../../../assets/images/vec.jpg');
+  background-image: url('../../../../assets/images/amsdpt.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -115,7 +115,7 @@ mat-nav-list>a{
 
   .background{
 
-    background-image: url('../../../../assets/images/vec.jpg');
+    background-image: url('../../../../assets/images/amsdpt.jpg');
 
     background-repeat: no-repeat;
     background-size: cover;

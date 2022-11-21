@@ -16,15 +16,14 @@ export class landingPageComponent implements OnInit {
   lastName: any = localStorage.getItem('lastName');
 
   ApprovalFormDetails: FormGroup;
-  userModel :requestModel;
+  userModel: requestModel;
   currentDate: any = new Date();
-
 
   constructor(
     private formbuilder: FormBuilder,
 
     private toast: NotificationService,
-    private matdialog:MatDialog
+    private matdialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -43,5 +42,4 @@ export class landingPageComponent implements OnInit {
       width: '500px',
     });
   }
-
 }

@@ -1,68 +1,90 @@
+<div class="container">
+  <img src="" alt="" />
+  <mat-card
+    class="example-card mat-elevation-z10"
+    *ngFor="let item of myRequestList"
+  >
+    <mat-card-header style="margin-left: -5px">
+      <mat-card-title>Ticket Id : {{ item.reqId }}</mat-card-title>
 
-
-  <div class="container">
-    <img src="" alt="" />
-    <mat-card
-      class="example-card mat-elevation-z10"
-      *ngFor="let item of myRequestList  "
-    >
-      <mat-card-header style="margin-left: -5px;">
-        <mat-card-title>Ticket Id : {{ item.reqId }}</mat-card-title>
-
-        <div *ngIf="item.statusName=='approve';  else elseBlock">  <button
+      <div *ngIf="item.statusName == 'approved'; else elseBlock">
+        <button
           mat-raised-button
-          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(22, 242, 11)"
+          style="
+            right: 0;
+            margin-top: -5px;
+            position: absolute;
+            background-color: rgb(22, 242, 11);
+          "
         >
-      A
-        </button></div>
-        <div *ngIf="item.statusName=='reject'">  <button
+          Approved
+        </button>
+      </div>
+      <div *ngIf="item.statusName == 'reject'">
+        <button
           mat-raised-button
-          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(242, 26, 11)"
+          style="
+            right: 0;
+            margin-top: -5px;
+            position: absolute;
+            background-color: rgb(242, 26, 11);
+          "
         >
-        R
-        </button></div>
-        <div *ngIf="item.statusName=='pending'">  <button
+          Rejected
+        </button>
+      </div>
+      <div *ngIf="item.statusName == 'pending'">
+        <button
           mat-raised-button
-          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(223, 242, 11)"
+          style="
+            right: 0;
+            margin-top: -5px;
+            position: absolute;
+            background-color: rgb(223, 242, 11);
+          "
         >
-        P
-        </button></div>
+          Pending
+        </button>
+      </div>
 
-        <ng-template #elseBlock><button
+      <ng-template #elseBlock
+        ><button
           mat-raised-button
-          style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(88, 11, 242)"
+          style="
+            right: 0;
+            margin-top: -5px;
+            position: absolute;
+            background-color: rgb(88, 11, 242);
+          "
         >
-       U
-        </button></ng-template>
+          Uploaded
+        </button></ng-template
+      >
 
+      <mat-card-title
+        >name : {{ item.first_name + " " + item.last_name }}</mat-card-title
+      >
+    </mat-card-header>
+    <hr />
 
-        <mat-card-title>name : {{ item.first_name + " "+item.last_name}}</mat-card-title>
-      </mat-card-header>
-      <hr />
+    <mat-card-header>
+      <mat-card-title>purpose : {{ item.purpose }}</mat-card-title>
 
-      <mat-card-header>
+      <mat-card-title>description : {{ item.description }}</mat-card-title>
 
+      <mat-card-title>estimateCost : {{ item.estimatedAmount }}</mat-card-title>
 
-        <mat-card-title>purpose : {{ item.purpose }}</mat-card-title>
+      <mat-card-title>advanceAmount : {{ item.advAmount }}</mat-card-title>
+      <mat-card-title>date : {{ item.date | date }}</mat-card-title>
+    </mat-card-header>
+    <hr />
+    <mat-card-header>
+      <mat-card-title>Approver : {{ item.approverName }}</mat-card-title>
+    </mat-card-header>
+    <hr />
 
-        <mat-card-title>description : {{ item.description }}</mat-card-title>
-
-        <mat-card-title>estimateCost : {{ item.estimatedAmount }}</mat-card-title>
-
-        <mat-card-title
-          >advanceAmount : {{ item.advAmount }}</mat-card-title
-        >
-        <mat-card-title>date : {{ item.date | date }}</mat-card-title>
-      </mat-card-header>
-       <hr />
-       <mat-card-header>
-        <mat-card-title>Approver : {{ item.approverName }}</mat-card-title>
-      </mat-card-header>
-      <hr />
-
-      <mat-card-actions class="buttons">
-        <div *ngIf="item.statusName=='pending' ">
-
+    <mat-card-actions class="buttons">
+      <div *ngIf="item.statusName == 'pending'">
         <mat-icon
           mat-raised-button
           color="primary"
@@ -70,9 +92,7 @@
           (click)="openEditDialog(item.reqId)"
           matTooltip="edit"
         >
-        <span class="material-symbols-outlined">
-          edit
-          </span>
+          <span class="material-symbols-outlined"> edit </span>
         </mat-icon>
         <mat-icon
           mat-raised-button
@@ -82,36 +102,29 @@
           color="accent"
           matTooltip="withdraw"
         >
-        <span class="material-symbols-outlined">
-          delete_forever
-          </span>
-
+          <span class="material-symbols-outlined"> delete_forever </span>
         </mat-icon>
       </div>
-      <div *ngIf="item.statusName=='approve'" > <mat-icon
-        mat-raised-button
-        color="primary"
-        style="margin-left: 45%"
-
-        matTooltip="upload"
-       (click)="openUploadDialog(item.reqId)" >
-      <span class="material-symbols-outlined">
-        file_upload
-        </span>
-      </mat-icon></div>
-      <div *ngIf="item.statusName=='uploaded'" > <mat-icon
-        mat-raised-button
-        color="primary"
-        style="margin-left: 45%"
-
-        matTooltip="upload"
-      >
-
-      </mat-icon></div>
-
-
-      </mat-card-actions>
-    </mat-card>
-
-  </div>
-
+      <div *ngIf="item.statusName == 'approve'">
+        <mat-icon
+          mat-raised-button
+          color="primary"
+          style="margin-left: 45%"
+          matTooltip="upload"
+          (click)="openUploadDialog(item.reqId)"
+        >
+          <span class="material-symbols-outlined"> file_upload </span>
+        </mat-icon>
+      </div>
+      <div *ngIf="item.statusName == 'uploaded'">
+        <mat-icon
+          mat-raised-button
+          color="primary"
+          style="margin-left: 45%"
+          matTooltip="upload"
+        >
+        </mat-icon>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -14,6 +14,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  user: any;
+  isAuthenticated = false;
+  isAdmin = false;
+  isUser = false;
+  response: any;
+  token: any;
+  data: any;
   constructor(
     private loginservices: AuthServicesService,
     private formBuilder: FormBuilder,
@@ -41,6 +48,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginservices.authenticateUser(this.loginForm.value);
+    this.loginservices.authenticateUser(this.loginForm.value)
   }
 }

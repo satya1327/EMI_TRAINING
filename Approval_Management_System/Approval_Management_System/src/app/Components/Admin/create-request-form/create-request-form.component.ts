@@ -16,10 +16,10 @@ export class CreateRequestFormComponent implements OnInit {
   firstName: any = localStorage.getItem('AdminfirstName');
   lastName: any = localStorage.getItem('AdminlastName');
   name: any = this.firstName + this.lastName;
-  managerId=localStorage.getItem('adminmanagerId');
-  adminuserId=localStorage.getItem('adminId')
-  requestModel=new requestModel();
-  approve:any=this.requestModel.approved;
+  managerId = localStorage.getItem('adminmanagerId');
+  adminuserId = localStorage.getItem('adminId');
+  requestModel = new requestModel();
+  approve: any = this.requestModel.approved;
   createForm: FormGroup;
   date = new Date();
   constructor(
@@ -28,7 +28,7 @@ export class CreateRequestFormComponent implements OnInit {
     private router: Router,
 
     private matdialog: MatDialog,
-    private requestServices:RequestServicesService
+    private requestServices: RequestServicesService
   ) {}
 
   ngOnInit(): void {
@@ -36,22 +36,12 @@ export class CreateRequestFormComponent implements OnInit {
       purpose: ['', [Validators.required]],
       description: ['', [Validators.required]],
       estimatedAmount: ['', [Validators.required, Validators.maxLength(5)]],
-      // approver: ['jurgen', [Validators.required]],
       advAmount: ['', [Validators.required]],
       date: ['', [Validators.required]],
-      // name: [this.name],
-      // approved:[],
-      // reject:[],
-      comments:[''],
-      managerid:[this.managerId],
-      userid:[this.adminuserId],
-
-
-
+      comments: [''],
+      managerid: [this.managerId],
+      userid: [this.adminuserId],
     });
-    // this.createForm.get('approver').setValue('Jurgen');
-    // this.createForm.get('approved').setValue(false);
-    // this.createForm.get('reject').setValue(false);
   }
 
   onSubmit() {

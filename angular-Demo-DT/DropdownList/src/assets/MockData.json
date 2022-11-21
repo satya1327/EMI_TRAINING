@@ -1,0 +1,9 @@
+{
+  "DropDownItems": [
+    { "id": "1", "Name": "Apple" },
+    { "id": "2", "Name": "Banana" },
+    { "id": "3", "Name": "Grapse" },
+    { "id": "4", "Name": "Papaya" },
+    { "id": "5", "Name": "Jackfruit" }
+  ]
+}

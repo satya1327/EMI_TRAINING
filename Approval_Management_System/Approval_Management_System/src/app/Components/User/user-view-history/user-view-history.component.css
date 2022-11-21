@@ -14,7 +14,10 @@ tr:nth-child(odd) {background-color: #9bf0f8;}
   font-size: 14px;
   width: 100%;
 }
+#aggrid{
 
+  margin-top:-55px
+  }
 
 
 .example-spacer {

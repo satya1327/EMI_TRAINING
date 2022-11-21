@@ -1,5 +1,4 @@
 
-
 <!-- <ng-container *ngIf="myRequestList.length != 0"> -->
   <div class="container">
     <img src="" alt="" />
@@ -12,7 +11,7 @@
       <mat-card-header style="margin-left: -5px;">
         <mat-card-title >Ticket Id : {{ item.reqId }}</mat-card-title>
 
-        <div *ngIf="item.statusName=='approve';  else elseBlock">  <button
+        <div *ngIf="item.statusName=='approved';  else elseBlock">  <button
           mat-raised-button
           style="right: 0;margin-top:-5px; position: absolute; background-color: rgb(22, 242, 11)"
         >
@@ -90,7 +89,7 @@
 
         </mat-icon>
       </div>
-      <div *ngIf="item.statusName=='approve'" > <mat-icon
+      <div *ngIf="item.statusName=='approved'" > <mat-icon
         mat-raised-button
         color="primary"
         style="margin-left: 45%"

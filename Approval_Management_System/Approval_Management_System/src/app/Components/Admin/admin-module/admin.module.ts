@@ -14,6 +14,9 @@ import { MatModulesModule } from 'src/app/shared/material/mat-modules.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { Chart } from 'chart.js';
+import {NgChartsModule} from 'ng2-charts';
+
 
 
 
@@ -26,7 +29,8 @@ import { AgGridModule } from 'ag-grid-angular';
  RejectDialogComponent,
  DashboardComponent,
  AdminRequestComponent,
- ViewHistoryComponent
+ ViewHistoryComponent,
+
 
   ],
   imports: [
@@ -37,7 +41,10 @@ import { AgGridModule } from 'ag-grid-angular';
     FormsModule,
     SharedModuleModule,
     Ng2SearchPipeModule,
-    AgGridModule
+    AgGridModule,
+    NgChartsModule
+
+
 
 
   ],

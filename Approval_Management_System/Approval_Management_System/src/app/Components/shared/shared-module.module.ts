@@ -32,8 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
-
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   exports: [HomeComponent, SignupComponent, PageNotFoundComponent,CreateRequestComponent,MyRequestComponent],
 })

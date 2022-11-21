@@ -1,79 +1,83 @@
+import { Route, Router } from '@angular/router';
 import { employee } from './../../../Models/employee.model';
 import { EmployeeServicesService } from './../../../Core/EmployeeServices/employee-services.service';
 import { NotificationService } from '../../../Core/notification.service';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { UserCreationService } from 'src/app/Core/user-creation.service';
 import { CustomValidators } from '../../../shared/pipes/custom-validators';
-import { pipe } from 'rxjs';
+import { pipe, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  rolesId:any='';
+  rolesId: any = '';
 
   roles: Role[] = [
-    {value: 1, viewValue: 'user'},
-    {value: 2, viewValue: 'admin'}
+    { value: 1, viewValue: 'user' },
+    // { value: 2, viewValue: 'admin' },
   ];
-  managerId:employee[]=[];
+  managerId: employee[] = [];
   constructor(
     private formBuilder: FormBuilder,
-    private userServices: UserCreationService,
+    private Route:Router,
     private toaster: NotificationService,
-    private empServices:EmployeeServicesService
-  ) {
-
-  }
+    private empServices: EmployeeServicesService
+  ) {}
 
   ngOnInit(): void {
-    this.empServices.getAllusers().subscribe((response:any)=>{
-      this.managerId=(response.map((value:any) => ({id:value.userId,firstName:value.firstName })));
-      this.managerId= Object.values(response.filter((item:any)=>item.roleId==2))
-
-
-    })
-    this.signupForm = this.formBuilder.group(
-      {
-        firstName: ['', [Validators.required]],
-        lastName: ['', [Validators.required]],
-        userName: ['', [Validators.required]],
-        email: ['', [Validators.required,Validators.email]],
-        RoleId: [''],
-        ManagerId:[''],
-        password: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern(
-              '^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]))).{8,32}$'
-            ),
-          ],
+    this.empServices.getAllusers().subscribe((response: any) => {
+      this.managerId = response.map((value: any) => ({
+        id: value.userId,
+        firstName: value.firstName,
+      }));
+      this.managerId = Object.values(
+        response.filter((item: any) => item.roleId == 2)
+      );
+    });
+    this.signupForm = this.formBuilder.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      userName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      RoleId: ['1'],
+      ManagerId: [''],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]))).{8,32}$'
+          ),
         ],
-        confirmPassword: ['', [Validators.required]],
-      },
-      { validators: CustomValidators.passwordsMatching }
-    );
 
-
-}
-
-
-  onSubmit() {
-    if(this.signupForm.value.RoleId==2)
-    {
-      this.signupForm.value.ManagerId=2;
-    }
-    this.empServices.addUser(this.signupForm.value).subscribe(response=>{
-      console.log(response)
-    })
+      ],
+      //     confirmPassword: ['', [Validators.required]],
+      //   },
+      //   { validators: CustomValidators.passwordsMatching }
+      // );
+    });
   }
 
+  onSubmit() {
+    if (this.signupForm.value.RoleId == 2) {
+      this.signupForm.value.ManagerId = 2;
+    }
+    this.empServices.addUser(this.signupForm.value).subscribe({
+      next: (_res) => {
+        console.log(_res);
+        this.toaster.showSuccess('Congratulation', 'User successfully added');
+        this.Route.navigate(['/login'])
+
+      },
+      error: () => {
+        this.toaster.showError('User not created','Failed')
+      }
+    });
+  }
 
 }
 interface Role {

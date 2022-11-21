@@ -1,101 +1,122 @@
 <mat-sidenav-container>
   <mat-sidenav #drawer mode="side" opened>
-    <p style="font-size: 20px;margin-left: 30%;margin-top:10%">Hi!   {{firstName}}</p>
-    <div id="avtar">
-      <img style="height:40px;width:70px;border-radius:50%" src="../../../../assets/images/user-3331256__340.webp" alt="">
+    <p style="font-size: 20px; margin-left: 30%; margin-top: 10%">
+      Hi! {{ firstName }}
+    </p><br>
+    <!-- <div id="avtar"> -->
+      <img
+        style="height: 130px;
+        width: 285px;"
+        src="https://www.paperblog.gamliot.com/wp-content/uploads/2020/05/admin-settings-male.png"
+        alt=""
 
-      </div>
-      <br>
-    <button  class="sliderMenu" mat-menu-item routerLink="dashboard">
-      <mat-icon class="mat-18" style="color:rgb(201, 59, 253)"
-        ><span class="material-symbols-outlined">
-          dashboard
-          </span></mat-icon
+      />
+      <!-- <img
+      class="avatar mat-elevation-z4 image"
+      src="https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png"
+    /> -->
+    <!-- </div> -->
+    <br /><br>
+    <button class="sliderMenu" mat-menu-item routerLink="dashboard">
+      <mat-icon class="mat-18" style="color: rgb(201, 59, 253)"
+        ><span class="material-symbols-outlined"> dashboard </span></mat-icon
       >
-      Dashboard
-    </button><br>
-    <button style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item (click)="opneAddRequestDialog()">
-      <mat-icon class="mat-18" style="color:rgb(6, 45, 222)"
-        ><span class="material-symbols-outlined" > add_circle </span></mat-icon
+      Dashboard</button
+    ><br />
+    <button
+      style="color: white; margin-top: -10%; margin-left: 2%"
+      mat-menu-item
+      (click)="opneAddRequestDialog()"
+    >
+      <mat-icon class="mat-18" style="color: rgb(6, 45, 222)"
+        ><span class="material-symbols-outlined"> add_circle </span></mat-icon
       >
-      Create Request
-    </button><br>
-    <button style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="myRequestComp">
-      <mat-icon class="mat-18" style="color:rgb(9, 232, 31)"
+      Create Request</button
+    ><br />
+    <button
+      style="color: white; margin-top: -10%; margin-left: 2%"
+      mat-menu-item
+      routerLink="myRequestComp"
+    >
+      <mat-icon class="mat-18" style="color: rgb(9, 232, 31)"
         ><span class="material-symbols-outlined">
           request_quote
         </span></mat-icon
       >
-      My Request
-    </button><br>
-    <!-- <button style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item >
-      <mat-icon class="mat-18" style="color:white"
-        ><span class="material-symbols-outlined">
-          notifications
-        </span></mat-icon
-      >
-      notifications
-    </button><br> -->
-    <button  style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="viewHistory">
-      <mat-icon class="mat-18"  style="color:rgb(138, 130, 130)"
+      My Request</button
+    ><br />
+
+    <button
+      style="color: white; margin-top: -10%; margin-left: 2%"
+      mat-menu-item
+      routerLink="viewHistory"
+    >
+      <mat-icon class="mat-18" style="color: rgb(138, 130, 130)"
         ><span class="material-symbols-outlined"> history </span></mat-icon
-      >View-History
-    </button><br>
-    <button  style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="latestRequest">
+      >View-History</button
+    ><br />
+    <button
+      style="color: white; margin-top: -10%; margin-left: 2%"
+      mat-menu-item
+      routerLink="latestRequest"
+    >
       <mat-icon class="mat-18" color="warn"
         ><span class="material-symbols-outlined">
           notifications_active
-          </span></mat-icon
-      >Latest Request
-    </button><br>
-    <button  style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="allRequest">
-      <mat-icon class="mat-18"  style="color:rgb(244, 101, 19)"
+        </span></mat-icon
+      >Latest Request</button
+    ><br />
+    <button
+      style="color: white; margin-top: -10%; margin-left: 2%"
+      mat-menu-item
+      routerLink="allRequest"
+    >
+      <mat-icon class="mat-18" style="color: rgb(244, 101, 19)"
         ><span class="material-symbols-outlined">
           notifications
-          </span></mat-icon
-      >All Request
-    </button><br>
-    <button  style="color:white;margin-top:-10%;margin-left:2%" mat-menu-item routerLink="/login" >
-      <mat-icon class="mat-18"  style="color:rgb(241, 5, 5)"
-        ><span class="material-symbols-outlined" > logout </span></mat-icon
+        </span></mat-icon
+      >All Request</button
+    ><br />
+    <button
+      style="color: white; margin-top: -10%; margin-left: 2%"
+      mat-menu-item
+      routerLink="/login"
+    >
+      <mat-icon class="mat-18" style="color: rgb(241, 5, 5)"
+        ><span class="material-symbols-outlined"> logout </span></mat-icon
       >Logout
     </button>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content">
       <div class="toolbar">
-        <mat-toolbar  class="mat-elevation-z4">
+        <mat-toolbar class="mat-elevation-z4">
           <button type="button" mat-icon-button (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
-            </button>
+          </button>
 
-            <span>Approval Management System</span>
-            <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" >
-              <!-- <mat-icon routerLink="/home">
-                <span class="material-symbols-outlined">logout</span>
-              </mat-icon> -->
+          <span>Approval Management System</span>
+          <span class="example-spacer"></span>
+          <button
+            mat-icon-button
+            class="example-icon"
+            aria-label="Example icon-button with share icon"
+          ></button>
+          <button mat-button [matMenuTriggerFor]="afterMenu"></button>
+          <mat-menu #afterMenu="matMenu" xPosition="after">
+            <button
+              mat-menu-item
+              [routerLink]="['/viewrequest']"
+              routerLinkActive="router-link-active"
+            >
+              Requests
             </button>
-             <button mat-button [matMenuTriggerFor]="afterMenu">
-              <!-- <mat-icon>account_box</mat-icon> -->
-            </button>
-            <mat-menu #afterMenu="matMenu" xPosition="after">
-              <button mat-menu-item [routerLink]="['/viewrequest']" routerLinkActive="router-link-active" >Requests</button>
-
-            </mat-menu>
-
-            </mat-toolbar>
+          </mat-menu>
+        </mat-toolbar>
       </div>
       <div class="main">
         <router-outlet></router-outlet>
       </div>
     </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-
-
-

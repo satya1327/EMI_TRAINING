@@ -14,9 +14,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatListModule} from '@angular/material/list';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 const modules = [
   MatDialogModule,
   MatTooltipModule,
@@ -34,8 +34,7 @@ const modules = [
   MatDatepickerModule,
   MatListModule,
   MatTableModule,
-  MatPaginatorModule
-
+  MatPaginatorModule,
 ];
 @NgModule({
   declarations: [],

@@ -1,0 +1,10 @@
+<ng-select
+    [items]="Fruits$| async"
+    bindLabel="Title"
+    [trackByFn]="trackByFn"
+    [minTermLength]="minLengthTerm"
+    [loading]="fruitLoading"
+    typeToSearchText="Please enter {{minLengthTerm}} or more characters" [typeahead]="fruitsInput$"
+    [(ngModel)]="selectedFruit">
+
+  </ng-select>

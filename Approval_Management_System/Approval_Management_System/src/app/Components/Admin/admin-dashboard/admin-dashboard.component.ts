@@ -12,29 +12,20 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class AdminDashboardComponent implements OnInit {
   latestRequest: any;
-  totalRequest:any;
+  totalRequest: any;
 
   firstName: any = localStorage.getItem('AdminfirstName');
 
   constructor(private matdialog: MatDialog) {}
 
-  ngOnInit(): void {
-    // this.userdata.getuserData().subscribe((response: any) => {
-    //   this.latestRequest =response;
-    //   this.totalRequest=Object.values(response.filter((item:any)=>item.statusName=='pending')).length;
-    //   console.log(this.totalRequest);
-    // });
-
-
-
-  }
+  ngOnInit(): void {}
 
   opneAddRequestDialog() {
     this.matdialog.open(CreateRequestFormComponent, {
       width: '450px',
     });
   }
-  rejectDialog(){
+  rejectDialog() {
     this.matdialog.open(RejectDialogComponent, {
       width: '450px',
     });

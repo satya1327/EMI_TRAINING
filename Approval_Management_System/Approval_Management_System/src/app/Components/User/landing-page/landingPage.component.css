@@ -7,7 +7,7 @@ z-index: 1;
 mat-sidenav-content{
   height: 100vh;
   background: transparent;
-  background-image: url('../../../../assets/images/vec.jpg');
+  background-image: url('../../../../assets/images/amsdpt.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -66,6 +66,7 @@ mat-nav-list>a{
   html,
   .example-spacer {
   flex: 1 1 auto;
+  right:0
   }
   /* button{
   margin: 20px;
@@ -117,7 +118,7 @@ mat-nav-list>a{
 
   .background{
     /* istockphoto-514561345-170667a */
-    background-image: url('../../../../assets/images/vec.jpg');
+    background-image: url('../../../../assets/images/amsdpt.jpg');
 
     background-repeat: no-repeat;
     background-size: cover;

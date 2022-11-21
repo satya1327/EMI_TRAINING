@@ -16,7 +16,9 @@ import { requestModel } from 'src/app/Models/Request.model';
   styleUrls: ['./my-request.component.css'],
 })
 export class MyRequestComponent implements OnInit {
-   firstName: any
+   firstName: any;
+
+
    lastName: any ;
    first_name: any=localStorage.getItem('firstName');
    adminId:any=localStorage.getItem('adminId');
@@ -39,10 +41,12 @@ export class MyRequestComponent implements OnInit {
     this.requestData.subject.subscribe((resposne) => {
       console.log(resposne);
     });
+
   }
 
   deleteCart(id: number) {
     this.requestData.DeleteRequestById(id).subscribe((response) => {
+      console.log(response)
       let deleteItem = this.router.url;
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
@@ -64,4 +68,6 @@ export class MyRequestComponent implements OnInit {
     console.log("from request"+id)
     this.requestData.sharedata(id);
   }
+
+
 }

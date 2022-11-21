@@ -8,6 +8,10 @@ mat-card{
   flex-wrap:nowrap;
 
 }
+.mat-card-title{
+  font-size: 20px;
+  font-weight: 400;
+}
 /* mat-card-header
 {
   background-color:rgb(47, 243, 47);
